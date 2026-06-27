@@ -1,0 +1,39 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- 临时文件 ----
+*.tmp
+.codex_tmp/
+.agents/
+
+# ---- 豆包 ASR 原始数据（不上传，体积大且属于数据）----
+cache/doubao/*
+!cache/doubao/.gitkeep
+
+# ---- 程序生成的产物（可由管线重跑得到，不入库）----
+cache/normalized/*
+!cache/normalized/.gitkeep
+cache/segments/*
+!cache/segments/.gitkeep
+cache/reports/*
+!cache/reports/.gitkeep
+lab/*
+!lab/.gitkeep
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+review/*
+!review/.gitkeep
+input/*
+!input/.gitkeep
+
+# ---- 密钥 / 本地配置（防止误传）----
+config.yaml
+config.local.yaml
+*.key
+.env

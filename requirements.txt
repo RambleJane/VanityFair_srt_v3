@@ -1,0 +1,2 @@
+# The segmentation core uses only the Python standard library.
+# Optional YAML/XLSX integrations may be added in later milestones.

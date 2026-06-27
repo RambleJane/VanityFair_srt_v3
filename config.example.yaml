@@ -1,0 +1,22 @@
+project:
+  run_until: segmented
+cache:
+  overwrite_existing: false
+segmentation:
+  target_min_chars: 10
+  target_max_chars: 16
+  soft_max_chars: 18
+  hard_max_chars: 22
+  target_min_duration: 1.2
+  target_max_duration: 4.5
+  soft_max_duration: 5.0
+  hard_max_duration: 6.0
+  hard_min_duration: 0.8
+  weak_gap_default: 0.35
+  soft_gap_floor: 0.50
+  strong_gap_floor: 0.90
+  speech_island_gap_seconds: 1.20
+  max_subtitle_cps: 11.0
+  comfortable_cps: 8.0
+  extend_end_seconds: 0.35
+  min_gap_between_subtitles: 0.08
