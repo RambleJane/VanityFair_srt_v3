@@ -1,0 +1,51 @@
+{
+  "title": "大亨主題曲",
+  "usage": "theme_song_exact_match",
+  "lyrics": [
+    {
+      "index": 1,
+      "traditional": "他也在找　我也在找　找到名利幾多",
+      "simplified": "他也在找　我也在找　找到名利几多"
+    },
+    {
+      "index": 2,
+      "traditional": "他拚命追　我拚命追　追到又如何",
+      "simplified": "他拼命追　我拼命追　追到又如何"
+    },
+    {
+      "index": 3,
+      "traditional": "追到什麼　找到什麼　收到又幾多",
+      "simplified": "追到什么　找到什么　收到又几多"
+    },
+    {
+      "index": 4,
+      "traditional": "得了什麼　失了什麼　可有認真算過",
+      "simplified": "得了什么　失了什么　可有认真算过"
+    },
+    {
+      "index": 5,
+      "traditional": "何必呢　何必呢　可知一切他朝都會身外過",
+      "simplified": "何必呢　何必呢　可知一切他朝都会身外过"
+    },
+    {
+      "index": 6,
+      "traditional": "得的多　還失的多　升得高的終於都會低墮",
+      "simplified": "得的多　还失的多　升得高的终于都会低堕"
+    },
+    {
+      "index": 7,
+      "traditional": "何必呢　何必呢　拋開一切束縛身心韁鎖",
+      "simplified": "何必呢　何必呢　抛开一切束缚身心缰锁"
+    },
+    {
+      "index": 8,
+      "traditional": "且向心內　仔細追尋　找那安然嘅我",
+      "simplified": "且向心内　仔细追寻　找那安然的我"
+    },
+    {
+      "index": 9,
+      "traditional": "找那安然嘅我　找那安然嘅我",
+      "simplified": "找那安然的我　找那安然的我"
+    }
+  ]
+}

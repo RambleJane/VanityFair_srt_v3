@@ -29,6 +29,7 @@ def cut_island_to_segments(
     output: list[SubtitleSegment] = []
     start = 0
     while start < len(island.words):
+        forced_cut = False
         if start == len(island.words) - 1:
             chosen_end = start
             chosen = None
@@ -52,6 +53,7 @@ def cut_island_to_segments(
                     chosen, _, _ = max(eligible, key=lambda item: _candidate_key(*item, settings))
                     chosen_end = chosen.word_pos
             else:
+                forced_cut = True
                 window_start = max(start, forced_end - 6)
                 eligible = [
                     item for item in possible
@@ -69,6 +71,11 @@ def cut_island_to_segments(
                     chosen = by_position.get(chosen_end)
         words = island.words[start:chosen_end + 1]
         internal_gaps = [max(0.0, b.start - a.end) for a, b in zip(words, words[1:])]
+        cut_reasons = chosen.reasons if chosen else ["island_end"]
+        natural_cut_markers = ("strong_gap", "soft_gap", "weak_gap", "punctuation")
+        forced_without_natural_boundary = forced_cut and not any(
+            marker in " ".join(cut_reasons) for marker in natural_cut_markers
+        )
         output.append(SubtitleSegment(
             index=0, episode=episode, source_utterance_index=island.source_utterance_index,
             start=words[0].start, end=words[-1].end, raw_text=words_text(words), flags=[],
@@ -76,7 +83,9 @@ def cut_island_to_segments(
                 "source": "speech_island", "island_reason": island.reason,
                 "word_start_pos": start, "word_end_pos": chosen_end,
                 "cut_score": chosen.score if chosen else None,
-                "cut_reasons": chosen.reasons if chosen else ["island_end"],
+                "cut_reasons": cut_reasons,
+                "forced_cut": forced_without_natural_boundary,
+                "forced_limit_reached": forced_cut,
                 "gap_after": chosen.gap_after if chosen else None,
                 "max_internal_gap": max(internal_gaps, default=0.0),
                 "natural_end": words[-1].end,

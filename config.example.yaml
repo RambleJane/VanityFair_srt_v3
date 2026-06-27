@@ -20,3 +20,20 @@ segmentation:
   comfortable_cps: 8.0
   extend_end_seconds: 0.35
   min_gap_between_subtitles: 0.08
+  short_reaction_max_chars: 2
+  short_reaction_max_duration: 0.8
+  possible_over_split_gap: 0.50
+  merge_short_segment_max_chars: 2
+  merge_short_segment_max_duration: 0.8
+theme_song:
+  enabled: true
+  json_path: "agent/theme_song.json"
+  search_start_seconds: 0.0
+  search_end_seconds: 120.0
+  min_line_score: 0.55
+  min_first_line_score: 0.50
+  min_matched_lines: 2
+  max_gap_between_matched_lines_seconds: 12.0
+  apply_fixed_lyrics: true
+  theme_extend_end_seconds: 0.50
+  theme_max_duration: 12.0

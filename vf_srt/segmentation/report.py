@@ -13,6 +13,24 @@ from ..core.models import CutCandidate, GapProfile, SpeechIsland, SubtitleSegmen
 from .candidates import char_count
 
 
+_DETAIL_FLAGS = (
+    "short_reaction", "standalone_interjection", "possible_over_split",
+    "forced_cut", "theme_song", "fixed_lyric",
+)
+
+
+def _segment_example(segment: SubtitleSegment) -> dict[str, Any]:
+    return {
+        "index": segment.index,
+        "start": segment.start,
+        "end": segment.end,
+        "duration": round(max(0.0, segment.end - segment.start), 3),
+        "raw_text": segment.raw_text,
+        "flags": segment.flags,
+        "debug": segment.debug,
+    }
+
+
 def _write_csv(path: Path, fieldnames: list[str], rows: Iterable[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
@@ -57,6 +75,11 @@ def write_segmentation_outputs(
             "cps": round(sum(cps_values) / len(cps_values), 3) if cps_values else 0.0,
         },
     }
+    for flag in _DETAIL_FLAGS:
+        report[f"{flag}_count"] = flag_counts.get(flag, 0)
+        report[f"{flag}_examples"] = [
+            _segment_example(item) for item in segments if flag in item.flags
+        ][:20]
     write_json(paths.reports_cache_dir / f"{episode}_segmentation_report.json", report)
     candidate_rows = []
     for candidate in candidates:
@@ -78,10 +101,15 @@ def write_segmentation_outputs(
             "source_utterance_index": segment.source_utterance_index,
             "cut_score": segment.debug.get("cut_score"),
             "cut_reasons": " | ".join(segment.debug.get("cut_reasons", [])),
+            "theme_song": segment.debug.get("theme_song", False),
+            "lyric_index": segment.debug.get("lyric_index"),
+            "theme_score": segment.debug.get("score"),
+            "theme_asr_text": segment.debug.get("asr_text"),
+            "forced_cut": segment.debug.get("forced_cut", False),
         })
     _write_csv(
         paths.lab_dir / f"{episode}_segments_preview.csv",
-        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_score", "cut_reasons"],
+        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_score", "cut_reasons", "theme_song", "lyric_index", "theme_score", "theme_asr_text", "forced_cut"],
         preview_rows,
     )
     return report

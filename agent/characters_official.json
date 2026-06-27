@@ -1,0 +1,2757 @@
+{
+  "source_file": "agent/characters_official.txt",
+  "authority": "人工识别片尾演员表为最高可信来源；本文件不从 02_characters_official.md、03_glossary_confirmed.md 或 wiki 补资料。",
+  "usage": "ASR 校正时快速扫描 raw / traditional / simplified 三套字段。raw 保留人工片尾表原样；traditional 给粤语底稿和港式中文校正使用；simplified 给最终中文字幕和普通话翻译使用。",
+  "characters": [
+    {
+      "actor_raw": "林偉圖",
+      "role_raw": "李華強",
+      "aliases_raw": [
+        "阿强",
+        "强哥"
+      ],
+      "actor_traditional": "林偉圖",
+      "role_traditional": "李華強",
+      "aliases_traditional": [
+        "阿強",
+        "強哥"
+      ],
+      "actor_simplified": "林伟图",
+      "role_simplified": "李华强",
+      "aliases_simplified": [
+        "阿强",
+        "强哥"
+      ]
+    },
+    {
+      "actor_raw": "麥先聲",
+      "role_raw": "馬如龍",
+      "aliases_raw": [],
+      "actor_traditional": "麥先聲",
+      "role_traditional": "馬如龍",
+      "aliases_traditional": [],
+      "actor_simplified": "麦先声",
+      "role_simplified": "马如龙",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何柏光",
+      "role_raw": "大聲何",
+      "aliases_raw": [],
+      "actor_traditional": "何柏光",
+      "role_traditional": "大聲何",
+      "aliases_traditional": [],
+      "actor_simplified": "何柏光",
+      "role_simplified": "大声何",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李樹佳",
+      "role_raw": "阿宏",
+      "aliases_raw": [],
+      "actor_traditional": "李樹佳",
+      "role_traditional": "阿宏",
+      "aliases_traditional": [],
+      "actor_simplified": "李树佳",
+      "role_simplified": "阿宏",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "曾其軾",
+      "role_raw": "阿勝",
+      "aliases_raw": [],
+      "actor_traditional": "曾其軾",
+      "role_traditional": "阿勝",
+      "aliases_traditional": [],
+      "actor_simplified": "曾其轼",
+      "role_simplified": "阿胜",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄧寬",
+      "role_raw": "提場",
+      "aliases_raw": [],
+      "actor_traditional": "鄧寬",
+      "role_traditional": "提場",
+      "aliases_traditional": [],
+      "actor_simplified": "邓宽",
+      "role_simplified": "提场",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳玉蓮",
+      "role_raw": "潘金蓮",
+      "aliases_raw": [],
+      "actor_traditional": "陳玉蓮",
+      "role_traditional": "潘金蓮",
+      "aliases_traditional": [],
+      "actor_simplified": "陈玉莲",
+      "role_simplified": "潘金莲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "呂良偉",
+      "role_raw": "西门慶",
+      "aliases_raw": [],
+      "actor_traditional": "呂良偉",
+      "role_traditional": "西門慶",
+      "aliases_traditional": [],
+      "actor_simplified": "吕良伟",
+      "role_simplified": "西门庆",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "廖偉雄",
+      "role_raw": "酒保",
+      "aliases_raw": [],
+      "actor_traditional": "廖偉雄",
+      "role_traditional": "酒保",
+      "aliases_traditional": [],
+      "actor_simplified": "廖伟雄",
+      "role_simplified": "酒保",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉一帆",
+      "role_raw": "新覺非",
+      "aliases_raw": [],
+      "actor_traditional": "劉一帆",
+      "role_traditional": "新覺非",
+      "aliases_traditional": [],
+      "actor_simplified": "刘一帆",
+      "role_simplified": "新觉非",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鐘志強",
+      "role_raw": "歐根",
+      "aliases_raw": [],
+      "actor_traditional": "鐘志強",
+      "role_traditional": "歐根",
+      "aliases_traditional": [],
+      "actor_simplified": "钟志强",
+      "role_simplified": "欧根",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄭少秋",
+      "role_raw": "徐绍良",
+      "aliases_raw": [
+        "阿良",
+        "良哥",
+        "良仔",
+        "沙胆良"
+      ],
+      "actor_traditional": "鄭少秋",
+      "role_traditional": "徐紹良",
+      "aliases_traditional": [
+        "阿良",
+        "良哥",
+        "良仔",
+        "沙胆良"
+      ],
+      "actor_simplified": "郑少秋",
+      "role_simplified": "徐绍良",
+      "aliases_simplified": [
+        "阿良",
+        "良哥",
+        "良仔",
+        "沙胆良"
+      ]
+    },
+    {
+      "actor_raw": "罗麗娟",
+      "role_raw": "王月蓮",
+      "aliases_raw": [],
+      "actor_traditional": "羅麗娟",
+      "role_traditional": "王月蓮",
+      "aliases_traditional": [],
+      "actor_simplified": "罗丽娟",
+      "role_simplified": "王月莲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "盧海鵬",
+      "role_raw": "康炳仁",
+      "aliases_raw": [
+        "阿仁",
+        "仁哥"
+      ],
+      "actor_traditional": "盧海鵬",
+      "role_traditional": "康炳仁",
+      "aliases_traditional": [
+        "阿仁",
+        "仁哥"
+      ],
+      "actor_simplified": "卢海鹏",
+      "role_simplified": "康炳仁",
+      "aliases_simplified": [
+        "阿仁",
+        "仁哥"
+      ]
+    },
+    {
+      "actor_raw": "金雷",
+      "role_raw": "何玉湘",
+      "aliases_raw": [
+        "何玉廂",
+        "何玉霜"
+      ],
+      "actor_traditional": "金雷",
+      "role_traditional": "何玉湘",
+      "aliases_traditional": [
+        "何玉廂",
+        "何玉霜"
+      ],
+      "actor_simplified": "金雷",
+      "role_simplified": "何玉湘",
+      "aliases_simplified": [
+        "何玉厢",
+        "何玉霜"
+      ]
+    },
+    {
+      "actor_raw": "龐焯林",
+      "role_raw": "鏡叔",
+      "aliases_raw": [],
+      "actor_traditional": "龐焯林",
+      "role_traditional": "鏡叔",
+      "aliases_traditional": [],
+      "actor_simplified": "庞焯林",
+      "role_simplified": "镜叔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉松仁",
+      "role_raw": "朱樂文",
+      "aliases_raw": [
+        "阿文",
+        "文哥"
+      ],
+      "actor_traditional": "劉松仁",
+      "role_traditional": "朱樂文",
+      "aliases_traditional": [
+        "阿文",
+        "文哥"
+      ],
+      "actor_simplified": "刘松仁",
+      "role_simplified": "朱乐文",
+      "aliases_simplified": [
+        "阿文",
+        "文哥"
+      ]
+    },
+    {
+      "actor_raw": "關海山",
+      "role_raw": "朱一軒",
+      "aliases_raw": [
+        "朱父",
+        "朱伯伯"
+      ],
+      "actor_traditional": "關海山",
+      "role_traditional": "朱一軒",
+      "aliases_traditional": [
+        "朱父",
+        "朱伯伯"
+      ],
+      "actor_simplified": "关海山",
+      "role_simplified": "朱一轩",
+      "aliases_simplified": [
+        "朱父",
+        "朱伯伯"
+      ]
+    },
+    {
+      "actor_raw": "鄭子敦",
+      "role_raw": "理髮師",
+      "aliases_raw": [
+        "鄭伯"
+      ],
+      "actor_traditional": "鄭子敦",
+      "role_traditional": "理髮師",
+      "aliases_traditional": [
+        "鄭伯"
+      ],
+      "actor_simplified": "郑子敦",
+      "role_simplified": "理发师",
+      "aliases_simplified": [
+        "郑伯"
+      ]
+    },
+    {
+      "actor_raw": "趙雅芝",
+      "role_raw": "朱敏芝",
+      "aliases_raw": [
+        "阿芝"
+      ],
+      "actor_traditional": "趙雅芝",
+      "role_traditional": "朱敏芝",
+      "aliases_traditional": [
+        "阿芝"
+      ],
+      "actor_simplified": "赵雅芝",
+      "role_simplified": "朱敏芝",
+      "aliases_simplified": [
+        "阿芝"
+      ]
+    },
+    {
+      "actor_raw": "梁淑卿",
+      "role_raw": "李媽",
+      "aliases_raw": [],
+      "actor_traditional": "梁淑卿",
+      "role_traditional": "李媽",
+      "aliases_traditional": [],
+      "actor_simplified": "梁淑卿",
+      "role_simplified": "李妈",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "楊又祥",
+      "role_raw": "班主",
+      "aliases_raw": [],
+      "actor_traditional": "楊又祥",
+      "role_traditional": "班主",
+      "aliases_traditional": [],
+      "actor_simplified": "杨又祥",
+      "role_simplified": "班主",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁少狄",
+      "role_raw": "阿耀",
+      "aliases_raw": [],
+      "actor_traditional": "梁少狄",
+      "role_traditional": "阿耀",
+      "aliases_traditional": [],
+      "actor_simplified": "梁少狄",
+      "role_simplified": "阿耀",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁心",
+      "role_raw": "小販",
+      "aliases_raw": [],
+      "actor_traditional": "梁心",
+      "role_traditional": "小販",
+      "aliases_traditional": [],
+      "actor_simplified": "梁心",
+      "role_simplified": "小贩",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何璧堅",
+      "role_raw": "顧正均",
+      "aliases_raw": [
+        "昆叔"
+      ],
+      "actor_traditional": "何璧堅",
+      "role_traditional": "顧正均",
+      "aliases_traditional": [
+        "昆叔"
+      ],
+      "actor_simplified": "何璧坚",
+      "role_simplified": "顾正均",
+      "aliases_simplified": [
+        "昆叔"
+      ]
+    },
+    {
+      "actor_raw": "盧保華",
+      "role_raw": "火叔",
+      "aliases_raw": [],
+      "actor_traditional": "盧保華",
+      "role_traditional": "火叔",
+      "aliases_traditional": [],
+      "actor_simplified": "卢保华",
+      "role_simplified": "火叔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "韋以茵",
+      "role_raw": "舞蹈員甲",
+      "aliases_raw": [],
+      "actor_traditional": "韋以茵",
+      "role_traditional": "舞蹈員甲",
+      "aliases_traditional": [],
+      "actor_simplified": "韦以茵",
+      "role_simplified": "舞蹈员甲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "謝玉英",
+      "role_raw": "舞蹈員乙",
+      "aliases_raw": [],
+      "actor_traditional": "謝玉英",
+      "role_traditional": "舞蹈員乙",
+      "aliases_traditional": [],
+      "actor_simplified": "谢玉英",
+      "role_simplified": "舞蹈员乙",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃楚英",
+      "role_raw": "舞蹈員丙",
+      "aliases_raw": [],
+      "actor_traditional": "黃楚英",
+      "role_traditional": "舞蹈員丙",
+      "aliases_traditional": [],
+      "actor_simplified": "黄楚英",
+      "role_simplified": "舞蹈员丙",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉雅麗",
+      "role_raw": "舞蹈員丁",
+      "aliases_raw": [],
+      "actor_traditional": "劉雅麗",
+      "role_traditional": "舞蹈員丁",
+      "aliases_traditional": [],
+      "actor_simplified": "刘雅丽",
+      "role_simplified": "舞蹈员丁",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "張立賢",
+      "role_raw": "方宏",
+      "aliases_raw": [],
+      "actor_traditional": "張立賢",
+      "role_traditional": "方宏",
+      "aliases_traditional": [],
+      "actor_simplified": "张立贤",
+      "role_simplified": "方宏",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "韓麗芬",
+      "role_raw": "女歌星",
+      "aliases_raw": [],
+      "actor_traditional": "韓麗芬",
+      "role_traditional": "女歌星",
+      "aliases_traditional": [],
+      "actor_simplified": "韩丽芬",
+      "role_simplified": "女歌星",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "夏雨",
+      "role_raw": "魔術師",
+      "aliases_raw": [],
+      "actor_traditional": "夏雨",
+      "role_traditional": "魔術師",
+      "aliases_traditional": [],
+      "actor_simplified": "夏雨",
+      "role_simplified": "魔术师",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "潘妙貞",
+      "role_raw": "魔術助手",
+      "aliases_raw": [],
+      "actor_traditional": "潘妙貞",
+      "role_traditional": "魔術助手",
+      "aliases_traditional": [],
+      "actor_simplified": "潘妙贞",
+      "role_simplified": "魔术助手",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉國誠",
+      "role_raw": "大頭余",
+      "aliases_raw": [],
+      "actor_traditional": "劉國誠",
+      "role_traditional": "大頭余",
+      "aliases_traditional": [],
+      "actor_simplified": "刘国诚",
+      "role_simplified": "大头余",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "曾楚霖",
+      "role_raw": "差人",
+      "aliases_raw": [
+        "警察"
+      ],
+      "actor_traditional": "曾楚霖",
+      "role_traditional": "差人",
+      "aliases_traditional": [
+        "警察"
+      ],
+      "actor_simplified": "曾楚霖",
+      "role_simplified": "差人",
+      "aliases_simplified": [
+        "警察"
+      ]
+    },
+    {
+      "actor_raw": "楊志恒",
+      "role_raw": "明仔",
+      "aliases_raw": [],
+      "actor_traditional": "楊志恒",
+      "role_traditional": "明仔",
+      "aliases_traditional": [],
+      "actor_simplified": "杨志恒",
+      "role_simplified": "明仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "林大偉",
+      "role_raw": "朱飛",
+      "aliases_raw": [],
+      "actor_traditional": "林大偉",
+      "role_traditional": "朱飛",
+      "aliases_traditional": [],
+      "actor_simplified": "林大伟",
+      "role_simplified": "朱飞",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳比莉",
+      "role_raw": "夏鳳",
+      "aliases_raw": [],
+      "actor_traditional": "陳比莉",
+      "role_traditional": "夏鳳",
+      "aliases_traditional": [],
+      "actor_simplified": "陈比莉",
+      "role_simplified": "夏凤",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄧美美",
+      "role_raw": "安曼莉",
+      "aliases_raw": [
+        "安蔓莉"
+      ],
+      "actor_traditional": "鄧美美",
+      "role_traditional": "安曼莉",
+      "aliases_traditional": [
+        "安蔓莉"
+      ],
+      "actor_simplified": "邓美美",
+      "role_simplified": "安曼莉",
+      "aliases_simplified": [
+        "安蔓莉"
+      ]
+    },
+    {
+      "actor_raw": "羅麗娟",
+      "role_raw": "王月蓮",
+      "aliases_raw": [],
+      "actor_traditional": "羅麗娟",
+      "role_traditional": "王月蓮",
+      "aliases_traditional": [],
+      "actor_simplified": "罗丽娟",
+      "role_simplified": "王月莲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "蘇杏璇",
+      "role_raw": "賀幽蘭",
+      "aliases_raw": [],
+      "actor_traditional": "蘇杏璇",
+      "role_traditional": "賀幽蘭",
+      "aliases_traditional": [],
+      "actor_simplified": "苏杏璇",
+      "role_simplified": "贺幽兰",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "容惠雯",
+      "role_raw": "賀幽菊",
+      "aliases_raw": [],
+      "actor_traditional": "容惠雯",
+      "role_traditional": "賀幽菊",
+      "aliases_traditional": [],
+      "actor_simplified": "容惠雯",
+      "role_simplified": "贺幽菊",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "羅蘭",
+      "role_raw": "賀幽蘭與幽菊母",
+      "aliases_raw": [
+        "賀母"
+      ],
+      "actor_traditional": "羅蘭",
+      "role_traditional": "賀幽蘭與幽菊母",
+      "aliases_traditional": [
+        "賀母"
+      ],
+      "actor_simplified": "罗兰",
+      "role_simplified": "贺幽兰与幽菊母",
+      "aliases_simplified": [
+        "贺母"
+      ]
+    },
+    {
+      "actor_raw": "曹濟",
+      "role_raw": "阿東",
+      "aliases_raw": [],
+      "actor_traditional": "曹濟",
+      "role_traditional": "阿東",
+      "aliases_traditional": [],
+      "actor_simplified": "曹济",
+      "role_simplified": "阿东",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐有明",
+      "role_raw": "飛仔甲",
+      "aliases_raw": [],
+      "actor_traditional": "徐有明",
+      "role_traditional": "飛仔甲",
+      "aliases_traditional": [],
+      "actor_simplified": "徐有明",
+      "role_simplified": "飞仔甲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "羅耀華",
+      "role_raw": "飛仔乙",
+      "aliases_raw": [],
+      "actor_traditional": "羅耀華",
+      "role_traditional": "飛仔乙",
+      "aliases_traditional": [],
+      "actor_simplified": "罗耀华",
+      "role_simplified": "飞仔乙",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "林原",
+      "role_raw": "龍先生",
+      "aliases_raw": [],
+      "actor_traditional": "林原",
+      "role_traditional": "龍先生",
+      "aliases_traditional": [],
+      "actor_simplified": "林原",
+      "role_simplified": "龙先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馬慶生",
+      "role_raw": "呂應平",
+      "aliases_raw": [],
+      "actor_traditional": "馬慶生",
+      "role_traditional": "呂應平",
+      "aliases_traditional": [],
+      "actor_simplified": "马庆生",
+      "role_simplified": "吕应平",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "謝壽康",
+      "role_raw": "波客",
+      "aliases_raw": [],
+      "actor_traditional": "謝壽康",
+      "role_traditional": "波客",
+      "aliases_traditional": [],
+      "actor_simplified": "谢寿康",
+      "role_simplified": "波客",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃偉光",
+      "role_raw": "雜工阿光",
+      "aliases_raw": [],
+      "actor_traditional": "黃偉光",
+      "role_traditional": "雜工阿光",
+      "aliases_traditional": [],
+      "actor_simplified": "黄伟光",
+      "role_simplified": "杂工阿光",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "林文偉",
+      "role_raw": "澳门仔",
+      "aliases_raw": [],
+      "actor_traditional": "林文偉",
+      "role_traditional": "澳門仔",
+      "aliases_traditional": [],
+      "actor_simplified": "林文伟",
+      "role_simplified": "澳门仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "龍天生",
+      "role_raw": "王婆",
+      "aliases_raw": [],
+      "actor_traditional": "龍天生",
+      "role_traditional": "王婆",
+      "aliases_traditional": [],
+      "actor_simplified": "龙天生",
+      "role_simplified": "王婆",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "潘妙貞",
+      "role_raw": "梅香",
+      "aliases_raw": [],
+      "actor_traditional": "潘妙貞",
+      "role_traditional": "梅香",
+      "aliases_traditional": [],
+      "actor_simplified": "潘妙贞",
+      "role_simplified": "梅香",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐修",
+      "role_raw": "趙醫生",
+      "aliases_raw": [],
+      "actor_traditional": "徐修",
+      "role_traditional": "趙醫生",
+      "aliases_traditional": [],
+      "actor_simplified": "徐修",
+      "role_simplified": "赵医生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "胡美儀",
+      "role_raw": "護士",
+      "aliases_raw": [],
+      "actor_traditional": "胡美儀",
+      "role_traditional": "護士",
+      "aliases_traditional": [],
+      "actor_simplified": "胡美仪",
+      "role_simplified": "护士",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄭偉昌",
+      "role_raw": "雜差",
+      "aliases_raw": [],
+      "actor_traditional": "鄭偉昌",
+      "role_traditional": "雜差",
+      "aliases_traditional": [],
+      "actor_simplified": "郑伟昌",
+      "role_simplified": "杂差",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "林耀強",
+      "role_raw": "雜差",
+      "aliases_raw": [],
+      "actor_traditional": "林耀強",
+      "role_traditional": "雜差",
+      "aliases_traditional": [],
+      "actor_simplified": "林耀强",
+      "role_simplified": "杂差",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁鴻華",
+      "role_raw": "司儀",
+      "aliases_raw": [],
+      "actor_traditional": "梁鴻華",
+      "role_traditional": "司儀",
+      "aliases_traditional": [],
+      "actor_simplified": "梁鸿华",
+      "role_simplified": "司仪",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何貴林",
+      "role_raw": "賈彪",
+      "aliases_raw": [],
+      "actor_traditional": "何貴林",
+      "role_traditional": "賈彪",
+      "aliases_traditional": [],
+      "actor_simplified": "何贵林",
+      "role_simplified": "贾彪",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李茵茵",
+      "role_raw": "秘書",
+      "aliases_raw": [],
+      "actor_traditional": "李茵茵",
+      "role_traditional": "秘書",
+      "aliases_traditional": [],
+      "actor_simplified": "李茵茵",
+      "role_simplified": "秘书",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "楊炎棠",
+      "role_raw": "鍾主任",
+      "aliases_raw": [],
+      "actor_traditional": "楊炎棠",
+      "role_traditional": "鍾主任",
+      "aliases_traditional": [],
+      "actor_simplified": "杨炎棠",
+      "role_simplified": "钟主任",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鍾濟深",
+      "role_raw": "盧主任",
+      "aliases_raw": [],
+      "actor_traditional": "鍾濟深",
+      "role_traditional": "盧主任",
+      "aliases_traditional": [],
+      "actor_simplified": "钟济深",
+      "role_simplified": "卢主任",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梅玲玲",
+      "role_raw": "梅香",
+      "aliases_raw": [],
+      "actor_traditional": "梅玲玲",
+      "role_traditional": "梅香",
+      "aliases_traditional": [],
+      "actor_simplified": "梅玲玲",
+      "role_simplified": "梅香",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐韻生",
+      "role_raw": "發叔",
+      "aliases_raw": [],
+      "actor_traditional": "徐韻生",
+      "role_traditional": "發叔",
+      "aliases_traditional": [],
+      "actor_simplified": "徐韵生",
+      "role_simplified": "发叔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "毛毛",
+      "role_raw": "阿輝",
+      "aliases_raw": [],
+      "actor_traditional": "毛毛",
+      "role_traditional": "阿輝",
+      "aliases_traditional": [],
+      "actor_simplified": "毛毛",
+      "role_simplified": "阿辉",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉超兒",
+      "role_raw": "阿椎",
+      "aliases_raw": [],
+      "actor_traditional": "劉超兒",
+      "role_traditional": "阿椎",
+      "aliases_traditional": [],
+      "actor_simplified": "刘超儿",
+      "role_simplified": "阿椎",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "霍爾",
+      "role_raw": "檔主",
+      "aliases_raw": [],
+      "actor_traditional": "霍爾",
+      "role_traditional": "檔主",
+      "aliases_traditional": [],
+      "actor_simplified": "霍尔",
+      "role_simplified": "档主",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁愛",
+      "role_raw": "阿娣",
+      "aliases_raw": [
+        "娣姐",
+        "亞娣"
+      ],
+      "actor_traditional": "梁愛",
+      "role_traditional": "阿娣",
+      "aliases_traditional": [
+        "娣姐",
+        "亞娣"
+      ],
+      "actor_simplified": "梁爱",
+      "role_simplified": "阿娣",
+      "aliases_simplified": [
+        "娣姐",
+        "亚娣"
+      ]
+    },
+    {
+      "actor_raw": "劉雅英",
+      "role_raw": "珍珠",
+      "aliases_raw": [
+        "曾珍珠"
+      ],
+      "actor_traditional": "劉雅英",
+      "role_traditional": "珍珠",
+      "aliases_traditional": [
+        "曾珍珠"
+      ],
+      "actor_simplified": "刘雅英",
+      "role_simplified": "珍珠",
+      "aliases_simplified": [
+        "曾珍珠"
+      ]
+    },
+    {
+      "actor_raw": "李道渝",
+      "role_raw": "麥奇",
+      "aliases_raw": [],
+      "actor_traditional": "李道渝",
+      "role_traditional": "麥奇",
+      "aliases_traditional": [],
+      "actor_simplified": "李道渝",
+      "role_simplified": "麦奇",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "羅雲",
+      "role_raw": "邵大明",
+      "aliases_raw": [],
+      "actor_traditional": "羅雲",
+      "role_traditional": "邵大明",
+      "aliases_traditional": [],
+      "actor_simplified": "罗云",
+      "role_simplified": "邵大明",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "余家倫",
+      "role_raw": "沙羅拔",
+      "aliases_raw": [],
+      "actor_traditional": "余家倫",
+      "role_traditional": "沙羅拔",
+      "aliases_traditional": [],
+      "actor_simplified": "余家伦",
+      "role_simplified": "沙罗拔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "江毅",
+      "role_raw": "文楊",
+      "aliases_raw": [
+        "徐邵良老師",
+        "文导演",
+        "文導演"
+      ],
+      "actor_traditional": "江毅",
+      "role_traditional": "文楊",
+      "aliases_traditional": [
+        "徐邵良老師",
+        "文导演",
+        "文導演"
+      ],
+      "actor_simplified": "江毅",
+      "role_simplified": "文杨",
+      "aliases_simplified": [
+        "徐邵良老师",
+        "文导演"
+      ]
+    },
+    {
+      "actor_raw": "陳麗卿",
+      "role_raw": "文太太",
+      "aliases_raw": [
+        "師母"
+      ],
+      "actor_traditional": "陳麗卿",
+      "role_traditional": "文太太",
+      "aliases_traditional": [
+        "師母"
+      ],
+      "actor_simplified": "陈丽卿",
+      "role_simplified": "文太太",
+      "aliases_simplified": [
+        "师母"
+      ]
+    },
+    {
+      "actor_raw": "陳志榮",
+      "role_raw": "趙不",
+      "aliases_raw": [],
+      "actor_traditional": "陳志榮",
+      "role_traditional": "趙不",
+      "aliases_traditional": [],
+      "actor_simplified": "陈志荣",
+      "role_simplified": "赵不",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "焦雄",
+      "role_raw": "何清",
+      "aliases_raw": [],
+      "actor_traditional": "焦雄",
+      "role_traditional": "何清",
+      "aliases_traditional": [],
+      "actor_simplified": "焦雄",
+      "role_simplified": "何清",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馬劍棠",
+      "role_raw": "陸海",
+      "aliases_raw": [],
+      "actor_traditional": "馬劍棠",
+      "role_traditional": "陸海",
+      "aliases_traditional": [],
+      "actor_simplified": "马剑棠",
+      "role_simplified": "陆海",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何家慧",
+      "role_raw": "田蘇茜",
+      "aliases_raw": [
+        "田蘇絲"
+      ],
+      "actor_traditional": "何家慧",
+      "role_traditional": "田蘇茜",
+      "aliases_traditional": [
+        "田蘇絲"
+      ],
+      "actor_simplified": "何家慧",
+      "role_simplified": "田苏茜",
+      "aliases_simplified": [
+        "田苏丝"
+      ]
+    },
+    {
+      "actor_raw": "鄭麗芳",
+      "role_raw": "李小霞",
+      "aliases_raw": [
+        "阿霞"
+      ],
+      "actor_traditional": "鄭麗芳",
+      "role_traditional": "李小霞",
+      "aliases_traditional": [
+        "阿霞"
+      ],
+      "actor_simplified": "郑丽芳",
+      "role_simplified": "李小霞",
+      "aliases_simplified": [
+        "阿霞"
+      ]
+    },
+    {
+      "actor_raw": "趙小山",
+      "role_raw": "林文孝",
+      "aliases_raw": [],
+      "actor_traditional": "趙小山",
+      "role_traditional": "林文孝",
+      "aliases_traditional": [],
+      "actor_simplified": "赵小山",
+      "role_simplified": "林文孝",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周吉",
+      "role_raw": "窮山人",
+      "aliases_raw": [],
+      "actor_traditional": "周吉",
+      "role_traditional": "窮山人",
+      "aliases_traditional": [],
+      "actor_simplified": "周吉",
+      "role_simplified": "穷山人",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "韓江",
+      "role_raw": "阿全",
+      "aliases_raw": [],
+      "actor_traditional": "韓江",
+      "role_traditional": "阿全",
+      "aliases_traditional": [],
+      "actor_simplified": "韩江",
+      "role_simplified": "阿全",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐新義",
+      "role_raw": "阿良父",
+      "aliases_raw": [],
+      "actor_traditional": "徐新義",
+      "role_traditional": "阿良父",
+      "aliases_traditional": [],
+      "actor_simplified": "徐新义",
+      "role_simplified": "阿良父",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "伍淑霞",
+      "role_raw": "霞姨媽",
+      "aliases_raw": [
+        "霞姨"
+      ],
+      "actor_traditional": "伍淑霞",
+      "role_traditional": "霞姨媽",
+      "aliases_traditional": [
+        "霞姨"
+      ],
+      "actor_simplified": "伍淑霞",
+      "role_simplified": "霞姨妈",
+      "aliases_simplified": [
+        "霞姨"
+      ]
+    },
+    {
+      "actor_raw": "廖安麗",
+      "role_raw": "JOYCE",
+      "aliases_raw": [],
+      "actor_traditional": "廖安麗",
+      "role_traditional": "JOYCE",
+      "aliases_traditional": [],
+      "actor_simplified": "廖安丽",
+      "role_simplified": "JOYCE",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何頭銳",
+      "role_raw": "賈導演",
+      "aliases_raw": [],
+      "actor_traditional": "何頭銳",
+      "role_traditional": "賈導演",
+      "aliases_traditional": [],
+      "actor_simplified": "何头锐",
+      "role_simplified": "贾导演",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "苗金鳳",
+      "role_raw": "TINA",
+      "aliases_raw": [
+        "天娜"
+      ],
+      "actor_traditional": "苗金鳳",
+      "role_traditional": "TINA",
+      "aliases_traditional": [
+        "天娜"
+      ],
+      "actor_simplified": "苗金凤",
+      "role_simplified": "TINA",
+      "aliases_simplified": [
+        "天娜"
+      ]
+    },
+    {
+      "actor_raw": "陳東",
+      "role_raw": "謝發",
+      "aliases_raw": [],
+      "actor_traditional": "陳東",
+      "role_traditional": "謝發",
+      "aliases_traditional": [],
+      "actor_simplified": "陈东",
+      "role_simplified": "谢发",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馬笑英",
+      "role_raw": "謝發母",
+      "aliases_raw": [],
+      "actor_traditional": "馬笑英",
+      "role_traditional": "謝發母",
+      "aliases_traditional": [],
+      "actor_simplified": "马笑英",
+      "role_simplified": "谢发母",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周潤發",
+      "role_raw": "孔保羅",
+      "aliases_raw": [],
+      "actor_traditional": "周潤發",
+      "role_traditional": "孔保羅",
+      "aliases_traditional": [],
+      "actor_simplified": "周潤发",
+      "role_simplified": "孔保罗",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "張生",
+      "role_raw": "駱力山",
+      "aliases_raw": [],
+      "actor_traditional": "張生",
+      "role_traditional": "駱力山",
+      "aliases_traditional": [],
+      "actor_simplified": "张生",
+      "role_simplified": "骆力山",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "莫慶廉",
+      "role_raw": "金福水",
+      "aliases_raw": [],
+      "actor_traditional": "莫慶廉",
+      "role_traditional": "金福水",
+      "aliases_traditional": [],
+      "actor_simplified": "莫庆廉",
+      "role_simplified": "金福水",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄺福燊",
+      "role_raw": "武衛",
+      "aliases_raw": [
+        "武导演"
+      ],
+      "actor_traditional": "鄺福燊",
+      "role_traditional": "武衛",
+      "aliases_traditional": [
+        "武导演"
+      ],
+      "actor_simplified": "邝福燊",
+      "role_simplified": "武衛",
+      "aliases_simplified": [
+        "武导演"
+      ]
+    },
+    {
+      "actor_raw": "陳錫光",
+      "role_raw": "易可材",
+      "aliases_raw": [],
+      "actor_traditional": "陳錫光",
+      "role_traditional": "易可材",
+      "aliases_traditional": [],
+      "actor_simplified": "陈锡光",
+      "role_simplified": "易可材",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何家麗",
+      "role_raw": "露茜",
+      "aliases_raw": [],
+      "actor_traditional": "何家麗",
+      "role_traditional": "露茜",
+      "aliases_traditional": [],
+      "actor_simplified": "何家丽",
+      "role_simplified": "露茜",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳玉蓮",
+      "role_raw": "王美美",
+      "aliases_raw": [
+        "MIMI",
+        "黃美美"
+      ],
+      "actor_traditional": "陳玉蓮",
+      "role_traditional": "王美美",
+      "aliases_traditional": [
+        "MIMI",
+        "黃美美"
+      ],
+      "actor_simplified": "陈玉莲",
+      "role_simplified": "王美美",
+      "aliases_simplified": [
+        "MIMI",
+        "黄美美"
+      ]
+    },
+    {
+      "actor_raw": "石堅",
+      "role_raw": "孔擎天",
+      "aliases_raw": [
+        "孔老板"
+      ],
+      "actor_traditional": "石堅",
+      "role_traditional": "孔擎天",
+      "aliases_traditional": [
+        "孔老闆"
+      ],
+      "actor_simplified": "石坚",
+      "role_simplified": "孔擎天",
+      "aliases_simplified": [
+        "孔老板"
+      ]
+    },
+    {
+      "actor_raw": "吳桐",
+      "role_raw": "馬奇",
+      "aliases_raw": [
+        "馬爺",
+        "馬製片"
+      ],
+      "actor_traditional": "吳桐",
+      "role_traditional": "馬奇",
+      "aliases_traditional": [
+        "馬爺",
+        "馬製片"
+      ],
+      "actor_simplified": "吴桐",
+      "role_simplified": "马奇",
+      "aliases_simplified": [
+        "马爷",
+        "马制片"
+      ]
+    },
+    {
+      "actor_raw": "江文聲",
+      "role_raw": "影帝",
+      "aliases_raw": [],
+      "actor_traditional": "江文聲",
+      "role_traditional": "影帝",
+      "aliases_traditional": [],
+      "actor_simplified": "江文声",
+      "role_simplified": "影帝",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李司棋",
+      "role_raw": "王玫",
+      "aliases_raw": [],
+      "actor_traditional": "李司棋",
+      "role_traditional": "王玫",
+      "aliases_traditional": [],
+      "actor_simplified": "李司棋",
+      "role_simplified": "王玫",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄧碧雲",
+      "role_raw": "王安娜",
+      "aliases_raw": [
+        "星媽",
+        "玫母"
+      ],
+      "actor_traditional": "鄧碧雲",
+      "role_traditional": "王安娜",
+      "aliases_traditional": [
+        "星媽",
+        "玫母"
+      ],
+      "actor_simplified": "邓碧云",
+      "role_simplified": "王安娜",
+      "aliases_simplified": [
+        "星妈",
+        "玫母"
+      ]
+    },
+    {
+      "actor_raw": "張祥瑞",
+      "role_raw": "縣官",
+      "aliases_raw": [],
+      "actor_traditional": "張祥瑞",
+      "role_traditional": "縣官",
+      "aliases_traditional": [],
+      "actor_simplified": "张祥瑞",
+      "role_simplified": "县官",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "盧偉強",
+      "role_raw": "Tommy",
+      "aliases_raw": [],
+      "actor_traditional": "盧偉強",
+      "role_traditional": "Tommy",
+      "aliases_traditional": [],
+      "actor_simplified": "卢伟强",
+      "role_simplified": "Tommy",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "江可欣",
+      "role_raw": "秀珍",
+      "aliases_raw": [],
+      "actor_traditional": "江可欣",
+      "role_traditional": "秀珍",
+      "aliases_traditional": [],
+      "actor_simplified": "江可欣",
+      "role_simplified": "秀珍",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李菁薇",
+      "role_raw": "秀珍母",
+      "aliases_raw": [],
+      "actor_traditional": "李菁薇",
+      "role_traditional": "秀珍母",
+      "aliases_traditional": [],
+      "actor_simplified": "李菁薇",
+      "role_simplified": "秀珍母",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馬劍棠",
+      "role_raw": "宣傳主任",
+      "aliases_raw": [],
+      "actor_traditional": "馬劍棠",
+      "role_traditional": "宣傳主任",
+      "aliases_traditional": [],
+      "actor_simplified": "马剑棠",
+      "role_simplified": "宣传主任",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黎偉民",
+      "role_raw": "丁子虛",
+      "aliases_raw": [
+        "丁導演"
+      ],
+      "actor_traditional": "黎偉民",
+      "role_traditional": "丁子虛",
+      "aliases_traditional": [
+        "丁導演"
+      ],
+      "actor_simplified": "黎伟民",
+      "role_simplified": "丁子虚",
+      "aliases_simplified": [
+        "丁导演"
+      ]
+    },
+    {
+      "actor_raw": "余慕蓮",
+      "role_raw": "阿红",
+      "aliases_raw": [
+        "紅姐"
+      ],
+      "actor_traditional": "余慕蓮",
+      "role_traditional": "阿紅",
+      "aliases_traditional": [
+        "紅姐"
+      ],
+      "actor_simplified": "余慕莲",
+      "role_simplified": "阿红",
+      "aliases_simplified": [
+        "红姐"
+      ]
+    },
+    {
+      "actor_raw": "容守怡",
+      "role_raw": "張太",
+      "aliases_raw": [],
+      "actor_traditional": "容守怡",
+      "role_traditional": "張太",
+      "aliases_traditional": [],
+      "actor_simplified": "容守怡",
+      "role_simplified": "张太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃柏文",
+      "role_raw": "陳照",
+      "aliases_raw": [],
+      "actor_traditional": "黃柏文",
+      "role_traditional": "陳照",
+      "aliases_traditional": [],
+      "actor_simplified": "黄柏文",
+      "role_simplified": "陈照",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "缪骞人",
+      "role_raw": "KATE",
+      "aliases_raw": [
+        "K"
+      ],
+      "actor_traditional": "缪騫人",
+      "role_traditional": "KATE",
+      "aliases_traditional": [
+        "K"
+      ],
+      "actor_simplified": "缪骞人",
+      "role_simplified": "KATE",
+      "aliases_simplified": [
+        "K"
+      ]
+    },
+    {
+      "actor_raw": "李東耀",
+      "role_raw": "PETER",
+      "aliases_raw": [],
+      "actor_traditional": "李東耀",
+      "role_traditional": "PETER",
+      "aliases_traditional": [],
+      "actor_simplified": "李东耀",
+      "role_simplified": "PETER",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "查少慈",
+      "role_raw": "LILY",
+      "aliases_raw": [],
+      "actor_traditional": "查少慈",
+      "role_traditional": "LILY",
+      "aliases_traditional": [],
+      "actor_simplified": "查少慈",
+      "role_simplified": "LILY",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "駱恭",
+      "role_raw": "彭先生",
+      "aliases_raw": [],
+      "actor_traditional": "駱恭",
+      "role_traditional": "彭先生",
+      "aliases_traditional": [],
+      "actor_simplified": "骆恭",
+      "role_simplified": "彭先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "佩雲",
+      "role_raw": "彭太",
+      "aliases_raw": [],
+      "actor_traditional": "佩雲",
+      "role_traditional": "彭太",
+      "aliases_traditional": [],
+      "actor_simplified": "佩云",
+      "role_simplified": "彭太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃植森",
+      "role_raw": "劉弼",
+      "aliases_raw": [],
+      "actor_traditional": "黃植森",
+      "role_traditional": "劉弼",
+      "aliases_traditional": [],
+      "actor_simplified": "黄植森",
+      "role_simplified": "刘弼",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳東",
+      "role_raw": "老板",
+      "aliases_raw": [],
+      "actor_traditional": "陳東",
+      "role_traditional": "老闆",
+      "aliases_traditional": [],
+      "actor_simplified": "陈东",
+      "role_simplified": "老板",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "王柏文",
+      "role_raw": "陳照",
+      "aliases_raw": [],
+      "actor_traditional": "王柏文",
+      "role_traditional": "陳照",
+      "aliases_traditional": [],
+      "actor_simplified": "王柏文",
+      "role_simplified": "陈照",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "白文彪",
+      "role_raw": "胡培基",
+      "aliases_raw": [],
+      "actor_traditional": "白文彪",
+      "role_traditional": "胡培基",
+      "aliases_traditional": [],
+      "actor_simplified": "白文彪",
+      "role_simplified": "胡培基",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃曼萍",
+      "role_raw": "SUSAN",
+      "aliases_raw": [],
+      "actor_traditional": "黃曼萍",
+      "role_traditional": "SUSAN",
+      "aliases_traditional": [],
+      "actor_simplified": "黄曼萍",
+      "role_simplified": "SUSAN",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "江濤",
+      "role_raw": "梁開",
+      "aliases_raw": [],
+      "actor_traditional": "江濤",
+      "role_traditional": "梁開",
+      "aliases_traditional": [],
+      "actor_simplified": "江涛",
+      "role_simplified": "梁开",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "江文聲",
+      "role_raw": "白玉郎",
+      "aliases_raw": [],
+      "actor_traditional": "江文聲",
+      "role_traditional": "白玉郎",
+      "aliases_traditional": [],
+      "actor_simplified": "江文声",
+      "role_simplified": "白玉郎",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳瑩",
+      "role_raw": "武術太",
+      "aliases_raw": [],
+      "actor_traditional": "陳瑩",
+      "role_traditional": "武術太",
+      "aliases_traditional": [],
+      "actor_simplified": "陈莹",
+      "role_simplified": "武术太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "旋明",
+      "role_raw": "蘇凌鳳",
+      "aliases_raw": [],
+      "actor_traditional": "旋明",
+      "role_traditional": "蘇凌鳳",
+      "aliases_traditional": [],
+      "actor_simplified": "旋明",
+      "role_simplified": "苏凌凤",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "游继鳳",
+      "role_raw": "丁麗",
+      "aliases_raw": [],
+      "actor_traditional": "游繼鳳",
+      "role_traditional": "丁麗",
+      "aliases_traditional": [],
+      "actor_simplified": "游继凤",
+      "role_simplified": "丁丽",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "呂良偉",
+      "role_raw": "記者洪",
+      "aliases_raw": [],
+      "actor_traditional": "呂良偉",
+      "role_traditional": "記者洪",
+      "aliases_traditional": [],
+      "actor_simplified": "吕良伟",
+      "role_simplified": "记者洪",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "瞿威",
+      "role_raw": "蘇凌鳳男友",
+      "aliases_raw": [],
+      "actor_traditional": "瞿威",
+      "role_traditional": "蘇凌鳳男友",
+      "aliases_traditional": [],
+      "actor_simplified": "瞿威",
+      "role_simplified": "苏凌凤男友",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁小玲",
+      "role_raw": "白玉郎妻",
+      "aliases_raw": [
+        "白太"
+      ],
+      "actor_traditional": "梁小玲",
+      "role_traditional": "白玉郎妻",
+      "aliases_traditional": [
+        "白太"
+      ],
+      "actor_simplified": "梁小玲",
+      "role_simplified": "白玉郎妻",
+      "aliases_simplified": [
+        "白太"
+      ]
+    },
+    {
+      "actor_raw": "何家慧",
+      "role_raw": "田蘇茜",
+      "aliases_raw": [
+        "田蘇絲"
+      ],
+      "actor_traditional": "何家慧",
+      "role_traditional": "田蘇茜",
+      "aliases_traditional": [
+        "田蘇絲"
+      ],
+      "actor_simplified": "何家慧",
+      "role_simplified": "田苏茜",
+      "aliases_simplified": [
+        "田苏丝"
+      ]
+    },
+    {
+      "actor_raw": "尹多明",
+      "role_raw": "葉川",
+      "aliases_raw": [],
+      "actor_traditional": "尹多明",
+      "role_traditional": "葉川",
+      "aliases_traditional": [],
+      "actor_simplified": "尹多明",
+      "role_simplified": "叶川",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "闞華烈",
+      "role_raw": "鄧炳權",
+      "aliases_raw": [],
+      "actor_traditional": "闞華烈",
+      "role_traditional": "鄧炳權",
+      "aliases_traditional": [],
+      "actor_simplified": "阚华烈",
+      "role_simplified": "邓炳权",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁心",
+      "role_raw": "白仲池",
+      "aliases_raw": [],
+      "actor_traditional": "梁心",
+      "role_traditional": "白仲池",
+      "aliases_traditional": [],
+      "actor_simplified": "梁心",
+      "role_simplified": "白仲池",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳劍雲",
+      "role_raw": "夏鳳父",
+      "aliases_raw": [
+        "鳳父"
+      ],
+      "actor_traditional": "陳劍雲",
+      "role_traditional": "夏鳳父",
+      "aliases_traditional": [
+        "鳳父"
+      ],
+      "actor_simplified": "陈剑云",
+      "role_simplified": "夏凤父",
+      "aliases_simplified": [
+        "凤父"
+      ]
+    },
+    {
+      "actor_raw": "王瑞深",
+      "role_raw": "夏鳳母",
+      "aliases_raw": [],
+      "actor_traditional": "王瑞深",
+      "role_traditional": "夏鳳母",
+      "aliases_traditional": [],
+      "actor_simplified": "王瑞深",
+      "role_simplified": "夏凤母",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "高崗",
+      "role_raw": "李文標",
+      "aliases_raw": [],
+      "actor_traditional": "高崗",
+      "role_traditional": "李文標",
+      "aliases_traditional": [],
+      "actor_simplified": "高岗",
+      "role_simplified": "李文标",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "左化",
+      "role_raw": "興哥",
+      "aliases_raw": [],
+      "actor_traditional": "左化",
+      "role_traditional": "興哥",
+      "aliases_traditional": [],
+      "actor_simplified": "左化",
+      "role_simplified": "兴哥",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃新",
+      "role_raw": "吳非",
+      "aliases_raw": [],
+      "actor_traditional": "黃新",
+      "role_traditional": "吳非",
+      "aliases_traditional": [],
+      "actor_simplified": "黄新",
+      "role_simplified": "吴非",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "張平",
+      "role_raw": "鐵掌黑",
+      "aliases_raw": [],
+      "actor_traditional": "張平",
+      "role_traditional": "鐵掌黑",
+      "aliases_traditional": [],
+      "actor_simplified": "张平",
+      "role_simplified": "铁掌黑",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何頭銳",
+      "role_raw": "賈文林",
+      "aliases_raw": [],
+      "actor_traditional": "何頭銳",
+      "role_traditional": "賈文林",
+      "aliases_traditional": [],
+      "actor_simplified": "何头锐",
+      "role_simplified": "贾文林",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄭孟霞",
+      "role_raw": "包租婆",
+      "aliases_raw": [],
+      "actor_traditional": "鄭孟霞",
+      "role_traditional": "包租婆",
+      "aliases_traditional": [],
+      "actor_simplified": "郑孟霞",
+      "role_simplified": "包租婆",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃潔莊",
+      "role_raw": "小菊",
+      "aliases_raw": [],
+      "actor_traditional": "黃潔莊",
+      "role_traditional": "小菊",
+      "aliases_traditional": [],
+      "actor_simplified": "黄洁庄",
+      "role_simplified": "小菊",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "盧少慈",
+      "role_raw": "白莉莉",
+      "aliases_raw": [
+        "LILY"
+      ],
+      "actor_traditional": "盧少慈",
+      "role_traditional": "白莉莉",
+      "aliases_traditional": [
+        "LILY"
+      ],
+      "actor_simplified": "卢少慈",
+      "role_simplified": "白莉莉",
+      "aliases_simplified": [
+        "LILY"
+      ]
+    },
+    {
+      "actor_raw": "金興賢",
+      "role_raw": "羅西蒙",
+      "aliases_raw": [],
+      "actor_traditional": "金興賢",
+      "role_traditional": "羅西蒙",
+      "aliases_traditional": [],
+      "actor_simplified": "金兴贤",
+      "role_simplified": "罗西蒙",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "招麗嫦",
+      "role_raw": "艾美",
+      "aliases_raw": [],
+      "actor_traditional": "招麗嫦",
+      "role_traditional": "艾美",
+      "aliases_traditional": [],
+      "actor_simplified": "招丽嫦",
+      "role_simplified": "艾美",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "沈芝連",
+      "role_raw": "亞求",
+      "aliases_raw": [],
+      "actor_traditional": "沈芝連",
+      "role_traditional": "亞求",
+      "aliases_traditional": [],
+      "actor_simplified": "沈芝连",
+      "role_simplified": "亚求",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黎萍",
+      "role_raw": "葉老師",
+      "aliases_raw": [
+        "音樂老師"
+      ],
+      "actor_traditional": "黎萍",
+      "role_traditional": "葉老師",
+      "aliases_traditional": [
+        "音樂老師"
+      ],
+      "actor_simplified": "黎萍",
+      "role_simplified": "叶老师",
+      "aliases_simplified": [
+        "音乐老师"
+      ]
+    },
+    {
+      "actor_raw": "蕭鍵鏗",
+      "role_raw": "松下",
+      "aliases_raw": [],
+      "actor_traditional": "蕭鍵鏗",
+      "role_traditional": "松下",
+      "aliases_traditional": [],
+      "actor_simplified": "萧键铿",
+      "role_simplified": "松下",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "羅士華",
+      "role_raw": "駱應釣",
+      "aliases_raw": [],
+      "actor_traditional": "羅士華",
+      "role_traditional": "駱應釣",
+      "aliases_traditional": [],
+      "actor_simplified": "罗士华",
+      "role_simplified": "骆应钓",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐美玲",
+      "role_raw": "石小姐",
+      "aliases_raw": [],
+      "actor_traditional": "徐美玲",
+      "role_traditional": "石小姐",
+      "aliases_traditional": [],
+      "actor_simplified": "徐美玲",
+      "role_simplified": "石小姐",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁侃輝",
+      "role_raw": "阿占",
+      "aliases_raw": [],
+      "actor_traditional": "梁侃輝",
+      "role_traditional": "阿占",
+      "aliases_traditional": [],
+      "actor_simplified": "梁侃辉",
+      "role_simplified": "阿占",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "上官玉",
+      "role_raw": "高太",
+      "aliases_raw": [],
+      "actor_traditional": "上官玉",
+      "role_traditional": "高太",
+      "aliases_traditional": [],
+      "actor_simplified": "上官玉",
+      "role_simplified": "高太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐修",
+      "role_raw": "趙漢平",
+      "aliases_raw": [],
+      "actor_traditional": "徐修",
+      "role_traditional": "趙漢平",
+      "aliases_traditional": [],
+      "actor_simplified": "徐修",
+      "role_simplified": "赵漢平",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "龍天生",
+      "role_raw": "明仔",
+      "aliases_raw": [],
+      "actor_traditional": "龍天生",
+      "role_traditional": "明仔",
+      "aliases_traditional": [],
+      "actor_simplified": "龙天生",
+      "role_simplified": "明仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "連炎輝",
+      "role_raw": "超仔",
+      "aliases_raw": [],
+      "actor_traditional": "連炎輝",
+      "role_traditional": "超仔",
+      "aliases_traditional": [],
+      "actor_simplified": "连炎辉",
+      "role_simplified": "超仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "莊文清",
+      "role_raw": "鍾倩玲",
+      "aliases_raw": [],
+      "actor_traditional": "莊文清",
+      "role_traditional": "鍾倩玲",
+      "aliases_traditional": [],
+      "actor_simplified": "庄文清",
+      "role_simplified": "钟倩玲",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "葉夏利",
+      "role_raw": "玲父",
+      "aliases_raw": [
+        "鍾伯",
+        "鍾樹森"
+      ],
+      "actor_traditional": "葉夏利",
+      "role_traditional": "玲父",
+      "aliases_traditional": [
+        "鍾伯",
+        "鍾樹森"
+      ],
+      "actor_simplified": "叶夏利",
+      "role_simplified": "玲父",
+      "aliases_simplified": [
+        "钟伯",
+        "钟树森"
+      ]
+    },
+    {
+      "actor_raw": "歐陽莎菲",
+      "role_raw": "吳太",
+      "aliases_raw": [],
+      "actor_traditional": "歐陽莎菲",
+      "role_traditional": "吳太",
+      "aliases_traditional": [],
+      "actor_simplified": "欧阳莎菲",
+      "role_simplified": "吴太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄭嘉玲",
+      "role_raw": "小雲",
+      "aliases_raw": [],
+      "actor_traditional": "鄭嘉玲",
+      "role_traditional": "小雲",
+      "aliases_traditional": [],
+      "actor_simplified": "郑嘉玲",
+      "role_simplified": "小云",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳良忠",
+      "role_raw": "高一平",
+      "aliases_raw": [],
+      "actor_traditional": "陳良忠",
+      "role_traditional": "高一平",
+      "aliases_traditional": [],
+      "actor_simplified": "陈良忠",
+      "role_simplified": "高一平",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃家利",
+      "role_raw": "華仔",
+      "aliases_raw": [],
+      "actor_traditional": "黃家利",
+      "role_traditional": "華仔",
+      "aliases_traditional": [],
+      "actor_simplified": "黄家利",
+      "role_simplified": "华仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "程玉貞",
+      "role_raw": "雲姐",
+      "aliases_raw": [],
+      "actor_traditional": "程玉貞",
+      "role_traditional": "雲姐",
+      "aliases_traditional": [],
+      "actor_simplified": "程玉贞",
+      "role_simplified": "云姐",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁侃輝",
+      "role_raw": "JIM",
+      "aliases_raw": [],
+      "actor_traditional": "梁侃輝",
+      "role_traditional": "JIM",
+      "aliases_traditional": [],
+      "actor_simplified": "梁侃辉",
+      "role_simplified": "JIM",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馮碧儀",
+      "role_raw": "情婦",
+      "aliases_raw": [],
+      "actor_traditional": "馮碧儀",
+      "role_traditional": "情婦",
+      "aliases_traditional": [],
+      "actor_simplified": "冯碧仪",
+      "role_simplified": "情妇",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梅蘭",
+      "role_raw": "阿四",
+      "aliases_raw": [],
+      "actor_traditional": "梅蘭",
+      "role_traditional": "阿四",
+      "aliases_traditional": [],
+      "actor_simplified": "梅兰",
+      "role_simplified": "阿四",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "王炳麟",
+      "role_raw": "司機",
+      "aliases_raw": [],
+      "actor_traditional": "王炳麟",
+      "role_traditional": "司機",
+      "aliases_traditional": [],
+      "actor_simplified": "王炳麟",
+      "role_simplified": "司机",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳守強",
+      "role_raw": "李志昭",
+      "aliases_raw": [],
+      "actor_traditional": "陳守強",
+      "role_traditional": "李志昭",
+      "aliases_traditional": [],
+      "actor_simplified": "陈守强",
+      "role_simplified": "李志昭",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梅蘭",
+      "role_raw": "傭人",
+      "aliases_raw": [],
+      "actor_traditional": "梅蘭",
+      "role_traditional": "傭人",
+      "aliases_traditional": [],
+      "actor_simplified": "梅兰",
+      "role_simplified": "佣人",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "PeterMorris",
+      "role_raw": "洋製片",
+      "aliases_raw": [],
+      "actor_traditional": "PeterMorris",
+      "role_traditional": "洋製片",
+      "aliases_traditional": [],
+      "actor_simplified": "PeterMorris",
+      "role_simplified": "洋制片",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "王美娜",
+      "role_raw": "玉女",
+      "aliases_raw": [],
+      "actor_traditional": "王美娜",
+      "role_traditional": "玉女",
+      "aliases_traditional": [],
+      "actor_simplified": "王美娜",
+      "role_simplified": "玉女",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何廣倫",
+      "role_raw": "沙皮成",
+      "aliases_raw": [],
+      "actor_traditional": "何廣倫",
+      "role_traditional": "沙皮成",
+      "aliases_traditional": [],
+      "actor_simplified": "何广伦",
+      "role_simplified": "沙皮成",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳志光",
+      "role_raw": "劇務",
+      "aliases_raw": [],
+      "actor_traditional": "陳志光",
+      "role_traditional": "劇務",
+      "aliases_traditional": [],
+      "actor_simplified": "陈志光",
+      "role_simplified": "剧务",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "関彬",
+      "role_raw": "阿標",
+      "aliases_raw": [],
+      "actor_traditional": "關彬",
+      "role_traditional": "阿標",
+      "aliases_traditional": [],
+      "actor_simplified": "关彬",
+      "role_simplified": "阿标",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黎劍雄",
+      "role_raw": "阿虎",
+      "aliases_raw": [],
+      "actor_traditional": "黎劍雄",
+      "role_traditional": "阿虎",
+      "aliases_traditional": [],
+      "actor_simplified": "黎剑雄",
+      "role_simplified": "阿虎",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梅蘭",
+      "role_raw": "阿三",
+      "aliases_raw": [],
+      "actor_traditional": "梅蘭",
+      "role_traditional": "阿三",
+      "aliases_traditional": [],
+      "actor_simplified": "梅兰",
+      "role_simplified": "阿三",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梅蘭",
+      "role_raw": "阿四",
+      "aliases_raw": [],
+      "actor_traditional": "梅蘭",
+      "role_traditional": "阿四",
+      "aliases_traditional": [],
+      "actor_simplified": "梅兰",
+      "role_simplified": "阿四",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "旋澤",
+      "role_raw": "炳叔",
+      "aliases_raw": [],
+      "actor_traditional": "旋澤",
+      "role_traditional": "炳叔",
+      "aliases_traditional": [],
+      "actor_simplified": "旋泽",
+      "role_simplified": "炳叔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉雅麗",
+      "role_raw": "阿玉",
+      "aliases_raw": [],
+      "actor_traditional": "劉雅麗",
+      "role_traditional": "阿玉",
+      "aliases_traditional": [],
+      "actor_simplified": "刘雅丽",
+      "role_simplified": "阿玉",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "韓燕妮",
+      "role_raw": "何秘書",
+      "aliases_raw": [],
+      "actor_traditional": "韓燕妮",
+      "role_traditional": "何秘書",
+      "aliases_traditional": [],
+      "actor_simplified": "韩燕妮",
+      "role_simplified": "何秘书",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李鵬飛",
+      "role_raw": "鄭先生",
+      "aliases_raw": [
+        "鄭經紀"
+      ],
+      "actor_traditional": "李鵬飛",
+      "role_traditional": "鄭先生",
+      "aliases_traditional": [
+        "鄭經紀"
+      ],
+      "actor_simplified": "李鹏飞",
+      "role_simplified": "郑先生",
+      "aliases_simplified": [
+        "郑经纪"
+      ]
+    },
+    {
+      "actor_raw": "蘇鴻連",
+      "role_raw": "蔡經紀",
+      "aliases_raw": [],
+      "actor_traditional": "蘇鴻連",
+      "role_traditional": "蔡經紀",
+      "aliases_traditional": [],
+      "actor_simplified": "苏鸿连",
+      "role_simplified": "蔡经纪",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何雲",
+      "role_raw": "黃先生",
+      "aliases_raw": [],
+      "actor_traditional": "何雲",
+      "role_traditional": "黃先生",
+      "aliases_traditional": [],
+      "actor_simplified": "何云",
+      "role_simplified": "黄先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黎永強",
+      "role_raw": "馬求先",
+      "aliases_raw": [],
+      "actor_traditional": "黎永強",
+      "role_traditional": "馬求先",
+      "aliases_traditional": [],
+      "actor_simplified": "黎永强",
+      "role_simplified": "马求先",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳榮光",
+      "role_raw": "方仔",
+      "aliases_raw": [],
+      "actor_traditional": "陳榮光",
+      "role_traditional": "方仔",
+      "aliases_traditional": [],
+      "actor_simplified": "陈荣光",
+      "role_simplified": "方仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "劉丹",
+      "role_raw": "莫先生",
+      "aliases_raw": [
+        "莫洪",
+        "莫雄"
+      ],
+      "actor_traditional": "劉丹",
+      "role_traditional": "莫先生",
+      "aliases_traditional": [
+        "莫洪",
+        "莫雄"
+      ],
+      "actor_simplified": "刘丹",
+      "role_simplified": "莫先生",
+      "aliases_simplified": [
+        "莫洪",
+        "莫雄"
+      ]
+    },
+    {
+      "actor_raw": "何禮男",
+      "role_raw": "保鏢",
+      "aliases_raw": [],
+      "actor_traditional": "何禮男",
+      "role_traditional": "保鏢",
+      "aliases_traditional": [],
+      "actor_simplified": "何礼男",
+      "role_simplified": "保镖",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "甘國亮",
+      "role_raw": "王彼得",
+      "aliases_raw": [],
+      "actor_traditional": "甘國亮",
+      "role_traditional": "王彼得",
+      "aliases_traditional": [],
+      "actor_simplified": "甘国亮",
+      "role_simplified": "王彼得",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐美玲",
+      "role_raw": "秘書",
+      "aliases_raw": [],
+      "actor_traditional": "徐美玲",
+      "role_traditional": "秘書",
+      "aliases_traditional": [],
+      "actor_simplified": "徐美玲",
+      "role_simplified": "秘书",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "關聰",
+      "role_raw": "白永光",
+      "aliases_raw": [],
+      "actor_traditional": "關聰",
+      "role_traditional": "白永光",
+      "aliases_traditional": [],
+      "actor_simplified": "关聪",
+      "role_simplified": "白永光",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "余綺霞",
+      "role_raw": "白永光太太",
+      "aliases_raw": [],
+      "actor_traditional": "余綺霞",
+      "role_traditional": "白永光太太",
+      "aliases_traditional": [],
+      "actor_simplified": "余绮霞",
+      "role_simplified": "白永光太太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李志中",
+      "role_raw": "傅律師",
+      "aliases_raw": [],
+      "actor_traditional": "李志中",
+      "role_traditional": "傅律師",
+      "aliases_traditional": [],
+      "actor_simplified": "李志中",
+      "role_simplified": "傅律师",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "蔡庭基",
+      "role_raw": "白子",
+      "aliases_raw": [],
+      "actor_traditional": "蔡庭基",
+      "role_traditional": "白子",
+      "aliases_traditional": [],
+      "actor_simplified": "蔡庭基",
+      "role_simplified": "白子",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黃金",
+      "role_raw": "梁母",
+      "aliases_raw": [],
+      "actor_traditional": "黃金",
+      "role_traditional": "梁母",
+      "aliases_traditional": [],
+      "actor_simplified": "黄金",
+      "role_simplified": "梁母",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "沈芝連",
+      "role_raw": "司機",
+      "aliases_raw": [],
+      "actor_traditional": "沈芝連",
+      "role_traditional": "司機",
+      "aliases_traditional": [],
+      "actor_simplified": "沈芝连",
+      "role_simplified": "司机",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "馮敬文",
+      "role_raw": "廖本",
+      "aliases_raw": [],
+      "actor_traditional": "馮敬文",
+      "role_traditional": "廖本",
+      "aliases_traditional": [],
+      "actor_simplified": "冯敬文",
+      "role_simplified": "廖本",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周志輝",
+      "role_raw": "阿成",
+      "aliases_raw": [],
+      "actor_traditional": "周志輝",
+      "role_traditional": "阿成",
+      "aliases_traditional": [],
+      "actor_simplified": "周志辉",
+      "role_simplified": "阿成",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "何禮男",
+      "role_raw": "阿求",
+      "aliases_raw": [],
+      "actor_traditional": "何禮男",
+      "role_traditional": "阿求",
+      "aliases_traditional": [],
+      "actor_simplified": "何礼男",
+      "role_simplified": "阿求",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "李志中",
+      "role_raw": "傅伯文",
+      "aliases_raw": [],
+      "actor_traditional": "李志中",
+      "role_traditional": "傅伯文",
+      "aliases_traditional": [],
+      "actor_simplified": "李志中",
+      "role_simplified": "傅伯文",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "石少麟",
+      "role_raw": "編輯",
+      "aliases_raw": [],
+      "actor_traditional": "石少麟",
+      "role_traditional": "編輯",
+      "aliases_traditional": [],
+      "actor_simplified": "石少麟",
+      "role_simplified": "编辑",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周岳",
+      "role_raw": "酒店經理",
+      "aliases_raw": [],
+      "actor_traditional": "周岳",
+      "role_traditional": "酒店經理",
+      "aliases_traditional": [],
+      "actor_simplified": "周岳",
+      "role_simplified": "酒店经理",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "烈燕雲",
+      "role_raw": "譚秘書",
+      "aliases_raw": [
+        "譚小姐"
+      ],
+      "actor_traditional": "烈燕雲",
+      "role_traditional": "譚秘書",
+      "aliases_traditional": [
+        "譚小姐"
+      ],
+      "actor_simplified": "烈燕云",
+      "role_simplified": "谭秘书",
+      "aliases_simplified": [
+        "谭小姐"
+      ]
+    },
+    {
+      "actor_raw": "徐美玲",
+      "role_raw": "萬小姐",
+      "aliases_raw": [],
+      "actor_traditional": "徐美玲",
+      "role_traditional": "萬小姐",
+      "aliases_traditional": [],
+      "actor_simplified": "徐美玲",
+      "role_simplified": "万小姐",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "張活游",
+      "role_raw": "魏老細",
+      "aliases_raw": [],
+      "actor_traditional": "張活游",
+      "role_traditional": "魏老細",
+      "aliases_traditional": [],
+      "actor_simplified": "张活游",
+      "role_simplified": "魏老细",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "烈燕雲",
+      "role_raw": "徐秘書",
+      "aliases_raw": [],
+      "actor_traditional": "烈燕雲",
+      "role_traditional": "徐秘書",
+      "aliases_traditional": [],
+      "actor_simplified": "烈燕云",
+      "role_simplified": "徐秘书",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "龐卓林",
+      "role_raw": "鏡叔",
+      "aliases_raw": [],
+      "actor_traditional": "龐卓林",
+      "role_traditional": "鏡叔",
+      "aliases_traditional": [],
+      "actor_simplified": "庞卓林",
+      "role_simplified": "镜叔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "吳一森",
+      "role_raw": "九仔",
+      "aliases_raw": [],
+      "actor_traditional": "吳一森",
+      "role_traditional": "九仔",
+      "aliases_traditional": [],
+      "actor_simplified": "吴一森",
+      "role_simplified": "九仔",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "徐雲雄",
+      "role_raw": "王先生",
+      "aliases_raw": [],
+      "actor_traditional": "徐雲雄",
+      "role_traditional": "王先生",
+      "aliases_traditional": [],
+      "actor_simplified": "徐云雄",
+      "role_simplified": "王先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳永康",
+      "role_raw": "老闆",
+      "aliases_raw": [],
+      "actor_traditional": "陳永康",
+      "role_traditional": "老闆",
+      "aliases_traditional": [],
+      "actor_simplified": "陈永康",
+      "role_simplified": "老板",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄭樹楓",
+      "role_raw": "古惑成",
+      "aliases_raw": [],
+      "actor_traditional": "鄭樹楓",
+      "role_traditional": "古惑成",
+      "aliases_traditional": [],
+      "actor_simplified": "郑树枫",
+      "role_simplified": "古惑成",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "黎經緯",
+      "role_raw": "唐先生",
+      "aliases_raw": [],
+      "actor_traditional": "黎經緯",
+      "role_traditional": "唐先生",
+      "aliases_traditional": [],
+      "actor_simplified": "黎经纬",
+      "role_simplified": "唐先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "談泉慶",
+      "role_raw": "偵探",
+      "aliases_raw": [],
+      "actor_traditional": "談泉慶",
+      "role_traditional": "偵探",
+      "aliases_traditional": [],
+      "actor_simplified": "谈泉庆",
+      "role_simplified": "侦探",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周志輝",
+      "role_raw": "阿成",
+      "aliases_raw": [],
+      "actor_traditional": "周志輝",
+      "role_traditional": "阿成",
+      "aliases_traditional": [],
+      "actor_simplified": "周志辉",
+      "role_simplified": "阿成",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "許瑩英",
+      "role_raw": "古太",
+      "aliases_raw": [],
+      "actor_traditional": "許瑩英",
+      "role_traditional": "古太",
+      "aliases_traditional": [],
+      "actor_simplified": "许莹英",
+      "role_simplified": "古太",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "梁雄",
+      "role_raw": "阿森",
+      "aliases_raw": [],
+      "actor_traditional": "梁雄",
+      "role_traditional": "阿森",
+      "aliases_traditional": [],
+      "actor_simplified": "梁雄",
+      "role_simplified": "阿森",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "任達華",
+      "role_raw": "阿卜",
+      "aliases_raw": [],
+      "actor_traditional": "任達華",
+      "role_traditional": "阿卜",
+      "aliases_traditional": [],
+      "actor_simplified": "任达华",
+      "role_simplified": "阿卜",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "林家宜",
+      "role_raw": "周先生",
+      "aliases_raw": [],
+      "actor_traditional": "林家宜",
+      "role_traditional": "周先生",
+      "aliases_traditional": [],
+      "actor_simplified": "林家宜",
+      "role_simplified": "周先生",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "龍天生",
+      "role_raw": "阿超",
+      "aliases_raw": [],
+      "actor_traditional": "龍天生",
+      "role_traditional": "阿超",
+      "aliases_traditional": [],
+      "actor_simplified": "龙天生",
+      "role_simplified": "阿超",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "余绮霞",
+      "role_raw": "白妻",
+      "aliases_raw": [],
+      "actor_traditional": "余綺霞",
+      "role_traditional": "白妻",
+      "aliases_traditional": [],
+      "actor_simplified": "余绮霞",
+      "role_simplified": "白妻",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "蔡庭基",
+      "role_raw": "白子",
+      "aliases_raw": [],
+      "actor_traditional": "蔡庭基",
+      "role_traditional": "白子",
+      "aliases_traditional": [],
+      "actor_simplified": "蔡庭基",
+      "role_simplified": "白子",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鄧寬",
+      "role_raw": "船主",
+      "aliases_raw": [
+        "船家"
+      ],
+      "actor_traditional": "鄧寬",
+      "role_traditional": "船主",
+      "aliases_traditional": [
+        "船家"
+      ],
+      "actor_simplified": "邓宽",
+      "role_simplified": "船主",
+      "aliases_simplified": [
+        "船家"
+      ]
+    },
+    {
+      "actor_raw": "馬慶生",
+      "role_raw": "吕英平",
+      "aliases_raw": [],
+      "actor_traditional": "馬慶生",
+      "role_traditional": "呂英平",
+      "aliases_traditional": [],
+      "actor_simplified": "马庆生",
+      "role_simplified": "吕英平",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "龍天生",
+      "role_raw": "阿明",
+      "aliases_raw": [],
+      "actor_traditional": "龍天生",
+      "role_traditional": "阿明",
+      "aliases_traditional": [],
+      "actor_simplified": "龙天生",
+      "role_simplified": "阿明",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "陳錫光",
+      "role_raw": "易可林",
+      "aliases_raw": [],
+      "actor_traditional": "陳錫光",
+      "role_traditional": "易可林",
+      "aliases_traditional": [],
+      "actor_simplified": "陈锡光",
+      "role_simplified": "易可林",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "周吉",
+      "role_raw": "福伯",
+      "aliases_raw": [],
+      "actor_traditional": "周吉",
+      "role_traditional": "福伯",
+      "aliases_traditional": [],
+      "actor_simplified": "周吉",
+      "role_simplified": "福伯",
+      "aliases_simplified": []
+    },
+    {
+      "actor_raw": "鍾俊偉",
+      "role_raw": "大喪",
+      "aliases_raw": [],
+      "actor_traditional": "鍾俊偉",
+      "role_traditional": "大喪",
+      "aliases_traditional": [],
+      "actor_simplified": "钟俊伟",
+      "role_simplified": "大丧",
+      "aliases_simplified": []
+    }
+  ]
+}

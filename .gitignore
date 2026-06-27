@@ -10,6 +10,9 @@ venv/
 .codex_tmp/
 .agents/
 
+# ---- 本地人工参考字幕（可能涉及版权，不上传）----
+reference/simplified_human/*.srt
+
 # ---- 豆包 ASR 原始数据（不上传，体积大且属于数据）----
 cache/doubao/*
 !cache/doubao/.gitkeep

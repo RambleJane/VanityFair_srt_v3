@@ -15,6 +15,7 @@ from .quality import flag_segments
 from .repair import repair_segments
 from .report import write_segmentation_outputs
 from .scorer import score_candidate
+from .theme_song import apply_theme_song_override
 
 
 def _segment_from_dict(item: dict[str, Any]) -> SubtitleSegment:
@@ -42,7 +43,9 @@ def build_segments_from_doubao_result(
             score_candidate(candidate, config, gap_profile)
         all_candidates.extend(candidates)
         draft_segments.extend(cut_island_to_segments(island, candidates, config, gap_profile, episode))
-    segments = flag_segments(repair_segments(draft_segments, config), config)
+    segments = repair_segments(draft_segments, config)
+    segments = apply_theme_song_override(episode, segments, utterances, paths, config)
+    segments = flag_segments(segments, config)
     write_json(target, [asdict(segment) for segment in segments])
     write_segmentation_outputs(episode, utterances, islands, all_candidates, segments, gap_profile, paths)
     return segments
