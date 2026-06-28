@@ -10,10 +10,10 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "project": {"run_until": "segmented"},
     "cache": {"overwrite_existing": False},
     "segmentation": {
-        "target_min_chars": 10, "target_max_chars": 16,
-        "soft_max_chars": 18, "hard_max_chars": 22,
-        "target_min_duration": 1.2, "target_max_duration": 4.5,
-        "soft_max_duration": 5.0, "hard_max_duration": 6.0,
+        "target_min_chars": 10, "target_max_chars": 18,
+        "soft_max_chars": 20, "hard_max_chars": 24,
+        "target_min_duration": 1.2, "target_max_duration": 5.0,
+        "soft_max_duration": 5.8, "hard_max_duration": 6.8,
         "hard_min_duration": 0.8, "weak_gap_default": 0.35,
         "soft_gap_floor": 0.50, "strong_gap_floor": 0.90,
         "speech_island_gap_seconds": 1.20, "max_subtitle_cps": 11.0,
@@ -24,15 +24,27 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "possible_over_split_gap": 0.50,
         "merge_short_segment_max_chars": 2,
         "merge_short_segment_max_duration": 0.8,
+        "lookahead_words_after_soft_limit": 4,
+        "forced_cut_min_natural_score": 2.0,
     },
     "theme_song": {
         "enabled": True,
         "json_path": "agent/theme_song.json",
-        "search_start_seconds": 0.0,
-        "search_end_seconds": 120.0,
-        "min_line_score": 0.55,
-        "min_first_line_score": 0.50,
-        "min_matched_lines": 2,
+        "opening": {
+            "enabled": True,
+            "search_start_seconds": 0.0,
+            "search_end_seconds": 120.0,
+            "min_line_score": 0.55,
+            "min_first_line_score": 0.50,
+            "min_matched_lines": 2,
+        },
+        "ending": {
+            "enabled": True,
+            "search_last_seconds": 180.0,
+            "min_line_score": 0.55,
+            "min_first_line_score": 0.50,
+            "min_matched_lines": 3,
+        },
         "max_gap_between_matched_lines_seconds": 12.0,
         "apply_fixed_lyrics": True,
         "theme_extend_end_seconds": 0.50,
@@ -94,7 +106,19 @@ def load_config(config_path: str | Path | None = None) -> dict[str, Any]:
     path = Path(config_path)
     if not path.is_file():
         raise FileNotFoundError(f"Config not found: {path}")
-    return _merge(config, _load_simple_yaml(path.read_text(encoding="utf-8-sig")))
+    updates = _load_simple_yaml(path.read_text(encoding="utf-8-sig"))
+    theme_updates = updates.get("theme_song")
+    if isinstance(theme_updates, dict) and "opening" not in theme_updates:
+        legacy_keys = (
+            "search_start_seconds", "search_end_seconds", "min_line_score",
+            "min_first_line_score", "min_matched_lines",
+        )
+        legacy_opening = {
+            key: theme_updates.pop(key) for key in legacy_keys if key in theme_updates
+        }
+        if legacy_opening:
+            theme_updates["opening"] = legacy_opening
+    return _merge(config, updates)
 
 
 def parse_episodes(value: str) -> list[str]:

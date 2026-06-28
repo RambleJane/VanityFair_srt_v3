@@ -15,7 +15,8 @@ from .candidates import char_count
 
 _DETAIL_FLAGS = (
     "short_reaction", "standalone_interjection", "possible_over_split",
-    "forced_cut", "theme_song", "fixed_lyric",
+    "forced_cut", "pressure_cut", "hard_forced_cut", "bad_forced_cut",
+    "theme_song", "fixed_lyric", "theme_opening", "theme_ending",
 )
 
 
@@ -59,6 +60,10 @@ def write_segmentation_outputs(
     total_chars = sum(char_count(segment.raw_text) for segment in segments)
     total_duration = sum(max(0.0, segment.end - segment.start) for segment in segments)
     cps_values = [segment.debug.get("cps", 0.0) for segment in segments]
+    opening_theme = [segment for segment in segments if "theme_opening" in segment.flags]
+    ending_theme = [segment for segment in segments if "theme_ending" in segment.flags]
+    opening_scores = [float(segment.debug["score"]) for segment in opening_theme if segment.debug.get("score") is not None]
+    ending_scores = [float(segment.debug["score"]) for segment in ending_theme if segment.debug.get("score") is not None]
     report = {
         "episode": episode,
         "total_utterances": len(utterances),
@@ -67,6 +72,18 @@ def write_segmentation_outputs(
         "total_segments": len(segments),
         "gap_profile": asdict(gap_profile),
         "flag_counts": dict(sorted(flag_counts.items())),
+        "forced_cut_summary": {
+            "forced_cut": flag_counts.get("forced_cut", 0),
+            "pressure_cut": flag_counts.get("pressure_cut", 0),
+            "hard_forced_cut": flag_counts.get("hard_forced_cut", 0),
+            "bad_forced_cut": flag_counts.get("bad_forced_cut", 0),
+        },
+        "theme_song_summary": {
+            "opening_matched_lines": len(opening_theme),
+            "ending_matched_lines": len(ending_theme),
+            "opening_score_avg": round(sum(opening_scores) / len(opening_scores), 6) if opening_scores else None,
+            "ending_score_avg": round(sum(ending_scores) / len(ending_scores), 6) if ending_scores else None,
+        },
         "long_segments": [asdict(item) for item in segments if "too_long_chars" in item.flags or "too_long_duration" in item.flags][:20],
         "particle_fragment_examples": [asdict(item) for item in segments if "particle_fragment" in item.flags][:20],
         "averages": {
@@ -100,16 +117,20 @@ def write_segmentation_outputs(
             "flags": " | ".join(segment.flags),
             "source_utterance_index": segment.source_utterance_index,
             "cut_score": segment.debug.get("cut_score"),
+            "cut_type": segment.debug.get("cut_type"),
             "cut_reasons": " | ".join(segment.debug.get("cut_reasons", [])),
+            "cut_pressure_reasons": " | ".join(segment.debug.get("cut_pressure_reasons", [])),
             "theme_song": segment.debug.get("theme_song", False),
+            "theme_region": segment.debug.get("theme_region"),
             "lyric_index": segment.debug.get("lyric_index"),
             "theme_score": segment.debug.get("score"),
             "theme_asr_text": segment.debug.get("asr_text"),
-            "forced_cut": segment.debug.get("forced_cut", False),
+            "asr_text": segment.debug.get("asr_text"),
+            "forced_cut": "forced_cut" in segment.flags,
         })
     _write_csv(
         paths.lab_dir / f"{episode}_segments_preview.csv",
-        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_score", "cut_reasons", "theme_song", "lyric_index", "theme_score", "theme_asr_text", "forced_cut"],
+        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_type", "cut_score", "cut_reasons", "cut_pressure_reasons", "theme_song", "theme_region", "lyric_index", "theme_score", "asr_text", "theme_asr_text", "forced_cut"],
         preview_rows,
     )
     return report

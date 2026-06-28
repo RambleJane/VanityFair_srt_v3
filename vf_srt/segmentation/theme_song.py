@@ -25,6 +25,74 @@ def _settings(config: dict[str, Any]) -> dict[str, Any]:
     return config.get("theme_song", config)
 
 
+def _region_settings(config: dict[str, Any], region: str) -> dict[str, Any]:
+    settings = _settings(config)
+    defaults: dict[str, Any] = {
+        "enabled": True,
+        "min_line_score": 0.55,
+        "min_first_line_score": 0.50,
+        "min_matched_lines": 2 if region == "opening" else 3,
+    }
+    if region == "opening":
+        defaults.update({"search_start_seconds": 0.0, "search_end_seconds": 120.0})
+    else:
+        defaults.update({"search_last_seconds": 180.0})
+    regional = settings.get(region)
+    if isinstance(regional, dict):
+        defaults.update(regional)
+    elif region == "opening":
+        # Backward compatibility: the old flat interval represented opening only.
+        for key in (
+            "search_start_seconds", "search_end_seconds", "min_line_score",
+            "min_first_line_score", "min_matched_lines",
+        ):
+            if key in settings:
+                defaults[key] = settings[key]
+    else:
+        defaults["enabled"] = False
+    defaults["max_gap_between_matched_lines_seconds"] = settings.get(
+        "max_gap_between_matched_lines_seconds", 12.0
+    )
+    return defaults
+
+
+def _last_utterance_end(utterances: list[Utterance]) -> float:
+    return max((float(utterance.end) for utterance in utterances), default=0.0)
+
+
+def _audio_duration_from_result(
+    episode: str, paths: Any, utterances: list[Utterance],
+) -> float:
+    fallback = _last_utterance_end(utterances)
+    cache_directory = getattr(paths, "doubao_cache_dir", None)
+    if cache_directory is None:
+        return fallback
+    source = Path(cache_directory) / f"{str(episode).zfill(2)}_result.json"
+    try:
+        with source.open("r", encoding="utf-8-sig") as handle:
+            data = json.load(handle)
+        if not isinstance(data, dict):
+            return fallback
+        body = data.get("body") if isinstance(data.get("body"), dict) else {}
+        result = data.get("result") if isinstance(data.get("result"), dict) else {}
+        body_result = body.get("result") if isinstance(body.get("result"), dict) else {}
+        containers = (data, body, result, body_result)
+        audio_info = next(
+            (
+                container["audio_info"] for container in containers
+                if isinstance(container.get("audio_info"), dict)
+                and container["audio_info"].get("duration") is not None
+            ),
+            {},
+        )
+        value = float(audio_info.get("duration"))
+    except (OSError, UnicodeError, json.JSONDecodeError, TypeError, ValueError):
+        return fallback
+    if (fallback > 0 and value > fallback * 10) or (fallback <= 0 and value > 10_000):
+        value /= 1000.0
+    return value if value > 0 else fallback
+
+
 def load_theme_song(path: str | Path) -> dict[str, Any] | None:
     source = Path(path)
     if not source.is_file():
@@ -91,10 +159,23 @@ def _search_line_window(
 
 def detect_theme_song_matches(
     utterances: list[Utterance], theme_song: dict[str, Any], config: dict[str, Any],
+    region: str = "opening", audio_duration: float | None = None,
 ) -> list[dict[str, Any]]:
+    if region not in {"opening", "ending"}:
+        raise ValueError(f"Unknown theme song region: {region}")
     settings = _settings(config)
-    start_seconds = float(settings.get("search_start_seconds", 0.0))
-    end_seconds = float(settings.get("search_end_seconds", 120.0))
+    regional = _region_settings(settings, region)
+    if not bool(regional.get("enabled", True)):
+        return []
+    if region == "opening":
+        start_seconds = float(regional.get("search_start_seconds", 0.0))
+        end_seconds = float(regional.get("search_end_seconds", 120.0))
+    else:
+        duration = float(audio_duration) if audio_duration is not None else _last_utterance_end(utterances)
+        if duration <= 0:
+            return []
+        start_seconds = max(0.0, duration - float(regional.get("search_last_seconds", 180.0)))
+        end_seconds = duration
     words = sorted(
         (
             word for utterance in utterances for word in utterance.words
@@ -109,7 +190,7 @@ def detect_theme_song_matches(
     cursor = 0
     previous_end: float | None = None
     matches: list[dict[str, Any]] = []
-    max_line_gap = float(settings.get("max_gap_between_matched_lines_seconds", 12.0))
+    max_line_gap = float(regional.get("max_gap_between_matched_lines_seconds", 12.0))
     for lyric_number, lyric in enumerate(lyrics):
         if not isinstance(lyric, dict):
             break
@@ -119,10 +200,11 @@ def detect_theme_song_matches(
             break
         score, start_index, end_index = best
         threshold_key = "min_first_line_score" if lyric_number == 0 else "min_line_score"
-        if score < float(settings.get(threshold_key, 0.5 if lyric_number == 0 else 0.55)):
+        if score < float(regional.get(threshold_key, 0.5 if lyric_number == 0 else 0.55)):
             break
         matched_words = words[start_index:end_index + 1]
         matches.append({
+            "theme_region": region,
             "lyric_index": lyric.get("index", lyric_number + 1),
             "simplified": str(lyric.get("simplified") or lyric.get("traditional") or ""),
             "traditional": str(lyric.get("traditional") or lyric.get("simplified") or ""),
@@ -136,7 +218,7 @@ def detect_theme_song_matches(
         cursor = end_index + 1
         previous_end = matched_words[-1].end
 
-    if len(matches) < int(settings.get("min_matched_lines", 2)):
+    if len(matches) < int(regional.get("min_matched_lines", 2 if region == "opening" else 3)):
         return []
     return matches
 
@@ -151,8 +233,10 @@ def build_theme_song_segments(
     for index, match in enumerate(matches, start=1):
         start = float(match["start"])
         end = float(match["end"]) + extend
+        region = str(match.get("theme_region", "opening"))
         debug = {
             "theme_song": True,
+            "theme_region": region,
             "lyric_index": match["lyric_index"],
             "score": match["score"],
             "asr_text": match["asr_text"],
@@ -166,7 +250,7 @@ def build_theme_song_segments(
             start=start,
             end=end,
             raw_text=str(match.get("simplified") or match.get("traditional") or ""),
-            flags=["theme_song", "fixed_lyric"],
+            flags=["theme_song", "fixed_lyric", f"theme_{region}"],
             debug=debug,
         ))
     return output
@@ -197,18 +281,33 @@ def apply_theme_song_override(
     theme_song = load_theme_song(source)
     if theme_song is None:
         return segments
-    matches = detect_theme_song_matches(utterances, theme_song, settings)
-    if not matches:
+    audio_duration = _audio_duration_from_result(episode, paths, utterances)
+    theme_segments: list[SubtitleSegment] = []
+    theme_intervals: list[tuple[float, float]] = []
+    for region in ("opening", "ending"):
+        regional = _region_settings(settings, region)
+        if not bool(regional.get("enabled", True)):
+            continue
+        matches = detect_theme_song_matches(
+            utterances, theme_song, settings, region=region, audio_duration=audio_duration,
+        )
+        if not matches:
+            continue
+        regional_segments = build_theme_song_segments(episode, matches, settings)
+        theme_segments.extend(regional_segments)
+        theme_intervals.append((regional_segments[0].start, regional_segments[-1].end))
+    if not theme_segments:
         return segments
-    theme_segments = build_theme_song_segments(episode, matches, settings)
-    theme_start = theme_segments[0].start
-    theme_end = theme_segments[-1].end
     remaining: list[SubtitleSegment] = []
     for original in segments:
         segment = deepcopy(original)
         duration = max(0.0, segment.end - segment.start)
-        overlap = max(0.0, min(segment.end, theme_end) - max(segment.start, theme_start))
-        if duration > 0 and overlap > duration * 0.5:
+        overlaps_theme = any(
+            max(0.0, min(segment.end, interval_end) - max(segment.start, interval_start))
+            > duration * 0.5
+            for interval_start, interval_end in theme_intervals
+        )
+        if duration > 0 and overlaps_theme:
             continue
         remaining.append(segment)
     minimum_gap = float(config.get("segmentation", {}).get("min_gap_between_subtitles", 0.08))

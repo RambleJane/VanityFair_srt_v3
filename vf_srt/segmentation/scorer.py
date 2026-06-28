@@ -28,15 +28,28 @@ def score_candidate(
         _add(candidate, 2, "strong_punctuation")
     elif is_soft_punct(candidate.trailing_punct):
         _add(candidate, 1, "soft_punctuation")
-    if 10 <= candidate.chars_before <= 18:
+    if (
+        ("，" in candidate.trailing_punct or "," in candidate.trailing_punct)
+        and candidate.gap_after >= gap_profile.weak_gap
+        and candidate.chars_before >= int(settings["target_min_chars"])
+    ):
+        _add(candidate, 2, "natural_comma_weak_gap_enough_chars")
+    if (
+        (is_tail_particle(candidate.prev_text) or is_tail_particle(candidate.prev_text[-1:]))
+        and candidate.chars_before >= 8
+    ):
+        _add(candidate, 1.5, "natural_tail_particle_boundary")
+    if int(settings["target_min_chars"]) <= candidate.chars_before <= int(settings["target_max_chars"]):
         _add(candidate, 1, "comfortable_chars_before")
-    if candidate.chars_before > 22:
+    if candidate.chars_before >= int(settings["hard_max_chars"]):
         _add(candidate, 4, "over_hard_chars_before")
-    elif candidate.chars_before > 18:
+    elif candidate.chars_before >= int(settings["soft_max_chars"]):
         _add(candidate, 2, "over_soft_chars_before")
-    if candidate.duration_before > float(settings["hard_max_duration"]):
+    if candidate.duration_before >= float(settings["hard_max_duration"]):
         _add(candidate, 4, "over_hard_duration_before")
-    elif candidate.duration_before > float(settings["target_max_duration"]):
+    elif candidate.duration_before >= float(settings["soft_max_duration"]):
+        _add(candidate, 3, "over_soft_duration_before")
+    elif candidate.duration_before >= float(settings["target_max_duration"]):
         _add(candidate, 2, "over_target_duration_before")
     if bad_cut_before_next_word(candidate.next_text):
         _add(candidate, -5, "cut_before_tail_particle")
@@ -46,6 +59,9 @@ def score_candidate(
         _add(candidate, -4, "short_after")
     if is_particle_fragment(candidate.next_text) or (candidate.chars_after <= 2 and is_tail_particle(candidate.next_text)):
         _add(candidate, -8, "isolated_particle")
-    if is_head_interjection(candidate.next_text) or candidate.next_text.startswith("阿"):
-        _add(candidate, 0.5, "weak_new_turn_hint")
+    if (
+        (is_head_interjection(candidate.next_text) or candidate.next_text.startswith("阿"))
+        and candidate.gap_after >= 0.25
+    ):
+        _add(candidate, 0.5, "weak_head_interjection")
     return candidate
