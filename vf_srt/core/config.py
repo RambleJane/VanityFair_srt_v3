@@ -36,6 +36,13 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "lookahead_words_after_soft_limit": 4,
         "forced_cut_min_natural_score": 2.0,
     },
+    "pre_review_diagnosis": {
+        "batch_size": 50,
+        "write_batch_files": True,
+        "story_background_max_chars": 280,
+        "max_characters_in_capsule": 24,
+        "max_terms_in_capsule": 40,
+    },
     "theme_song": {
         "enabled": True,
         "json_path": "agent/theme_song.json",

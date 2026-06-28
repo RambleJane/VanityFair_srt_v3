@@ -24,19 +24,21 @@ cache/doubao/{episode}_result.json
 - 过短/语气词碎片修复、字幕尾部安全延长、时间防重叠
 - `too_long_*`、`too_short_duration`、`too_fast_reading`、`particle_fragment`、`cross_long_silence` 等 flags
 - 原子 JSON 写入，候选 CSV、字幕预览 CSV、报告 JSON；lab 模式在 artifact-tool 运行环境可额外导出 XLSX
+- 纯本地 `local-review` 阶段：分离切分质量 flags 与内容审阅 flags，复用人名、术语、未知称谓及主题曲诊断规则，不修改字幕行
+- `pre-review-diagnosis` 阶段：读取 `local_review` 输出，按 batch 组装 compact 知识胶囊与 prompt，调用可注入的 LLM client 产出**只诊断、不改写、不翻译**的人工审阅建议（`do_not_auto_apply: true`）。本里程碑只实现阶段与结构，**不内置任何网络客户端**——需要外部注入 client 才能真正运行
 
 当前明确未实现：
 
 - TS -> WAV
 - Cloudflare R2 upload
 - Doubao submit/query
-- DeepSeek / LLM diagnosis
+- DeepSeek / 其它真实 LLM 网络客户端（`pre_review_diagnosis` 阶段逻辑已就绪，仅缺网络 client 接线）
 - Yue draft
 - Human review import
 - Traditional/Simplified translation
 - final SRT output
 
-`vf_srt/ingest/` 只有会明确抛出 `NotImplementedError` 的占位接口。本阶段不会读取密钥、访问网络、调用 ASR 或上传文件。v1/v2 只作为后续迁移参考，不由 v3 修改。
+`vf_srt/ingest/` 只有会明确抛出 `NotImplementedError` 的占位接口。本阶段不会读取密钥、访问网络、调用 ASR 或上传文件。`pre_review_diagnosis` 通过注入式 `LLMClient` 解耦：未注入 client 时直接抛 `LLMNotConfiguredError`，绝不触网。v1/v2 只作为后续迁移参考，不由 v3 修改。
 
 ## 使用
 
@@ -58,6 +60,13 @@ python -m vf_srt --run-until reference-profile --rebuild
 
 # 先切分，再生成纯本地、只给提示且不修改 ASR 的诊断
 python -m vf_srt --episodes 09-12 --run-until local-diagnosis --overwrite
+
+# 复用已有切分缓存，生成正式 local_review 输出
+python -m vf_srt --episodes 09-12 --run-until local-review
+
+# 读取 local_review，组装 batch prompt 后调用 LLM 产出审阅诊断
+# 本里程碑未接入网络 client：会跑到 local_review 后提示需要注入 client，不会触网
+python -m vf_srt --episodes 09-12 --run-until pre-review-diagnosis --overwrite
 ```
 
 内置参考画像位于：
@@ -84,6 +93,8 @@ python -m vf_srt.lab.segmentation_lab --episodes 09-12 --overwrite
 - `cache/reports/{episode}_gap_profile.json`
 - `cache/reports/{episode}_segmentation_report.json`
 - `cache/local_diagnosis/{episode}_local_pre_review_diagnosis.json`（运行 local-diagnosis 时）
+- `cache/local_review/{episode}_local_review.json`（运行 local-review 时）
+- `cache/pre_review_diagnosis/{episode}_pre_review_diagnosis.json` 与 `{episode}_batch_*.json`（运行 pre-review-diagnosis 且已注入 client 时）
 - `lab/{episode}_cut_candidates.csv`
 - `lab/{episode}_segments_preview.csv`
 - `lab/{episode}_segmentation_debug.xlsx`（lab 模式、可选）

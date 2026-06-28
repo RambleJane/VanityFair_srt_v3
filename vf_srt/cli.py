@@ -6,7 +6,10 @@ from pathlib import Path
 from .core.config import load_config, parse_episodes
 from .core.paths import build_paths
 from .knowledge.reference_profile import write_reference_profile
+from .llm.client import LLMNotConfiguredError, resolve_client
+from .llm.pre_review_diagnosis import run_pre_review_diagnosis
 from .local_diagnosis import run_local_pre_review_diagnosis
+from .local_review import run_local_review
 from .segmentation.pipeline import build_segments_from_doubao_result
 
 
@@ -16,7 +19,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--config", help="YAML config path (defaults to built-in segmentation settings)")
     parser.add_argument(
         "--run-until", default="segmented",
-        choices=("segmented", "reference-profile", "local-diagnosis"),
+        choices=(
+            "segmented", "reference-profile", "local-diagnosis",
+            "local-review", "pre-review-diagnosis",
+        ),
     )
     parser.add_argument("--overwrite", action="store_true", help="Rebuild normalized and segmented caches")
     parser.add_argument("--rebuild", action="store_true", help="Rebuild the reference profile from local 01-08 SRT")
@@ -56,6 +62,37 @@ def main(argv: list[str] | None = None) -> int:
                 f"[{episode}] local diagnosis: "
                 f"{summary['possible_asr_errors']} ASR hints, "
                 f"{summary['unknown_name_candidates']} unknown-name candidates"
+            )
+        elif args.run_until == "local-review":
+            local_review = run_local_review(
+                episode, paths, config, segments=segments, overwrite=args.overwrite,
+            )
+            summary = local_review["summary"]
+            print(
+                f"[{episode}] local review: "
+                f"{summary['segments_with_local_review_flags']} flagged segments, "
+                f"{summary['total_local_review_hints']} hints"
+            )
+        elif args.run_until == "pre-review-diagnosis":
+            review = run_local_review(
+                episode, paths, config, segments=segments, overwrite=args.overwrite,
+            )
+            try:
+                diagnosis = run_pre_review_diagnosis(
+                    episode, paths, config,
+                    client=resolve_client(config), local_review=review,
+                    overwrite=args.overwrite,
+                )
+            except LLMNotConfiguredError as exc:
+                raise SystemExit(
+                    f"[{episode}] pre-review-diagnosis 需要 LLM client，本里程碑未接入网络客户端：{exc}"
+                ) from None
+            stats = diagnosis["stats"]
+            print(
+                f"[{episode}] pre-review diagnosis: "
+                f"{len(diagnosis['possible_asr_errors'])} ASR notes, "
+                f"{len(diagnosis['line_hints'])} line hints "
+                f"({stats['batches']} batches)"
             )
         else:
             print(f"[{episode}] segmented: {len(segments)} subtitles")

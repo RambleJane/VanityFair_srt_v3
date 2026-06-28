@@ -22,6 +22,8 @@ class ProjectPaths:
     reference_profile_dir: Path
     reference_simplified_human_dir: Path
     local_diagnosis_cache_dir: Path
+    local_review_cache_dir: Path
+    pre_review_diagnosis_cache_dir: Path
     reference_profile_cache_dir: Path
 
     def ensure_directories(self) -> None:
@@ -31,6 +33,7 @@ class ProjectPaths:
             self.review_dir, self.output_dir, self.logs_dir,
             self.agent_dir, self.reference_dir, self.reference_profile_dir,
             self.reference_simplified_human_dir, self.local_diagnosis_cache_dir,
+            self.local_review_cache_dir, self.pre_review_diagnosis_cache_dir,
             self.reference_profile_cache_dir,
         ):
             path.mkdir(parents=True, exist_ok=True)
@@ -58,6 +61,10 @@ def build_paths(project_root: str | Path, config: dict[str, Any] | None = None) 
         reference_profile_dir=pick("reference_profile", "reference/profile"),
         reference_simplified_human_dir=pick("reference_simplified_human", "reference/simplified_human"),
         local_diagnosis_cache_dir=pick("local_diagnosis_cache", "cache/local_diagnosis"),
+        local_review_cache_dir=pick("local_review_cache", "cache/local_review"),
+        pre_review_diagnosis_cache_dir=pick(
+            "pre_review_diagnosis_cache", "cache/pre_review_diagnosis"
+        ),
         reference_profile_cache_dir=pick("reference_profile_cache", "cache/reference_profile"),
     )
     result.ensure_directories()
