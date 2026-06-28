@@ -1,9 +1,4 @@
-"""LLM client contract for the diagnosis stages.
-
-This milestone deliberately ships *no* network client. The diagnosis stage
-takes an injected ``LLMClient`` callable so tests can run with a mock and the
-real DeepSeek wiring can be added later without touching the stage logic.
-"""
+"""LLM client contract and configured-client resolver for diagnosis stages."""
 from __future__ import annotations
 
 from typing import Any, Callable
@@ -17,18 +12,26 @@ class LLMNotConfiguredError(RuntimeError):
     """Raised when a real LLM client is required but none was injected."""
 
 
-def resolve_client(config: dict[str, Any] | None = None) -> LLMClient | None:
-    """Return a configured client, or ``None`` when offline.
+def resolve_client(
+    config: dict[str, Any] | None = None, *, stage: str | None = None,
+) -> LLMClient | None:
+    """Return a configured client, or ``None`` when no key is available.
 
-    No real network client is implemented in this milestone, so this always
-    returns ``None``. Callers that receive ``None`` and still have work to do
-    should raise :class:`LLMNotConfiguredError` rather than reaching the network.
+    Builds a :class:`~vf_srt.llm.deepseek.DeepSeekClient` when the configured
+    API-key environment variable is set. Returns ``None`` (rather than raising)
+    when it is not, so the diagnosis stage degrades to its explicit
+    :class:`LLMNotConfiguredError`. Constructing the client performs **no**
+    network call; the request only happens when the client is invoked.
     """
-    del config
-    return None
+    from .deepseek import DeepSeekClient
+
+    try:
+        return DeepSeekClient.from_config(config or {}, stage=stage)
+    except LLMNotConfiguredError:
+        return None
 
 
 def request(*args: Any, **kwargs: Any) -> str:
     raise NotImplementedError(
-        "Real LLM calls are not part of the offline milestone; inject an LLMClient"
+        "Use resolve_client(config, stage=...) or inject an LLMClient"
     )

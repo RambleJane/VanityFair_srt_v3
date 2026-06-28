@@ -42,6 +42,18 @@ class FakeClient:
         return body
 
 
+class ScriptedClient:
+    def __init__(self, responses: list[str]) -> None:
+        self.responses = list(responses)
+        self.calls: list[dict[str, str]] = []
+
+    def __call__(self, system: str, user: str) -> str:
+        self.calls.append({"system": system, "user": user})
+        if len(self.responses) > 1:
+            return self.responses.pop(0)
+        return self.responses[0]
+
+
 def _valid_response(system: str = "", user: str = "") -> str:
     return json.dumps(
         {
@@ -248,3 +260,327 @@ def test_cli_accepts_pre_review_diagnosis_stage() -> None:
         "--episodes", "09", "--run-until", "pre-review-diagnosis",
     ])
     assert args.run_until == "pre-review-diagnosis"
+
+
+def test_cli_accepts_rerun_failed_batches() -> None:
+    args = build_parser().parse_args([
+        "--episodes", "09", "--run-until", "pre-review-diagnosis",
+        "--rerun-failed-batches",
+    ])
+    assert args.rerun_failed_batches is True
+
+
+def _response(**overrides) -> str:
+    value = {
+        "summary": {},
+        "proper_nouns": [],
+        "possible_asr_errors": [],
+        "line_hints": [],
+        "uncertain_points": [],
+    }
+    value.update(overrides)
+    return json.dumps(value, ensure_ascii=False)
+
+
+def test_source_facts_override_model_raw_text_and_structured_suggestion(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    config = _config()
+    source = _record(
+        338, "哎呀，四万𫪈门口我食啊嗱。",
+        seg_flags=["pressure_cut"], lr_flags=["possible_cantonese_word"],
+    )
+    model = {
+        "index": 338, "raw_text": "𫪈", "observed_span": "𫪈",
+        "action": "replace", "suggested_span": "喺", "suggested_full_text": None,
+        "problem": "异体字", "reason": "需人工确认", "confidence": "high",
+    }
+    hint = {
+        "index": 338, "raw_text": "错误模型文本", "category": "term",
+        "observed_span": "𫪈", "action": "listen", "suggested_span": "喺",
+        "hint": "核对粤语字", "reason": "罕见字", "risk_level": "medium",
+    }
+
+    result = build_pre_review_diagnosis(
+        "09", paths, config, client=FakeClient(_response(
+            possible_asr_errors=[model], line_hints=[hint],
+        )), local_review=_local_review([source]), overwrite=True,
+    )
+
+    error = result["possible_asr_errors"][0]
+    for key in ("episode", "index", "start", "end", "raw_text",
+                "segmentation_flags", "local_review_flags"):
+        expected = "09" if key == "episode" else source[key]
+        assert error[key] == expected
+    assert error["observed_span"] == "𫪈"
+    assert error["suggested_span"] == "喺"
+    assert error["suggested_full_text"] is None
+    assert error["action"] == "listen"  # rare character requires human confirmation
+    assert error["confidence"] == "medium"
+    assert error["do_not_auto_apply"] is True
+    assert result["line_hints"][0]["raw_text"] == source["raw_text"]
+    assert result["validation"]["raw_text_repaired_count"] == 2
+
+
+def test_invalid_indices_and_relative_references_are_quarantined(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            possible_asr_errors=[
+                {"index": 999, "observed_span": "错", "action": "replace",
+                 "suggested_span": "对", "reason": "不存在", "confidence": "high"},
+                {"index": 1, "observed_span": "阿强", "action": "replace",
+                 "suggested_span": "李华强", "reason": "同第104条", "confidence": "high"},
+            ],
+            line_hints=[
+                {"index": 1, "category": "name", "action": "uncertain",
+                 "hint": "同上", "reason": "同前", "risk_level": "medium"},
+            ],
+            uncertain_points=["same as above"],
+        )), local_review=_local_review([_record(1, "阿强啊")]), overwrite=True,
+    )
+
+    assert result["possible_asr_errors"] == []
+    assert result["line_hints"] == []
+    assert result["uncertain_points"] == []
+    assert len(result["invalid_model_items"]) == 4
+    assert result["validation"]["invalid_index_count"] == 1
+    assert result["validation"]["relative_reference_count"] == 3
+
+
+def test_invalid_enums_and_number_suggestions_are_downgraded(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            possible_asr_errors=[
+                {"index": 1, "observed_span": "34A/32", "action": "replace",
+                 "suggested_span": "三十四A/三十二", "suggested_full_text": "整行改写",
+                 "problem": "泳衣尺码数字", "reason": "可能是尺码", "confidence": "high"},
+                {"index": 2, "observed_span": "词", "action": "rewrite",
+                 "suggested_span": "字", "reason": "猜测", "confidence": "certain"},
+            ],
+        )), local_review=_local_review([
+            _record(1, "老细照34A同我拎32啦"), _record(2, "普通词"),
+        ]), overwrite=True,
+    )
+
+    number = result["possible_asr_errors"][0]
+    assert number["confidence"] == "low"
+    assert number["action"] == "uncertain"
+    assert number["suggested_full_text"] is None
+    invalid_enum = result["possible_asr_errors"][1]
+    assert invalid_enum["confidence"] == "low"
+    assert invalid_enum["action"] == "uncertain"
+    assert result["validation"]["invalid_schema_count"] >= 2
+
+
+def test_proper_nouns_are_canonicalized_and_model_inference_is_not_confirmed(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            proper_nouns=[
+                {"canonical_name": "阿良", "aliases_seen": ["阿梁"], "type": "person",
+                 "evidence_indices": [1], "evidence": "index 1", "confidence": "high"},
+                {"name": "徐绍良", "type": "person", "evidence": "第1条", "confidence": "high"},
+                {"name": "新人物甲", "type": "person", "status": "confirmed",
+                 "evidence": "模型推断", "confidence": "medium"},
+            ],
+        )), local_review=_local_review([_record(1, "阿梁啊")]), overwrite=True,
+    )
+
+    by_name = {item["canonical_name"]: item for item in result["proper_nouns"]}
+    assert set(by_name) == {"徐绍良", "新人物甲"}
+    assert "阿良" in by_name["徐绍良"]["aliases_seen"]
+    assert "阿梁" in by_name["徐绍良"]["aliases_seen"]
+    assert by_name["徐绍良"]["source"] == "official"
+    assert by_name["徐绍良"]["status"] == "confirmed"
+    assert by_name["新人物甲"]["source"] == "model_infer"
+    assert by_name["新人物甲"]["status"] == "inferred"
+
+
+def test_batch_summaries_are_preserved_without_text_concatenation(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    config = _config()
+    config["deepseek"]["stages"]["pre_review_diagnosis"]["batch_size"] = 2
+
+    def response(_system: str, user: str) -> str:
+        prompt = json.loads(user)
+        batch = prompt["batch_index"]
+        return _response(summary={
+            "scene_overview": f"第{batch}批场景",
+            "main_characters": ["阿良" if batch == 1 else "徐绍良"],
+            "relationships": [f"第{batch}批推断关系"],
+            "important_events": [f"第{batch}批事件"],
+            "tone_style": f"第{batch}批语气",
+        })
+
+    result = build_pre_review_diagnosis(
+        "09", paths, config, client=FakeClient(response),
+        local_review=_local_review([_record(i, f"第{i}句") for i in range(1, 5)]),
+        overwrite=True,
+    )
+
+    assert len(result["batch_summaries"]) == 2
+    assert result["batch_summaries"][0]["start_index"] == 1
+    assert result["batch_summaries"][0]["end_index"] == 2
+    assert result["batch_summaries"][1]["start_index"] == 3
+    assert result["batch_summaries"][1]["end_index"] == 4
+    assert result["summary"]["scene_overview"] == ""
+    assert result["summary"]["relationships"] == []
+    assert result["summary"]["main_characters"] == ["徐绍良"]
+    assert result["summary"]["aggregation"] == "batch_summaries_only_no_reduce"
+
+
+def test_prompt_forbids_relative_references_and_mixed_suggestions() -> None:
+    system = build_pre_review_diagnosis_prompt("09", 1, 1, [], {})["system"]
+    for phrase in ("不要输出或改写 raw_text", "同上", "observed_span", "suggested_span", "数字、尺码"):
+        assert phrase in system
+
+
+def test_parse_failure_retries_then_succeeds(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    client = ScriptedClient(["not json", _response()])
+
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=client,
+        local_review=_local_review([_record(1, "普通对白")]), overwrite=True,
+    )
+
+    assert len(client.calls) == 2
+    assert "上一次输出无法解析为 JSON" in client.calls[1]["user"]
+    assert result["status"] == "complete"
+    assert result["failed_batch_ids"] == []
+    assert result["stats"]["parse_errors"] == 0
+    assert result["stats"]["parse_retries"] == 1
+    batch = json.loads((paths.pre_review_diagnosis_cache_dir / "09_batch_0001.json").read_text(encoding="utf-8"))
+    assert batch["status"] == "complete"
+    assert batch["parse_attempt_count"] == 2
+    assert batch["raw_model_content_preview"] == _response()
+    assert batch["raw_model_content_truncated"] is False
+
+
+def test_parse_retries_exhausted_marks_incomplete_and_saves_preview(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    config = _config()
+    config["deepseek"]["stages"]["pre_review_diagnosis"]["parse_retry_attempts"] = 2
+    invalid = "x" * 4000
+    client = ScriptedClient([invalid])
+
+    result = build_pre_review_diagnosis(
+        "09", paths, config, client=client,
+        local_review=_local_review([_record(1, "普通对白")]), overwrite=True,
+    )
+
+    assert len(client.calls) == 3
+    assert result["status"] == "incomplete"
+    assert result["failed_batch_ids"] == [1]
+    assert result["stats"]["parse_errors"] == 1
+    assert result["validation"]["parse_errors"] == 1
+    assert result["validation"]["failed_batch_count"] == 1
+    assert result["validation"]["failed_batch_ids"] == [1]
+    batch = json.loads((paths.pre_review_diagnosis_cache_dir / "09_batch_0001.json").read_text(encoding="utf-8"))
+    assert batch["status"] == "failed"
+    assert len(batch["raw_model_content_preview"]) == 3000
+    assert batch["raw_model_content_truncated"] is True
+
+
+def test_rerun_failed_batches_only_requests_failed_batch(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    config = _config()
+    config["deepseek"]["stages"]["pre_review_diagnosis"].update({
+        "batch_size": 2, "parse_retry_attempts": 2,
+    })
+    review = _local_review([_record(i, f"第{i}句") for i in range(1, 5)])
+    batch_one = _response(summary={"scene_overview": "第一批"})
+    first_client = ScriptedClient([batch_one, "bad json"])
+    first = build_pre_review_diagnosis(
+        "09", paths, config, client=first_client,
+        local_review=review, overwrite=True,
+    )
+    assert first["failed_batch_ids"] == [2]
+    assert len(first_client.calls) == 4  # batch 1 once; batch 2 initial + 2 retries
+
+    batch_two = _response(summary={"scene_overview": "第二批"})
+    rerun_client = ScriptedClient([batch_two])
+    second = build_pre_review_diagnosis(
+        "09", paths, config, client=rerun_client,
+        local_review=review, rerun_failed_batches=True,
+    )
+
+    assert len(rerun_client.calls) == 1
+    assert second["status"] == "complete"
+    assert second["failed_batch_ids"] == []
+    assert second["stats"]["parse_errors"] == 0
+    assert [item["scene_overview"] for item in second["batch_summaries"]] == [
+        "第一批", "第二批",
+    ]
+
+
+@pytest.mark.parametrize("relative", [
+    "同153", "同 index 252", "同index 252", "与 index 252 相同",
+    "与index252相同", "同 153", "同第153", "同第153条",
+    "如上", "见上", "参考上条", "same as above", "same as index 252",
+])
+def test_extended_relative_references_are_quarantined(
+    relative: str, tmp_path: Path,
+) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            possible_asr_errors=[{
+                "index": 1, "observed_span": "错", "action": "replace",
+                "suggested_span": "对", "problem": "错误", "reason": relative,
+                "confidence": "high",
+            }],
+        )), local_review=_local_review([_record(1, "错字")]), overwrite=True,
+    )
+    assert result["possible_asr_errors"] == []
+    assert result["validation"]["relative_reference_count"] == 1
+    assert result["invalid_model_items"][0]["reason"] == "relative_reference"
+
+
+def test_evidence_numbers_do_not_downgrade_name_correction(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            possible_asr_errors=[{
+                "index": 1, "observed_span": "阿梁", "action": "replace",
+                "suggested_span": "阿良", "problem": "人名误听",
+                "reason": "前8集出现88次，第213行也有证据", "confidence": "high",
+            }],
+        )), local_review=_local_review([_record(1, "阿梁啊")]), overwrite=True,
+    )
+    item = result["possible_asr_errors"][0]
+    assert item["confidence"] == "high"
+    assert item["action"] == "replace"
+
+
+def test_real_size_context_still_downgrades_confidence(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            possible_asr_errors=[{
+                "index": 1, "observed_span": "4", "action": "replace",
+                "suggested_span": "四", "problem": "泳衣尺码数字",
+                "reason": "可能是尺码", "confidence": "high",
+            }],
+        )), local_review=_local_review([_record(1, "照34A拎32")]), overwrite=True,
+    )
+    item = result["possible_asr_errors"][0]
+    assert item["confidence"] == "low"
+    assert item["action"] == "uncertain"
+
+
+def test_common_noun_is_filtered_from_proper_nouns(tmp_path: Path) -> None:
+    paths = _paths(tmp_path)
+    result = build_pre_review_diagnosis(
+        "09", paths, _config(), client=FakeClient(_response(
+            proper_nouns=[{
+                "canonical_name": "导演", "type": "term",
+                "source": "confirmed_glossary", "status": "confirmed",
+                "evidence_indices": [1], "evidence": "普通职业", "confidence": "high",
+            }],
+        )), local_review=_local_review([_record(1, "导演嚟咗")]), overwrite=True,
+    )
+    assert result["proper_nouns"] == []
+    assert result["validation"]["proper_noun_filtered_count"] == 1
+    assert result["invalid_model_items"][0]["reason"] == "common_noun"

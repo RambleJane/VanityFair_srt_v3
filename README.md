@@ -25,20 +25,20 @@ cache/doubao/{episode}_result.json
 - `too_long_*`、`too_short_duration`、`too_fast_reading`、`particle_fragment`、`cross_long_silence` 等 flags
 - 原子 JSON 写入，候选 CSV、字幕预览 CSV、报告 JSON；lab 模式在 artifact-tool 运行环境可额外导出 XLSX
 - 纯本地 `local-review` 阶段：分离切分质量 flags 与内容审阅 flags，复用人名、术语、未知称谓及主题曲诊断规则，不修改字幕行
-- `pre-review-diagnosis` 阶段：读取 `local_review` 输出，按 batch 组装 compact 知识胶囊与 prompt，调用可注入的 LLM client 产出**只诊断、不改写、不翻译**的人工审阅建议（`do_not_auto_apply: true`）。本里程碑只实现阶段与结构，**不内置任何网络客户端**——需要外部注入 client 才能真正运行
+- `pre-review-diagnosis` 阶段：读取 `local_review` 输出，按 batch 组装 compact 知识胶囊与 prompt，通过可注入 mock 或环境变量配置的 DeepSeek client 产出**只诊断、不改写、不翻译**的人工审阅建议（`do_not_auto_apply: true`）；最终事实字段强制从 local_review 回填
 
 当前明确未实现：
 
 - TS -> WAV
 - Cloudflare R2 upload
 - Doubao submit/query
-- DeepSeek / 其它真实 LLM 网络客户端（`pre_review_diagnosis` 阶段逻辑已就绪，仅缺网络 client 接线）
+- 除 DeepSeek 外的其它真实 LLM 网络客户端
 - Yue draft
 - Human review import
 - Traditional/Simplified translation
 - final SRT output
 
-`vf_srt/ingest/` 只有会明确抛出 `NotImplementedError` 的占位接口。本阶段不会读取密钥、访问网络、调用 ASR 或上传文件。`pre_review_diagnosis` 通过注入式 `LLMClient` 解耦：未注入 client 时直接抛 `LLMNotConfiguredError`，绝不触网。v1/v2 只作为后续迁移参考，不由 v3 修改。
+`vf_srt/ingest/` 只有会明确抛出 `NotImplementedError` 的占位接口。切分与 local-review 不读取密钥、访问网络、调用 ASR 或上传文件。`pre_review_diagnosis` 通过 `LLMClient` 解耦：测试注入 mock，CLI 仅在配置的环境变量存在时创建 DeepSeek client。v1/v2 只作为后续迁移参考，不由 v3 修改。
 
 ## 使用
 
@@ -65,8 +65,11 @@ python -m vf_srt --episodes 09-12 --run-until local-diagnosis --overwrite
 python -m vf_srt --episodes 09-12 --run-until local-review
 
 # 读取 local_review，组装 batch prompt 后调用 LLM 产出审阅诊断
-# 本里程碑未接入网络 client：会跑到 local_review 后提示需要注入 client，不会触网
-python -m vf_srt --episodes 09-12 --run-until pre-review-diagnosis --overwrite
+# API key 只从 deepseek.api_key_env 指定的环境变量读取
+python -m vf_srt --episodes 09 --config config.yaml --run-until pre-review-diagnosis
+
+# 若上次只有部分 batch JSON 解析失败，仅重跑失败批次
+python -m vf_srt --episodes 09 --config config.yaml --run-until pre-review-diagnosis --rerun-failed-batches
 ```
 
 内置参考画像位于：

@@ -1,7 +1,137 @@
+# VanityFair SRT v3 example configuration
+#
+# 复制为 config.yaml 后在本地填写。绝不要把真实 API key 写进任何 config 文件：
+# 这里只写"环境变量名"（*_env），运行时从对应环境变量读取真实密钥。
+# config.yaml 已被 .gitignore 排除。
+
 project:
-  run_until: segmented
+  # 要处理的集数：单集 "09"，区间 "9-15"，列表 "9,11,13"。命令行 --episodes 覆盖此值。
+  episodes: "09"
+  language: "yue"
+  output_encoding: "utf-8-sig"
+  # run_until 按流水线顺序（当前已实现到 pre-review-diagnosis）：
+  #   segmented / reference-profile / local-diagnosis / local-review / pre-review-diagnosis
+  # 后续里程碑：yue-draft / yue-master / traditional / simplified / viewer-master / srt
+  run_until: "segmented"
+
 cache:
+  enabled: true
+  resume: true
+  # 不指定 --overwrite 时复用已有 normalized/segments 等缓存。
   overwrite_existing: false
+
+paths:
+  input: "input"
+  agent: "agent"
+  reference: "reference"
+  reference_profile: "reference/profile"
+  reference_simplified_human: "reference/simplified_human"
+  # ASR / 切分阶段
+  doubao_cache: "cache/doubao"
+  normalized_cache: "cache/normalized"
+  segments_cache: "cache/segments"
+  reports_cache: "cache/reports"
+  reference_profile_cache: "cache/reference_profile"
+  # 审阅 / 诊断阶段
+  local_diagnosis_cache: "cache/local_diagnosis"
+  local_review_cache: "cache/local_review"
+  pre_review_diagnosis_cache: "cache/pre_review_diagnosis"
+  # 粤语母本阶段
+  yue_draft_cache: "cache/yue_draft"
+  yue_master_cache: "cache/yue_master"
+  # 观众版（繁/简）阶段
+  traditional_context_cache: "cache/traditional_context"
+  traditional_viewer_cache: "cache/traditional_viewer"
+  simplified_context_cache: "cache/simplified_context"
+  simplified_viewer_cache: "cache/simplified_viewer"
+  viewer_master_cache: "cache/viewer_master"
+  # 产物 / 杂项
+  review: "review"
+  lab: "lab"
+  output: "output"
+  logs: "logs"
+
+audio:
+  ffmpeg: "ffmpeg"
+  format: "wav"
+  sample_rate: 16000
+  channels: 1
+
+doubao:
+  # 火山引擎豆包 ASR。凭证只写环境变量名，真实值放环境变量里。
+  submit_enabled: false
+  # 音频地址模板：通常指向 Cloudflare R2 公开 URL，{episode} 会被替换为集号。
+  audio_url_template: "https://example.r2.dev/{episode}.wav"
+  auth_mode: "app_access_token"
+  app_id_env: "VOLC_ASR_APP_ID"
+  access_token_env: "VOLC_ASR_ACCESS_TOKEN"
+  api_key_env: "VOLC_ASR_API_KEY"
+  api_host: "openspeech.bytedance.com"
+  resource_id: "volc.bigasr.auc"
+  language: "yue-CN"
+  poll_interval_seconds: 5
+  query_timeout_seconds: 60
+  max_poll_attempts: 120
+
+r2:
+  # Cloudflare R2 音频上传。凭证只写环境变量名。
+  upload_enabled: false
+  account_id_env: "R2_ACCOUNT_ID"
+  access_key_id_env: "R2_ACCESS_KEY_ID"
+  secret_access_key_env: "R2_SECRET_ACCESS_KEY"
+  bucket: "vanityfair-audio"
+  public_base_url: "https://example.r2.dev"
+
+deepseek:
+  # 真实 key 从该环境变量读取，绝不写在 config 文件里。
+  api_key_env: "DEEPSEEK_API_KEY"
+  base_url: "https://api.deepseek.com"
+  # 顶层为各阶段共享的默认值；stages 下可逐阶段覆盖。
+  model: "deepseek-chat"
+  thinking: "disabled"
+  timeout: 120
+  max_retries: 3
+  temperature: 0.3
+  response_format_json: true
+  # 翻译/观众版的上下文窗口（条数），可被 stage 覆盖。
+  window_before: 3
+  window_after: 4
+  # 逐阶段 LLM 路由：继承上面的默认值，可覆盖 model/thinking/batch_size/max_tokens/window_*。
+  # 通过 vf_srt.core.config.resolve_stage_llm(config, stage) 读取。
+  stages:
+    pre_review_diagnosis:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 50
+      max_tokens: 4000
+      parse_retry_attempts: 2
+    yue_draft_auto_lines:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 30
+      max_tokens: 6000
+      parse_retry_attempts: 2
+    traditional_context:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 50
+    traditional_viewer_lines:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 30
+      window_before: 3
+      window_after: 4
+    simplified_context:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 50
+    simplified_viewer_lines:
+      model: "deepseek-chat"
+      thinking: "enabled"
+      batch_size: 30
+      window_before: 3
+      window_after: 4
+
 reference_profile:
   enabled: true
   json_path: "reference/profile/reference_srt_profile.json"
@@ -9,6 +139,23 @@ reference_profile:
   source_srt_dir: "reference/simplified_human"
   source_episodes: ["01", "02", "03", "04", "05", "06", "07", "08"]
   rebuild_from_srt_if_missing: false
+
+pre_review_diagnosis:
+  batch_size: 50
+  write_batch_files: true
+  rerun_failed_batches: false
+  story_background_max_chars: 280
+  max_characters_in_capsule: 24
+  max_terms_in_capsule: 40
+
+yue_draft_auto_lines:
+  batch_size: 30
+  window_before: 3
+  window_after: 4
+  parse_retry_attempts: 2
+  write_batch_files: true
+  rerun_failed_batches: false
+
 segmentation:
   target_min_chars: 10
   target_max_chars: 18
@@ -34,6 +181,7 @@ segmentation:
   merge_short_segment_max_duration: 0.8
   lookahead_words_after_soft_limit: 4
   forced_cut_min_natural_score: 2.0
+
 theme_song:
   enabled: true
   json_path: "agent/theme_song.json"

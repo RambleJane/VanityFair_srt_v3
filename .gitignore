@@ -30,6 +30,8 @@ cache/local_diagnosis/*
 !cache/local_diagnosis/.gitkeep
 cache/local_review/*
 !cache/local_review/.gitkeep
+cache/pre_review_diagnosis/*
+!cache/pre_review_diagnosis/.gitkeep
 cache/reference_profile/*
 !cache/reference_profile/.gitkeep
 lab/*

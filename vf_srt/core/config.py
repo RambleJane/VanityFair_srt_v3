@@ -8,8 +8,42 @@ from typing import Any
 
 
 DEFAULT_CONFIG: dict[str, Any] = {
-    "project": {"run_until": "segmented"},
-    "cache": {"overwrite_existing": False},
+    "project": {
+        "episodes": "09",
+        "run_until": "segmented",
+        "language": "yue",
+        "output_encoding": "utf-8-sig",
+    },
+    "cache": {
+        "enabled": True,
+        "resume": True,
+        "overwrite_existing": False,
+    },
+    "doubao": {
+        # Volcengine Doubao ASR. All credentials are read from environment
+        # variables named here — never the keys themselves.
+        "submit_enabled": False,
+        "audio_url_template": "https://example.r2.dev/{episode}.wav",
+        "auth_mode": "app_access_token",
+        "app_id_env": "VOLC_ASR_APP_ID",
+        "access_token_env": "VOLC_ASR_ACCESS_TOKEN",
+        "api_key_env": "VOLC_ASR_API_KEY",
+        "api_host": "openspeech.bytedance.com",
+        "resource_id": "volc.bigasr.auc",
+        "language": "yue-CN",
+        "poll_interval_seconds": 5,
+        "query_timeout_seconds": 60,
+        "max_poll_attempts": 120,
+    },
+    "r2": {
+        # Cloudflare R2 upload target for audio. Credentials via env var names.
+        "upload_enabled": False,
+        "account_id_env": "R2_ACCOUNT_ID",
+        "access_key_id_env": "R2_ACCESS_KEY_ID",
+        "secret_access_key_env": "R2_SECRET_ACCESS_KEY",
+        "bucket": "vanityfair-audio",
+        "public_base_url": "https://example.r2.dev",
+    },
     "reference_profile": {
         "enabled": True,
         "json_path": "reference/profile/reference_srt_profile.json",
@@ -36,12 +70,65 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "lookahead_words_after_soft_limit": 4,
         "forced_cut_min_natural_score": 2.0,
     },
+    "deepseek": {
+        # The key is read from this *environment variable*, never from config.
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "base_url": "https://api.deepseek.com",
+        "model": "deepseek-chat",
+        "timeout": 120,
+        "max_retries": 3,
+        "temperature": 0.3,
+        "response_format_json": True,
+        "thinking": "disabled",
+        "window_before": 3,
+        "window_after": 4,
+        # Per-stage LLM routing. Each stage inherits the defaults above and may
+        # override model/thinking/batch_size/max_tokens/window_*. Business
+        # stages read these through config.resolve_stage_llm(config, stage).
+        "stages": {
+            "pre_review_diagnosis": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 50, "max_tokens": 4000,
+                "parse_retry_attempts": 2,
+            },
+            "yue_draft_auto_lines": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 30, "max_tokens": 6000,
+                "parse_retry_attempts": 2,
+            },
+            "traditional_context": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 50,
+            },
+            "traditional_viewer_lines": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 30, "window_before": 3, "window_after": 4,
+            },
+            "simplified_context": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 50,
+            },
+            "simplified_viewer_lines": {
+                "model": "deepseek-chat", "thinking": "enabled",
+                "batch_size": 30, "window_before": 3, "window_after": 4,
+            },
+        },
+    },
     "pre_review_diagnosis": {
         "batch_size": 50,
         "write_batch_files": True,
+        "rerun_failed_batches": False,
         "story_background_max_chars": 280,
         "max_characters_in_capsule": 24,
         "max_terms_in_capsule": 40,
+    },
+    "yue_draft_auto_lines": {
+        "batch_size": 30,
+        "window_before": 3,
+        "window_after": 4,
+        "parse_retry_attempts": 2,
+        "write_batch_files": True,
+        "rerun_failed_batches": False,
     },
     "theme_song": {
         "enabled": True,
@@ -125,6 +212,47 @@ def _load_simple_yaml(text: str) -> dict[str, Any]:
     return root
 
 
+# v1/v2 flat DeepSeek keys -> v3 deepseek.stages.<stage>.<key>
+_LEGACY_DEEPSEEK_STAGE_KEYS = {
+    "diagnosis_model": ("pre_review_diagnosis", "model"),
+    "diagnosis_thinking": ("pre_review_diagnosis", "thinking"),
+    "pre_correction_batch_size": ("pre_review_diagnosis", "batch_size"),
+    "pre_correction_max_tokens": ("pre_review_diagnosis", "max_tokens"),
+    "yue_draft_model": ("yue_draft_auto_lines", "model"),
+    "yue_draft_thinking": ("yue_draft_auto_lines", "thinking"),
+    "yue_batch_size": ("yue_draft_auto_lines", "batch_size"),
+}
+# Translation-era keys fan out to both viewer stages.
+_LEGACY_DEEPSEEK_TRANSLATION = {
+    "translation_model": "model",
+    "translation_thinking": "thinking",
+    "translation_batch_size": "batch_size",
+}
+_LEGACY_VIEWER_STAGES = ("traditional_viewer_lines", "simplified_viewer_lines")
+
+
+def _normalize_legacy_deepseek(deepseek: dict[str, Any]) -> None:
+    """Map v1/v2 flat DeepSeek keys onto the v3 stages structure, in place.
+
+    Only fills values the incoming config did not already set explicitly, so a
+    config that already uses the v3 structure is left untouched.
+    """
+    if not isinstance(deepseek, dict):
+        return
+    if "request_timeout_seconds" in deepseek and "timeout" not in deepseek:
+        deepseek["timeout"] = deepseek["request_timeout_seconds"]
+    stages = deepseek.setdefault("stages", {})
+    if not isinstance(stages, dict):
+        return
+    for legacy_key, (stage, field) in _LEGACY_DEEPSEEK_STAGE_KEYS.items():
+        if legacy_key in deepseek:
+            stages.setdefault(stage, {}).setdefault(field, deepseek[legacy_key])
+    for legacy_key, field in _LEGACY_DEEPSEEK_TRANSLATION.items():
+        if legacy_key in deepseek:
+            for stage in _LEGACY_VIEWER_STAGES:
+                stages.setdefault(stage, {}).setdefault(field, deepseek[legacy_key])
+
+
 def load_config(config_path: str | Path | None = None) -> dict[str, Any]:
     config = copy.deepcopy(DEFAULT_CONFIG)
     if not config_path:
@@ -144,7 +272,33 @@ def load_config(config_path: str | Path | None = None) -> dict[str, Any]:
         }
         if legacy_opening:
             theme_updates["opening"] = legacy_opening
+    _normalize_legacy_deepseek(updates.get("deepseek", {}))
     return _merge(config, updates)
+
+
+_STAGE_INHERITED_KEYS = (
+    "model", "thinking", "timeout", "max_retries", "temperature",
+    "response_format_json", "max_tokens", "max_output_tokens", "batch_size",
+    "parse_retry_attempts",
+    "window_before", "window_after",
+)
+
+
+def resolve_stage_llm(config: dict[str, Any], stage: str) -> dict[str, Any]:
+    """Return merged DeepSeek settings for one stage.
+
+    Inherits the top-level ``deepseek`` defaults and applies the
+    ``deepseek.stages[stage]`` overrides on top. Pure read helper — it does not
+    mutate config and performs no network/business work.
+    """
+    deepseek = config.get("deepseek", {}) if isinstance(config, dict) else {}
+    merged: dict[str, Any] = {
+        key: deepseek[key] for key in _STAGE_INHERITED_KEYS if key in deepseek
+    }
+    stage_cfg = deepseek.get("stages", {}).get(stage, {})
+    if isinstance(stage_cfg, dict):
+        merged.update(stage_cfg)
+    return merged
 
 
 def parse_episodes(value: str) -> list[str]:
