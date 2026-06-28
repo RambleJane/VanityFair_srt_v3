@@ -30,6 +30,7 @@ class CoreTests(unittest.TestCase):
             {"index": 3, "simplified": "追到什么找到什么收到又几多"},
             {"index": 4, "simplified": "得了什么失了什么可有认真算过"},
             {"index": 5, "simplified": "何必呢何必呢可知一切都会身外过"},
+            {"index": 6, "simplified": "得的多还失的多升得高的终于都会低堕"},
         ]}
 
     @staticmethod
@@ -165,11 +166,64 @@ class CoreTests(unittest.TestCase):
             paths = SimpleNamespace(root=root, doubao_cache_dir=root / "cache" / "doubao")
             result = apply_theme_song_override("12", segments, utterances, paths, self.config)
         opening_segments = [item for item in result if "theme_opening" in item.flags]
-        ending_segments = [item for item in result if "theme_ending" in item.flags]
+        ending_segments = [
+            item for item in result
+            if "theme_ending" in item.flags and "fixed_lyric" in item.flags
+        ]
         self.assertEqual(len(opening_segments), 4)
         self.assertEqual(len(ending_segments), 3)
         self.assertTrue(all(item.debug["theme_region"] == "opening" for item in opening_segments))
         self.assertTrue(all(item.debug["theme_region"] == "ending" for item in ending_segments))
+
+    def test_confirmed_ending_theme_marks_unmatched_tail_to_audio_end(self):
+        theme = self._theme_fixture()
+        prefix = self._theme_utterance(theme["lyrics"][:3], 2500.0, 1)
+        residual_word = WordToken("无法匹配的片尾残句", 2550.0, 2552.0, 2, 1)
+        residual = Utterance(2, 2550.0, 2552.0, residual_word.text, [residual_word])
+        segments = [
+            SubtitleSegment(index + 1, "12", 1, word.start, word.end, word.text, [], {})
+            for index, word in enumerate(prefix.words)
+        ]
+        segments.append(SubtitleSegment(4, "12", 2, 2550.0, 2552.0, residual_word.text, [], {}))
+        local_temp = Path(__file__).resolve().parents[1] / ".codex_tmp"
+        local_temp.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=local_temp) as directory:
+            root = Path(directory)
+            write_json(root / "agent" / "theme_song.json", theme)
+            write_json(root / "cache" / "doubao" / "12_result.json", {
+                "body": {"audio_info": {"duration": 2_600_000}},
+            })
+            paths = SimpleNamespace(root=root, doubao_cache_dir=root / "cache" / "doubao")
+            result = apply_theme_song_override("12", segments, [prefix, residual], paths, self.config)
+        fixed = [item for item in result if "fixed_lyric" in item.flags and "theme_ending" in item.flags]
+        unmatched = [item for item in result if "theme_ending_unmatched" in item.flags]
+        self.assertEqual(len(fixed), 3)
+        self.assertEqual(len(unmatched), 1)
+        self.assertEqual(unmatched[0].raw_text, residual_word.text)
+        self.assertEqual(unmatched[0].debug["ending_theme_start"], prefix.words[0].start)
+        self.assertEqual(unmatched[0].debug["ending_theme_end"], 2600.0)
+        self.assertEqual(unmatched[0].debug["cut_type"], "theme_tail_unmatched")
+
+    def test_ending_tail_allows_repeated_lyrics(self):
+        theme = self._theme_fixture()
+        full_song = self._theme_utterance(theme["lyrics"], 2440.0, 1)
+        repeated = self._theme_utterance(theme["lyrics"][4:6], 2500.0, 2)
+        local_temp = Path(__file__).resolve().parents[1] / ".codex_tmp"
+        local_temp.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=local_temp) as directory:
+            root = Path(directory)
+            write_json(root / "agent" / "theme_song.json", theme)
+            write_json(root / "cache" / "doubao" / "12_result.json", {
+                "body": {"audio_info": {"duration": 2_600_000}},
+            })
+            paths = SimpleNamespace(root=root, doubao_cache_dir=root / "cache" / "doubao")
+            result = apply_theme_song_override("12", [], [full_song, repeated], paths, self.config)
+        lyric_indices = [
+            item.debug["lyric_index"] for item in result
+            if "theme_ending" in item.flags and "fixed_lyric" in item.flags
+        ]
+        self.assertEqual(lyric_indices.count(5), 2)
+        self.assertEqual(lyric_indices.count(6), 2)
 
     def test_theme_song_does_not_match_ordinary_dialogue(self):
         lyrics = [

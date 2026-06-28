@@ -223,6 +223,113 @@ def detect_theme_song_matches(
     return matches
 
 
+def detect_theme_song_tail_matches(
+    utterances: list[Utterance], theme_song: dict[str, Any], start_time: float,
+    end_time: float, config: dict[str, Any], region: str = "ending",
+) -> list[dict[str, Any]]:
+    """Find non-contiguous or repeated lyric lines after an ending prefix is confirmed."""
+    regional = _region_settings(config, region)
+    threshold = float(regional.get("tail_min_line_score", 0.58))
+    allow_repeated = bool(regional.get("tail_allow_repeated_lyrics", True))
+    max_line_gap = float(regional.get("max_gap_between_matched_lines_seconds", 12.0))
+    words = sorted(
+        (
+            word for utterance in utterances for word in utterance.words
+            if word.end >= start_time and word.start <= end_time
+        ),
+        key=lambda word: (word.start, word.end, word.source_utterance_index, word.word_index),
+    )
+    lyrics = theme_song.get("lyrics")
+    if not words or not isinstance(lyrics, list):
+        return []
+    lyric_entries: list[tuple[int, dict[str, Any], str, int, int]] = []
+    for lyric_number, lyric in enumerate(lyrics):
+        if not isinstance(lyric, dict):
+            continue
+        lyric_text = str(lyric.get("simplified") or lyric.get("traditional") or "")
+        lyric_length = len(normalize_theme_text(lyric_text))
+        if lyric_length:
+            lyric_entries.append((
+                lyric_number, lyric, lyric_text,
+                max(3, math.ceil(lyric_length * 0.5)),
+                max(3, math.floor(lyric_length * 1.8 + 6)),
+            ))
+    if not lyric_entries:
+        return []
+
+    maximum_window = max(entry[4] for entry in lyric_entries)
+    used_lyrics: set[Any] = set()
+    matches: list[dict[str, Any]] = []
+    cursor = 0
+    while cursor < len(words):
+        best: tuple[float, int, int, dict[str, Any], int, int] | None = None
+        window_text = ""
+        for end_index in range(cursor, len(words)):
+            if end_index > cursor and words[end_index].start - words[end_index - 1].end > max_line_gap:
+                break
+            window_text += words[end_index].text
+            window_length = len(normalize_theme_text(window_text))
+            if window_length > maximum_window:
+                break
+            for lyric_number, lyric, lyric_text, minimum_window, maximum_lyric_window in lyric_entries:
+                lyric_index = lyric.get("index", lyric_number + 1)
+                if not allow_repeated and lyric_index in used_lyrics:
+                    continue
+                if not minimum_window <= window_length <= maximum_lyric_window:
+                    continue
+                score = line_similarity(window_text, lyric_text)
+                length_delta = abs(window_length - len(normalize_theme_text(lyric_text)))
+                rank = (score, -length_delta, -end_index)
+                if best is None or rank > (best[0], best[1], best[2]):
+                    best = (score, rank[1], rank[2], lyric, lyric_number, end_index)
+        if best is None or best[0] < threshold:
+            cursor += 1
+            continue
+        score, _, _, lyric, lyric_number, end_index = best
+        matched_words = words[cursor:end_index + 1]
+        lyric_index = lyric.get("index", lyric_number + 1)
+        matches.append({
+            "theme_region": region,
+            "lyric_index": lyric_index,
+            "simplified": str(lyric.get("simplified") or lyric.get("traditional") or ""),
+            "traditional": str(lyric.get("traditional") or lyric.get("simplified") or ""),
+            "start": matched_words[0].start,
+            "end": matched_words[-1].end,
+            "score": round(score, 6),
+            "asr_text": "".join(word.text + word.trailing_punct for word in matched_words),
+            "word_start_index": cursor,
+            "word_end_index": end_index,
+            "tail_match": True,
+        })
+        used_lyrics.add(lyric_index)
+        cursor = end_index + 1
+    return matches
+
+
+def dedupe_theme_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    deduplicated: list[dict[str, Any]] = []
+    for match in sorted(matches, key=lambda item: (float(item["start"]), float(item["end"]))):
+        duplicate_index: int | None = None
+        for index, existing in enumerate(deduplicated):
+            overlap = max(
+                0.0,
+                min(float(match["end"]), float(existing["end"]))
+                - max(float(match["start"]), float(existing["start"])),
+            )
+            shorter_duration = min(
+                max(0.0, float(match["end"]) - float(match["start"])),
+                max(0.0, float(existing["end"]) - float(existing["start"])),
+            )
+            if shorter_duration > 0 and overlap / shorter_duration > 0.70:
+                duplicate_index = index
+                break
+        if duplicate_index is None:
+            deduplicated.append(match)
+        elif float(match.get("score", 0.0)) > float(deduplicated[duplicate_index].get("score", 0.0)):
+            deduplicated[duplicate_index] = match
+    return sorted(deduplicated, key=lambda item: (float(item["start"]), float(item["end"])))
+
+
 def build_theme_song_segments(
     episode: str, matches: list[dict[str, Any]], config: dict[str, Any],
 ) -> list[SubtitleSegment]:
@@ -283,7 +390,8 @@ def apply_theme_song_override(
         return segments
     audio_duration = _audio_duration_from_result(episode, paths, utterances)
     theme_segments: list[SubtitleSegment] = []
-    theme_intervals: list[tuple[float, float]] = []
+    opening_interval: tuple[float, float] | None = None
+    ending_interval: tuple[float, float] | None = None
     for region in ("opening", "ending"):
         regional = _region_settings(settings, region)
         if not bool(regional.get("enabled", True)):
@@ -293,22 +401,66 @@ def apply_theme_song_override(
         )
         if not matches:
             continue
+        if region == "ending":
+            theme_start = float(matches[0]["start"])
+            tail_matches = detect_theme_song_tail_matches(
+                utterances, theme_song, theme_start, audio_duration, settings, region="ending",
+            )
+            matches = dedupe_theme_matches(matches + tail_matches)
         regional_segments = build_theme_song_segments(episode, matches, settings)
+        if region == "opening":
+            opening_interval = (regional_segments[0].start, regional_segments[-1].end)
+        else:
+            theme_start = float(min(match["start"] for match in matches))
+            theme_end = (
+                audio_duration
+                if bool(regional.get("tail_cover_to_end", True))
+                else regional_segments[-1].end
+            )
+            ending_interval = (theme_start, theme_end)
+            for segment in regional_segments:
+                segment.debug["ending_theme_start"] = theme_start
+                segment.debug["ending_theme_end"] = theme_end
         theme_segments.extend(regional_segments)
-        theme_intervals.append((regional_segments[0].start, regional_segments[-1].end))
     if not theme_segments:
         return segments
+    fixed_intervals = [(segment.start, segment.end) for segment in theme_segments]
     remaining: list[SubtitleSegment] = []
     for original in segments:
         segment = deepcopy(original)
         duration = max(0.0, segment.end - segment.start)
-        overlaps_theme = any(
+        overlaps_fixed_lyric = any(
             max(0.0, min(segment.end, interval_end) - max(segment.start, interval_start))
             > duration * 0.5
-            for interval_start, interval_end in theme_intervals
+            for interval_start, interval_end in fixed_intervals
         )
-        if duration > 0 and overlaps_theme:
+        if duration > 0 and overlaps_fixed_lyric:
             continue
+        if opening_interval is not None:
+            opening_overlap = max(
+                0.0,
+                min(segment.end, opening_interval[1]) - max(segment.start, opening_interval[0]),
+            )
+            if duration > 0 and opening_overlap > duration * 0.5:
+                continue
+        if ending_interval is not None:
+            ending_overlap = max(
+                0.0,
+                min(segment.end, ending_interval[1]) - max(segment.start, ending_interval[0]),
+            )
+            if duration > 0 and ending_overlap > duration * 0.5:
+                segment.flags = list(dict.fromkeys(
+                    segment.flags + ["theme_song", "theme_ending", "theme_ending_unmatched"]
+                ))
+                segment.debug.update({
+                    "theme_song": True,
+                    "theme_region": "ending",
+                    "theme_unmatched": True,
+                    "theme_reason": "inside_detected_ending_theme_tail",
+                    "ending_theme_start": ending_interval[0],
+                    "ending_theme_end": ending_interval[1],
+                    "cut_type": "theme_tail_unmatched",
+                })
         remaining.append(segment)
     minimum_gap = float(config.get("segmentation", {}).get("min_gap_between_subtitles", 0.08))
     return _trim_ends_to_prevent_overlap(theme_segments + remaining, minimum_gap)

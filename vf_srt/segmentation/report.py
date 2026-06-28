@@ -17,6 +17,7 @@ _DETAIL_FLAGS = (
     "short_reaction", "standalone_interjection", "possible_over_split",
     "forced_cut", "pressure_cut", "hard_forced_cut", "bad_forced_cut",
     "theme_song", "fixed_lyric", "theme_opening", "theme_ending",
+    "theme_ending_unmatched",
 )
 
 
@@ -61,9 +62,16 @@ def write_segmentation_outputs(
     total_duration = sum(max(0.0, segment.end - segment.start) for segment in segments)
     cps_values = [segment.debug.get("cps", 0.0) for segment in segments]
     opening_theme = [segment for segment in segments if "theme_opening" in segment.flags]
-    ending_theme = [segment for segment in segments if "theme_ending" in segment.flags]
+    ending_theme = [
+        segment for segment in segments
+        if "theme_ending" in segment.flags and "fixed_lyric" in segment.flags
+    ]
+    ending_unmatched = [segment for segment in segments if "theme_ending_unmatched" in segment.flags]
     opening_scores = [float(segment.debug["score"]) for segment in opening_theme if segment.debug.get("score") is not None]
     ending_scores = [float(segment.debug["score"]) for segment in ending_theme if segment.debug.get("score") is not None]
+    ending_region_segments = ending_theme + ending_unmatched
+    ending_starts = [float(segment.debug["ending_theme_start"]) for segment in ending_region_segments if segment.debug.get("ending_theme_start") is not None]
+    ending_ends = [float(segment.debug["ending_theme_end"]) for segment in ending_region_segments if segment.debug.get("ending_theme_end") is not None]
     report = {
         "episode": episode,
         "total_utterances": len(utterances),
@@ -81,6 +89,9 @@ def write_segmentation_outputs(
         "theme_song_summary": {
             "opening_matched_lines": len(opening_theme),
             "ending_matched_lines": len(ending_theme),
+            "ending_unmatched_segments": len(ending_unmatched),
+            "ending_theme_start": min(ending_starts) if ending_starts else None,
+            "ending_theme_end": max(ending_ends) if ending_ends else None,
             "opening_score_avg": round(sum(opening_scores) / len(opening_scores), 6) if opening_scores else None,
             "ending_score_avg": round(sum(ending_scores) / len(ending_scores), 6) if ending_scores else None,
         },
@@ -124,13 +135,14 @@ def write_segmentation_outputs(
             "theme_region": segment.debug.get("theme_region"),
             "lyric_index": segment.debug.get("lyric_index"),
             "theme_score": segment.debug.get("score"),
+            "theme_unmatched": segment.debug.get("theme_unmatched", False),
             "theme_asr_text": segment.debug.get("asr_text"),
             "asr_text": segment.debug.get("asr_text"),
             "forced_cut": "forced_cut" in segment.flags,
         })
     _write_csv(
         paths.lab_dir / f"{episode}_segments_preview.csv",
-        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_type", "cut_score", "cut_reasons", "cut_pressure_reasons", "theme_song", "theme_region", "lyric_index", "theme_score", "asr_text", "theme_asr_text", "forced_cut"],
+        ["index", "start", "end", "duration", "chars", "cps", "raw_text", "flags", "source_utterance_index", "cut_type", "cut_score", "cut_reasons", "cut_pressure_reasons", "theme_song", "theme_region", "lyric_index", "theme_score", "theme_unmatched", "asr_text", "theme_asr_text", "forced_cut"],
         preview_rows,
     )
     return report
