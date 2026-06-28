@@ -2,6 +2,13 @@ project:
   run_until: segmented
 cache:
   overwrite_existing: false
+reference_profile:
+  enabled: true
+  json_path: "reference/profile/reference_srt_profile.json"
+  markdown_path: "reference/profile/reference_srt_profile.md"
+  source_srt_dir: "reference/simplified_human"
+  source_episodes: ["01", "02", "03", "04", "05", "06", "07", "08"]
+  rebuild_from_srt_if_missing: false
 segmentation:
   target_min_chars: 10
   target_max_chars: 18

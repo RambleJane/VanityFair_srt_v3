@@ -1,0 +1,5781 @@
+{
+  "source": {
+    "reference_dir": "reference/simplified_human",
+    "episodes": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08"
+    ],
+    "line_count": 5827,
+    "character_source": "agent/characters_official.json",
+    "story_sources": [
+      "agent/05_story_outline_authoritative.md",
+      "agent/06_story_clues_verified_names_uncertain.md"
+    ]
+  },
+  "usage": "离线从01-08人工精校简体SRT、官方演员表和剧情资料提取。用于专名/称谓/风格参考，不得用来补写当前集不存在的对白。",
+  "high_frequency_names": [
+    {
+      "name": "徐绍良",
+      "actor": "郑少秋",
+      "count": 135,
+      "matched_forms": [
+        {
+          "form": "阿良",
+          "count": 88
+        },
+        {
+          "form": "徐绍良",
+          "count": 23
+        },
+        {
+          "form": "良哥",
+          "count": 22
+        },
+        {
+          "form": "良仔",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 101,
+          "text": "阿良"
+        },
+        {
+          "episode": "01",
+          "index": 221,
+          "text": "阿良 斟杯茶给我"
+        },
+        {
+          "episode": "01",
+          "index": 224,
+          "text": "阿良"
+        }
+      ]
+    },
+    {
+      "name": "李华强",
+      "actor": "林伟图",
+      "count": 108,
+      "matched_forms": [
+        {
+          "form": "阿强",
+          "count": 68
+        },
+        {
+          "form": "强哥",
+          "count": 36
+        },
+        {
+          "form": "李华强",
+          "count": 4
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 11,
+          "text": "喂强哥"
+        },
+        {
+          "episode": "01",
+          "index": 42,
+          "text": "强哥"
+        },
+        {
+          "episode": "01",
+          "index": 238,
+          "text": "我叫李华强"
+        }
+      ]
+    },
+    {
+      "name": "康炳仁",
+      "actor": "卢海鹏",
+      "count": 53,
+      "matched_forms": [
+        {
+          "form": "阿仁",
+          "count": 28
+        },
+        {
+          "form": "仁哥",
+          "count": 19
+        },
+        {
+          "form": "康炳仁",
+          "count": 6
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 65,
+          "text": "我叫阿仁啊"
+        },
+        {
+          "episode": "02",
+          "index": 66,
+          "text": "阿仁"
+        },
+        {
+          "episode": "03",
+          "index": 31,
+          "text": "我叫做康炳仁啊"
+        }
+      ]
+    },
+    {
+      "name": "老板",
+      "actor": "陈永康",
+      "count": 37,
+      "matched_forms": [
+        {
+          "form": "老板",
+          "count": 37
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 41,
+          "text": "成天乱讲我的老板"
+        },
+        {
+          "episode": "01",
+          "index": 590,
+          "text": "老板 在这里"
+        },
+        {
+          "episode": "01",
+          "index": 635,
+          "text": "老板 如果我亲自出马不是很方便"
+        }
+      ]
+    },
+    {
+      "name": "马如龙",
+      "actor": "麦先声",
+      "count": 36,
+      "matched_forms": [
+        {
+          "form": "马如龙",
+          "count": 36
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 58,
+          "text": "马如龙"
+        },
+        {
+          "episode": "01",
+          "index": 133,
+          "text": "你看这个马如龙多阴毒"
+        },
+        {
+          "episode": "01",
+          "index": 614,
+          "text": "坐那边的那个 好像是大佬官马如龙"
+        }
+      ]
+    },
+    {
+      "name": "朱乐文",
+      "actor": "刘松仁",
+      "count": 31,
+      "matched_forms": [
+        {
+          "form": "阿文",
+          "count": 24
+        },
+        {
+          "form": "朱乐文",
+          "count": 6
+        },
+        {
+          "form": "文哥",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 323,
+          "text": "阿文这个人 清明节又不在香港"
+        },
+        {
+          "episode": "01",
+          "index": 358,
+          "text": "你说阿文要是像阿强这么乖该多好"
+        },
+        {
+          "episode": "01",
+          "index": 388,
+          "text": "阿文"
+        }
+      ]
+    },
+    {
+      "name": "差人",
+      "actor": "曾楚霖",
+      "count": 26,
+      "matched_forms": [
+        {
+          "form": "警察",
+          "count": 26
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 156,
+          "text": "开玩笑 警察见了要抓的"
+        },
+        {
+          "episode": "02",
+          "index": 89,
+          "text": "喂喂 警察来了"
+        },
+        {
+          "episode": "02",
+          "index": 166,
+          "text": "你刚才是不是躲警察躲这里来的？"
+        }
+      ]
+    },
+    {
+      "name": "珍珠",
+      "actor": "刘雅英",
+      "count": 23,
+      "matched_forms": [
+        {
+          "form": "珍珠",
+          "count": 22
+        },
+        {
+          "form": "曾珍珠",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "07",
+          "index": 477,
+          "text": "我叫曾珍珠"
+        },
+        {
+          "episode": "07",
+          "index": 477,
+          "text": "我叫曾珍珠"
+        },
+        {
+          "episode": "07",
+          "index": 478,
+          "text": "你可以叫我做珍珠"
+        }
+      ]
+    },
+    {
+      "name": "火叔",
+      "actor": "卢保华",
+      "count": 20,
+      "matched_forms": [
+        {
+          "form": "火叔",
+          "count": 20
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 35,
+          "text": "火叔"
+        },
+        {
+          "episode": "02",
+          "index": 39,
+          "text": "阿强，这位是班主火叔"
+        },
+        {
+          "episode": "02",
+          "index": 40,
+          "text": "火叔"
+        }
+      ]
+    },
+    {
+      "name": "何玉湘",
+      "actor": "金雷",
+      "count": 13,
+      "matched_forms": [
+        {
+          "form": "何玉湘",
+          "count": 10
+        },
+        {
+          "form": "何玉厢",
+          "count": 3
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 376,
+          "text": "玉莲的老公就是何玉湘"
+        },
+        {
+          "episode": "02",
+          "index": 384,
+          "text": "如果何玉湘不喜欢玉莲"
+        },
+        {
+          "episode": "02",
+          "index": 710,
+          "text": "何玉湘不是那个开金铺的？"
+        }
+      ]
+    },
+    {
+      "name": "朱敏芝",
+      "actor": "赵雅芝",
+      "count": 13,
+      "matched_forms": [
+        {
+          "form": "阿芝",
+          "count": 10
+        },
+        {
+          "form": "朱敏芝",
+          "count": 3
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 331,
+          "text": "朱伯伯 妈 阿芝 早晨好"
+        },
+        {
+          "episode": "03",
+          "index": 37,
+          "text": "朱敏芝"
+        },
+        {
+          "episode": "03",
+          "index": 308,
+          "text": "我忘了介绍 她是朱敏芝小姐"
+        }
+      ]
+    },
+    {
+      "name": "文太太",
+      "actor": "陈丽卿",
+      "count": 12,
+      "matched_forms": [
+        {
+          "form": "师母",
+          "count": 12
+        }
+      ],
+      "examples": [
+        {
+          "episode": "08",
+          "index": 176,
+          "text": "对了 师母还没下班吗"
+        },
+        {
+          "episode": "08",
+          "index": 197,
+          "text": "师母 坐"
+        },
+        {
+          "episode": "08",
+          "index": 199,
+          "text": "师母 你家的狗狗好漂亮"
+        }
+      ]
+    },
+    {
+      "name": "李妈",
+      "actor": "梁淑卿",
+      "count": 10,
+      "matched_forms": [
+        {
+          "form": "李妈",
+          "count": 10
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 688,
+          "text": "李妈"
+        },
+        {
+          "episode": "05",
+          "index": 91,
+          "text": "李妈"
+        },
+        {
+          "episode": "05",
+          "index": 100,
+          "text": "李妈 你见没见到我去年那件围巾？"
+        }
+      ]
+    },
+    {
+      "name": "欧根",
+      "actor": "钟志强",
+      "count": 8,
+      "matched_forms": [
+        {
+          "form": "欧根",
+          "count": 8
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 39,
+          "text": "这个欧根真是该死"
+        },
+        {
+          "episode": "01",
+          "index": 57,
+          "text": "欧根你"
+        },
+        {
+          "episode": "01",
+          "index": 80,
+          "text": "因为大声何看见欧根在你老公那里"
+        }
+      ]
+    },
+    {
+      "name": "钟主任",
+      "actor": "杨炎棠",
+      "count": 8,
+      "matched_forms": [
+        {
+          "form": "钟主任",
+          "count": 8
+        }
+      ],
+      "examples": [
+        {
+          "episode": "05",
+          "index": 439,
+          "text": "钟主任 请你出来一下"
+        },
+        {
+          "episode": "05",
+          "index": 471,
+          "text": "钟主任是吧"
+        },
+        {
+          "episode": "05",
+          "index": 480,
+          "text": "对 钟主任讲得对"
+        }
+      ]
+    },
+    {
+      "name": "小贩",
+      "actor": "梁心",
+      "count": 7,
+      "matched_forms": [
+        {
+          "form": "小贩",
+          "count": 7
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 23,
+          "text": "喂那个小贩的车让人给砸了"
+        },
+        {
+          "episode": "03",
+          "index": 224,
+          "text": "按理说不用去做小贩啦"
+        },
+        {
+          "episode": "03",
+          "index": 225,
+          "text": "做小贩那是生意"
+        }
+      ]
+    },
+    {
+      "name": "镜叔",
+      "actor": "庞卓林",
+      "count": 7,
+      "matched_forms": [
+        {
+          "form": "镜叔",
+          "count": 7
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 103,
+          "text": "一定要乖乖的跟着镜叔啊"
+        },
+        {
+          "episode": "01",
+          "index": 182,
+          "text": "惨了 镜叔已经锁门了"
+        },
+        {
+          "episode": "01",
+          "index": 183,
+          "text": "镜叔"
+        }
+      ]
+    },
+    {
+      "name": "文杨",
+      "actor": "江毅",
+      "count": 6,
+      "matched_forms": [
+        {
+          "form": "文导演",
+          "count": 5
+        },
+        {
+          "form": "文杨",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "07",
+          "index": 465,
+          "text": "里面的主考文导演是我的姑丈"
+        },
+        {
+          "episode": "08",
+          "index": 47,
+          "text": "本人就是文杨导演"
+        },
+        {
+          "episode": "08",
+          "index": 209,
+          "text": "文导演 师母"
+        }
+      ]
+    },
+    {
+      "name": "朱一轩",
+      "actor": "关海山",
+      "count": 6,
+      "matched_forms": [
+        {
+          "form": "朱伯伯",
+          "count": 4
+        },
+        {
+          "form": "朱一轩",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 331,
+          "text": "朱伯伯 妈 阿芝 早晨好"
+        },
+        {
+          "episode": "01",
+          "index": 353,
+          "text": "朱伯伯"
+        },
+        {
+          "episode": "01",
+          "index": 436,
+          "text": "朱伯伯很容易误会我的"
+        }
+      ]
+    },
+    {
+      "name": "明仔",
+      "actor": "龙天生",
+      "count": 5,
+      "matched_forms": [
+        {
+          "form": "明仔",
+          "count": 5
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 210,
+          "text": "明仔 摆球"
+        },
+        {
+          "episode": "07",
+          "index": 32,
+          "text": "我这次遇到大麻烦了，明仔"
+        },
+        {
+          "episode": "07",
+          "index": 39,
+          "text": "怎么样？明仔"
+        }
+      ]
+    },
+    {
+      "name": "大声何",
+      "actor": "何柏光",
+      "count": 4,
+      "matched_forms": [
+        {
+          "form": "大声何",
+          "count": 4
+        }
+      ],
+      "examples": [
+        {
+          "episode": "01",
+          "index": 80,
+          "text": "因为大声何看见欧根在你老公那里"
+        },
+        {
+          "episode": "01",
+          "index": 648,
+          "text": "原来一向是大声何跟着他的"
+        },
+        {
+          "episode": "02",
+          "index": 430,
+          "text": "我姓何，人人都叫我大声何"
+        }
+      ]
+    },
+    {
+      "name": "麦奇",
+      "actor": "李道渝",
+      "count": 4,
+      "matched_forms": [
+        {
+          "form": "麦奇",
+          "count": 4
+        }
+      ],
+      "examples": [
+        {
+          "episode": "08",
+          "index": 24,
+          "text": "这位是麦奇"
+        },
+        {
+          "episode": "08",
+          "index": 84,
+          "text": "麦奇 休息啊"
+        },
+        {
+          "episode": "08",
+          "index": 112,
+          "text": "麦奇啊 武术班练的怎么样"
+        }
+      ]
+    },
+    {
+      "name": "司机",
+      "actor": "沈芝连",
+      "count": 3,
+      "matched_forms": [
+        {
+          "form": "司机",
+          "count": 3
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 365,
+          "text": "这位是你司机？"
+        },
+        {
+          "episode": "03",
+          "index": 562,
+          "text": "他是我司机咯"
+        },
+        {
+          "episode": "03",
+          "index": 563,
+          "text": "司机哦"
+        }
+      ]
+    },
+    {
+      "name": "夏凤",
+      "actor": "陈比莉",
+      "count": 3,
+      "matched_forms": [
+        {
+          "form": "夏凤",
+          "count": 3
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 286,
+          "text": "她叫夏凤"
+        },
+        {
+          "episode": "02",
+          "index": 299,
+          "text": "这位是夏凤小姐"
+        },
+        {
+          "episode": "03",
+          "index": 309,
+          "text": "这位是夏凤小姐"
+        }
+      ]
+    },
+    {
+      "name": "保镖",
+      "actor": "何礼男",
+      "count": 2,
+      "matched_forms": [
+        {
+          "form": "保镖",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "04",
+          "index": 126,
+          "text": "有人说被人斩了两刀的是徐绍良你的保镖"
+        },
+        {
+          "episode": "04",
+          "index": 129,
+          "text": "如果我马如龙有钱请得起保镖"
+        }
+      ]
+    },
+    {
+      "name": "包租婆",
+      "actor": "郑孟霞",
+      "count": 2,
+      "matched_forms": [
+        {
+          "form": "包租婆",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 483,
+          "text": "包租婆说不准我腌这些东西"
+        },
+        {
+          "episode": "03",
+          "index": 629,
+          "text": "所以你就活该被包租婆赶出来"
+        }
+      ]
+    },
+    {
+      "name": "贺幽菊",
+      "actor": "容惠雯",
+      "count": 2,
+      "matched_forms": [
+        {
+          "form": "贺幽菊",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "04",
+          "index": 363,
+          "text": "今晚贺幽菊小姐"
+        },
+        {
+          "episode": "04",
+          "index": 386,
+          "text": "阿菊贺幽菊"
+        }
+      ]
+    },
+    {
+      "name": "贾彪",
+      "actor": "何贵林",
+      "count": 2,
+      "matched_forms": [
+        {
+          "form": "贾彪",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "04",
+          "index": 401,
+          "text": "贾彪 那个乐队领班"
+        },
+        {
+          "episode": "04",
+          "index": 419,
+          "text": "我是贾彪"
+        }
+      ]
+    },
+    {
+      "name": "阿东",
+      "actor": "曹济",
+      "count": 2,
+      "matched_forms": [
+        {
+          "form": "阿东",
+          "count": 2
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 366,
+          "text": "他叫做阿东"
+        },
+        {
+          "episode": "03",
+          "index": 375,
+          "text": "阿东啊 他只是和我聊聊天而已"
+        }
+      ]
+    },
+    {
+      "name": "吕应平",
+      "actor": "马庆生",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "吕应平",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 118,
+          "text": "这位是吕应平先生"
+        }
+      ]
+    },
+    {
+      "name": "安曼莉",
+      "actor": "邓美美",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "安蔓莉",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 281,
+          "text": "我是安蔓莉"
+        }
+      ]
+    },
+    {
+      "name": "提场",
+      "actor": "邓宽",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "提场",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "03",
+          "index": 465,
+          "text": "那以后怎么提场呢？"
+        }
+      ]
+    },
+    {
+      "name": "朱飞",
+      "actor": "林大伟",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "朱飞",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 190,
+          "text": "朱飞你输定啦"
+        }
+      ]
+    },
+    {
+      "name": "王婆",
+      "actor": "龙天生",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "王婆",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "05",
+          "index": 855,
+          "text": "王婆卖瓜 自卖自夸"
+        }
+      ]
+    },
+    {
+      "name": "班主",
+      "actor": "杨又祥",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "班主",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "02",
+          "index": 39,
+          "text": "阿强，这位是班主火叔"
+        }
+      ]
+    },
+    {
+      "name": "阿明",
+      "actor": "龙天生",
+      "count": 1,
+      "matched_forms": [
+        {
+          "form": "阿明",
+          "count": 1
+        }
+      ],
+      "examples": [
+        {
+          "episode": "07",
+          "index": 44,
+          "text": "阿明啊"
+        }
+      ]
+    }
+  ],
+  "address_terms": [
+    {
+      "term": "阿良",
+      "count": 88,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 101,
+          "text": "阿良"
+        },
+        {
+          "episode": "01",
+          "index": 221,
+          "text": "阿良 斟杯茶给我"
+        },
+        {
+          "episode": "01",
+          "index": 224,
+          "text": "阿良"
+        }
+      ]
+    },
+    {
+      "term": "阿强",
+      "count": 68,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 291,
+          "text": "阿强"
+        },
+        {
+          "episode": "01",
+          "index": 358,
+          "text": "你说阿文要是像阿强这么乖该多好"
+        },
+        {
+          "episode": "02",
+          "index": 39,
+          "text": "阿强，这位是班主火叔"
+        }
+      ]
+    },
+    {
+      "term": "强哥",
+      "count": 66,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 42,
+          "text": "强哥"
+        },
+        {
+          "episode": "01",
+          "index": 272,
+          "text": "强哥"
+        },
+        {
+          "episode": "01",
+          "index": 277,
+          "text": "强哥啊"
+        }
+      ]
+    },
+    {
+      "term": "良哥",
+      "count": 39,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 186,
+          "text": "良哥 打的漂亮啊"
+        },
+        {
+          "episode": "02",
+          "index": 196,
+          "text": "良哥"
+        },
+        {
+          "episode": "02",
+          "index": 200,
+          "text": "良哥 再赌一盘吧"
+        }
+      ]
+    },
+    {
+      "term": "老板",
+      "count": 37,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 41,
+          "text": "成天乱讲我的老板"
+        },
+        {
+          "episode": "01",
+          "index": 590,
+          "text": "老板 在这里"
+        },
+        {
+          "episode": "01",
+          "index": 635,
+          "text": "老板 如果我亲自出马不是很方便"
+        }
+      ]
+    },
+    {
+      "term": "仁哥",
+      "count": 36,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 332,
+          "text": "仁哥"
+        },
+        {
+          "episode": "05",
+          "index": 715,
+          "text": "仁哥啊 来客厅坐一下吧"
+        },
+        {
+          "episode": "06",
+          "index": 592,
+          "text": "仁哥 这么巧啊"
+        }
+      ]
+    },
+    {
+      "term": "火叔",
+      "count": 34,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 35,
+          "text": "火叔"
+        },
+        {
+          "episode": "02",
+          "index": 40,
+          "text": "火叔"
+        },
+        {
+          "episode": "02",
+          "index": 43,
+          "text": "火叔啊"
+        }
+      ]
+    },
+    {
+      "term": "阿仁",
+      "count": 28,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 65,
+          "text": "我叫阿仁啊"
+        },
+        {
+          "episode": "02",
+          "index": 66,
+          "text": "阿仁"
+        },
+        {
+          "episode": "03",
+          "index": 703,
+          "text": "阿仁"
+        }
+      ]
+    },
+    {
+      "term": "阿文",
+      "count": 24,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 323,
+          "text": "阿文这个人 清明节又不在香港"
+        },
+        {
+          "episode": "01",
+          "index": 358,
+          "text": "你说阿文要是像阿强这么乖该多好"
+        },
+        {
+          "episode": "01",
+          "index": 388,
+          "text": "阿文"
+        }
+      ]
+    },
+    {
+      "term": "李妈",
+      "count": 20,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 688,
+          "text": "李妈"
+        },
+        {
+          "episode": "05",
+          "index": 91,
+          "text": "李妈"
+        },
+        {
+          "episode": "05",
+          "index": 100,
+          "text": "李妈 你见没见到我去年那件围巾？"
+        }
+      ]
+    },
+    {
+      "term": "朱小姐",
+      "count": 14,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 325,
+          "text": "朱小姐 我们可以去了"
+        },
+        {
+          "episode": "04",
+          "index": 426,
+          "text": "朱小姐 朱先生"
+        },
+        {
+          "episode": "06",
+          "index": 598,
+          "text": "朱小姐啊"
+        }
+      ]
+    },
+    {
+      "term": "飞哥",
+      "count": 11,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "07",
+          "index": 92,
+          "text": "飞哥 这么早去哪？"
+        },
+        {
+          "episode": "07",
+          "index": 234,
+          "text": "飞哥"
+        },
+        {
+          "episode": "07",
+          "index": 242,
+          "text": "飞哥"
+        }
+      ]
+    },
+    {
+      "term": "阿芝",
+      "count": 10,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 331,
+          "text": "朱伯伯 妈 阿芝 早晨好"
+        },
+        {
+          "episode": "05",
+          "index": 94,
+          "text": "是啊 阿芝 吃糯米鸡"
+        },
+        {
+          "episode": "05",
+          "index": 724,
+          "text": "阿文和阿芝去外面了"
+        }
+      ]
+    },
+    {
+      "term": "镜叔",
+      "count": 9,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 182,
+          "text": "惨了 镜叔已经锁门了"
+        },
+        {
+          "episode": "01",
+          "index": 183,
+          "text": "镜叔"
+        },
+        {
+          "episode": "01",
+          "index": 103,
+          "text": "一定要乖乖的跟着镜叔啊"
+        }
+      ]
+    },
+    {
+      "term": "老爷",
+      "count": 9,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 319,
+          "text": "老爷早晨"
+        },
+        {
+          "episode": "01",
+          "index": 351,
+          "text": "老爷你说是吧"
+        },
+        {
+          "episode": "02",
+          "index": 651,
+          "text": "老爷啊 炖猪腰汤啊"
+        }
+      ]
+    },
+    {
+      "term": "何小姐",
+      "count": 9,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 463,
+          "text": "何小姐不知道搞什么鬼"
+        },
+        {
+          "episode": "02",
+          "index": 468,
+          "text": "何小姐啊"
+        },
+        {
+          "episode": "02",
+          "index": 481,
+          "text": "何小姐啊"
+        }
+      ]
+    },
+    {
+      "term": "大哥",
+      "count": 9,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 621,
+          "text": "大哥"
+        },
+        {
+          "episode": "03",
+          "index": 278,
+          "text": "大哥"
+        },
+        {
+          "episode": "04",
+          "index": 446,
+          "text": "大哥啊 为什么她姐姐这么凶的"
+        }
+      ]
+    },
+    {
+      "term": "朱伯伯",
+      "count": 8,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 331,
+          "text": "朱伯伯 妈 阿芝 早晨好"
+        },
+        {
+          "episode": "01",
+          "index": 353,
+          "text": "朱伯伯"
+        },
+        {
+          "episode": "01",
+          "index": 436,
+          "text": "朱伯伯很容易误会我的"
+        }
+      ]
+    },
+    {
+      "term": "文导演",
+      "count": 7,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "08",
+          "index": 209,
+          "text": "文导演 师母"
+        },
+        {
+          "episode": "08",
+          "index": 440,
+          "text": "文导演还没回来？"
+        },
+        {
+          "episode": "07",
+          "index": 465,
+          "text": "里面的主考文导演是我的姑丈"
+        }
+      ]
+    },
+    {
+      "term": "阿sir",
+      "count": 6,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 101,
+          "text": "喂 阿sir"
+        },
+        {
+          "episode": "04",
+          "index": 256,
+          "text": "阿sir"
+        },
+        {
+          "episode": "04",
+          "index": 262,
+          "text": "阿sir啊"
+        }
+      ]
+    },
+    {
+      "term": "小姐",
+      "count": 6,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 570,
+          "text": "小姐 车预备好了"
+        },
+        {
+          "episode": "05",
+          "index": 434,
+          "text": "小姐"
+        },
+        {
+          "episode": "07",
+          "index": 413,
+          "text": "仁哥 小姐啊"
+        }
+      ]
+    },
+    {
+      "term": "彪哥",
+      "count": 6,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 434,
+          "text": "彪哥好好的"
+        },
+        {
+          "episode": "04",
+          "index": 450,
+          "text": "彪哥"
+        },
+        {
+          "episode": "04",
+          "index": 452,
+          "text": "彪哥"
+        }
+      ]
+    },
+    {
+      "term": "龙哥",
+      "count": 5,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 1,
+          "text": "龙哥啊"
+        },
+        {
+          "episode": "01",
+          "index": 17,
+          "text": "龙哥"
+        },
+        {
+          "episode": "01",
+          "index": 62,
+          "text": "龙哥"
+        }
+      ]
+    },
+    {
+      "term": "阿妈",
+      "count": 5,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 391,
+          "text": "阿妈我要走了"
+        },
+        {
+          "episode": "01",
+          "index": 393,
+          "text": "阿妈 我过两日再来看你"
+        },
+        {
+          "episode": "01",
+          "index": 403,
+          "text": "阿妈我走啦"
+        }
+      ]
+    },
+    {
+      "term": "姐姐",
+      "count": 5,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 485,
+          "text": "姐姐 是不是不用去啦？"
+        },
+        {
+          "episode": "04",
+          "index": 430,
+          "text": "你 姐姐呢"
+        },
+        {
+          "episode": "04",
+          "index": 435,
+          "text": "姐姐肯定不反对"
+        }
+      ]
+    },
+    {
+      "term": "珍珠小姐",
+      "count": 5,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "08",
+          "index": 606,
+          "text": "珍珠小姐在家吗？"
+        },
+        {
+          "episode": "08",
+          "index": 620,
+          "text": "珍珠小姐"
+        },
+        {
+          "episode": "08",
+          "index": 629,
+          "text": "珍珠小姐"
+        }
+      ]
+    },
+    {
+      "term": "大小姐",
+      "count": 4,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 376,
+          "text": "大小姐知道了又要发脾气了"
+        },
+        {
+          "episode": "04",
+          "index": 394,
+          "text": "大小姐"
+        },
+        {
+          "episode": "04",
+          "index": 395,
+          "text": "大小姐"
+        }
+      ]
+    },
+    {
+      "term": "哥哥",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 359,
+          "text": "哥哥现在不是很听你话嘛"
+        },
+        {
+          "episode": "03",
+          "index": 318,
+          "text": "哥哥想请你和强哥吃饭"
+        },
+        {
+          "episode": "04",
+          "index": 320,
+          "text": "哥哥"
+        }
+      ]
+    },
+    {
+      "term": "朱先生",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 298,
+          "text": "朱先生"
+        },
+        {
+          "episode": "03",
+          "index": 305,
+          "text": "朱先生"
+        },
+        {
+          "episode": "04",
+          "index": 426,
+          "text": "朱小姐 朱先生"
+        }
+      ]
+    },
+    {
+      "term": "二小姐",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 597,
+          "text": "二小姐啊"
+        },
+        {
+          "episode": "03",
+          "index": 74,
+          "text": "老爷 二小姐 吃早餐了"
+        },
+        {
+          "episode": "04",
+          "index": 404,
+          "text": "大小姐 二小姐都这么大人了"
+        }
+      ]
+    },
+    {
+      "term": "阿哥",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 661,
+          "text": "阿爸 阿哥有事想和你谈谈"
+        },
+        {
+          "episode": "03",
+          "index": 84,
+          "text": "阿哥做事从来都没虎头蛇尾过"
+        },
+        {
+          "episode": "07",
+          "index": 420,
+          "text": "阿哥好多衣服都穿不着"
+        }
+      ]
+    },
+    {
+      "term": "坤叔",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 86,
+          "text": "坤叔啊"
+        },
+        {
+          "episode": "03",
+          "index": 91,
+          "text": "坤叔"
+        },
+        {
+          "episode": "03",
+          "index": 141,
+          "text": "坤叔啊"
+        }
+      ]
+    },
+    {
+      "term": "贾先生",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 370,
+          "text": "贾先生说要和我订婚呢"
+        },
+        {
+          "episode": "04",
+          "index": 372,
+          "text": "贾先生就是我们乐队的领班"
+        },
+        {
+          "episode": "04",
+          "index": 476,
+          "text": "贾先生你很聪明啊"
+        }
+      ]
+    },
+    {
+      "term": "贺小姐",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 429,
+          "text": "对了 贺小姐"
+        },
+        {
+          "episode": "04",
+          "index": 457,
+          "text": "贺小姐 你无权这么做"
+        },
+        {
+          "episode": "04",
+          "index": 481,
+          "text": "贺小姐"
+        }
+      ]
+    },
+    {
+      "term": "你妈妈",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 651,
+          "text": "你老母 ……不是 你妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 47,
+          "text": "你老母 ……不是 你妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 125,
+          "text": "你妈妈那里住的好好的"
+        }
+      ]
+    },
+    {
+      "term": "朱老板",
+      "count": 3,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "05",
+          "index": 301,
+          "text": "朱老板"
+        },
+        {
+          "episode": "05",
+          "index": 313,
+          "text": "朱老板是不是？"
+        },
+        {
+          "episode": "05",
+          "index": 328,
+          "text": "让我来 朱老板"
+        }
+      ]
+    },
+    {
+      "term": "妈妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 379,
+          "text": "妈妈在朱家有得食 有得住"
+        },
+        {
+          "episode": "01",
+          "index": 383,
+          "text": "妈妈精神还这么好"
+        }
+      ]
+    },
+    {
+      "term": "马先生",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 544,
+          "text": "马先生"
+        },
+        {
+          "episode": "04",
+          "index": 458,
+          "text": "马先生 我想和你谈下这件事"
+        }
+      ]
+    },
+    {
+      "term": "位是夏凤小姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 299,
+          "text": "这位是夏凤小姐"
+        },
+        {
+          "episode": "03",
+          "index": 309,
+          "text": "这位是夏凤小姐"
+        }
+      ]
+    },
+    {
+      "term": "东哥",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 367,
+          "text": "哦 东哥"
+        },
+        {
+          "episode": "03",
+          "index": 368,
+          "text": "东哥 喂"
+        }
+      ]
+    },
+    {
+      "term": "兰姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 430,
+          "text": "兰姐 一个人多少不舒服的时候"
+        },
+        {
+          "episode": "03",
+          "index": 462,
+          "text": "兰姐"
+        }
+      ]
+    },
+    {
+      "term": "阿强哥",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 526,
+          "text": "阿强哥"
+        },
+        {
+          "episode": "07",
+          "index": 283,
+          "text": "阿强哥 正好"
+        }
+      ]
+    },
+    {
+      "term": "听大小姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 572,
+          "text": "听大小姐讲的话就对了"
+        },
+        {
+          "episode": "03",
+          "index": 575,
+          "text": "听大小姐讲的对"
+        }
+      ]
+    },
+    {
+      "term": "夏小姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 323,
+          "text": "夏小姐的舞又跳得好"
+        },
+        {
+          "episode": "04",
+          "index": 427,
+          "text": "夏小姐 你好"
+        }
+      ]
+    },
+    {
+      "term": "她姐姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 382,
+          "text": "她姐姐去了日本"
+        },
+        {
+          "episode": "04",
+          "index": 389,
+          "text": "她姐姐竟然会不在这里"
+        }
+      ]
+    },
+    {
+      "term": "何老板",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 500,
+          "text": "何老板"
+        },
+        {
+          "episode": "05",
+          "index": 341,
+          "text": "何老板"
+        }
+      ]
+    },
+    {
+      "term": "刚才你妈妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 612,
+          "text": "刚才你妈妈打电话过来"
+        },
+        {
+          "episode": "05",
+          "index": 5,
+          "text": "刚才你妈妈打电话过来"
+        }
+      ]
+    },
+    {
+      "term": "电话给老妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 618,
+          "text": "打电话给老妈咯"
+        },
+        {
+          "episode": "05",
+          "index": 11,
+          "text": "打电话给老妈咯"
+        }
+      ]
+    },
+    {
+      "term": "应该孝顺父",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 620,
+          "text": "应该孝顺父母才对"
+        },
+        {
+          "episode": "05",
+          "index": 13,
+          "text": "应该孝顺父母才对"
+        }
+      ]
+    },
+    {
+      "term": "知道我老妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 623,
+          "text": "你居然知道我老妈喜欢糯米鸡"
+        },
+        {
+          "episode": "05",
+          "index": 17,
+          "text": "你居然知道我老妈喜欢糯米鸡"
+        }
+      ]
+    },
+    {
+      "term": "回去见你妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 625,
+          "text": "我陪你一起回去见你妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 20,
+          "text": "我陪你一一起回去见你妈妈"
+        }
+      ]
+    },
+    {
+      "term": "阿强看他妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 644,
+          "text": "你现在是陪阿强看他妈妈吧"
+        },
+        {
+          "episode": "05",
+          "index": 40,
+          "text": "你现在是配阿强看他妈妈吧"
+        }
+      ]
+    },
+    {
+      "term": "就是我伯",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 652,
+          "text": "就是我伯母嘛"
+        },
+        {
+          "episode": "05",
+          "index": 48,
+          "text": "就是我伯母嘛"
+        }
+      ]
+    },
+    {
+      "term": "对伯",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 653,
+          "text": "对伯母应该尊重才是嘛"
+        },
+        {
+          "episode": "05",
+          "index": 49,
+          "text": "对伯母应该尊重才是嘛"
+        }
+      ]
+    },
+    {
+      "term": "去见别人妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 657,
+          "text": "好少见到有人去见别人妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 54,
+          "text": "好少见到有人去见别人妈妈"
+        }
+      ]
+    },
+    {
+      "term": "朱伯",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "05",
+          "index": 244,
+          "text": "朱伯"
+        },
+        {
+          "episode": "05",
+          "index": 255,
+          "text": "朱伯啊"
+        }
+      ]
+    },
+    {
+      "term": "顾经理",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "05",
+          "index": 692,
+          "text": "顾经理 我想放点东西在这里"
+        },
+        {
+          "episode": "06",
+          "index": 333,
+          "text": "顾经理 你叫我啊"
+        }
+      ]
+    },
+    {
+      "term": "我阿妈",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "06",
+          "index": 511,
+          "text": "我阿妈可全信了"
+        },
+        {
+          "episode": "07",
+          "index": 655,
+          "text": "对了 我阿妈呢？"
+        }
+      ]
+    },
+    {
+      "term": "我们小姐",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "07",
+          "index": 378,
+          "text": "我们小姐很快就出来"
+        },
+        {
+          "episode": "07",
+          "index": 661,
+          "text": "我们小姐马上就来"
+        }
+      ]
+    },
+    {
+      "term": "你姑父",
+      "count": 2,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "08",
+          "index": 507,
+          "text": "按理来说 你姑父都是导演"
+        },
+        {
+          "episode": "08",
+          "index": 515,
+          "text": "你姑父人脉多"
+        }
+      ]
+    },
+    {
+      "term": "阿东",
+      "count": 2,
+      "known_character": true,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 366,
+          "text": "他叫做阿东"
+        },
+        {
+          "episode": "03",
+          "index": 375,
+          "text": "阿东啊 他只是和我聊聊天而已"
+        }
+      ]
+    },
+    {
+      "term": "喂强哥",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 11,
+          "text": "喂强哥"
+        }
+      ]
+    },
+    {
+      "term": "要服侍龙哥",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 15,
+          "text": "我要服侍龙哥的嘛"
+        }
+      ]
+    },
+    {
+      "term": "玲姐四哥",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 32,
+          "text": "玲姐四哥 登场了"
+        }
+      ]
+    },
+    {
+      "term": "乱讲我的老板",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 41,
+          "text": "成天乱讲我的老板"
+        }
+      ]
+    },
+    {
+      "term": "那个老爷",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 76,
+          "text": "那个老爷有没有找你麻烦"
+        }
+      ]
+    },
+    {
+      "term": "是认为老爷",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 93,
+          "text": "我还是认为老爷不知道"
+        }
+      ]
+    },
+    {
+      "term": "的跟着镜叔",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 103,
+          "text": "一定要乖乖的跟着镜叔啊"
+        }
+      ]
+    },
+    {
+      "term": "有个叫镜叔",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 242,
+          "text": "有个叫镜叔"
+        }
+      ]
+    },
+    {
+      "term": "是镜叔",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 255,
+          "text": "是镜叔介绍我来的"
+        }
+      ]
+    },
+    {
+      "term": "水哥",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 274,
+          "text": "水哥"
+        }
+      ]
+    },
+    {
+      "term": "见你妈妈",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 278,
+          "text": "见你妈妈 试下腊味饭吧"
+        }
+      ]
+    },
+    {
+      "term": "文少爷",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 310,
+          "text": "文少爷回来啦是不是"
+        }
+      ]
+    },
+    {
+      "term": "这么你哥哥",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 321,
+          "text": "这么你哥哥打球这么长时间"
+        }
+      ]
+    },
+    {
+      "term": "要去祭拜妈",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 324,
+          "text": "今天天气这么好 要去祭拜妈妈"
+        }
+      ]
+    },
+    {
+      "term": "事想和我妈",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 355,
+          "text": "我有点事想和我妈说"
+        }
+      ]
+    },
+    {
+      "term": "来越冷了妈",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 381,
+          "text": "天气越来越冷了妈"
+        }
+      ]
+    },
+    {
+      "term": "麻烦阿朱伯",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 414,
+          "text": "我不想再麻烦阿朱伯咯"
+        }
+      ]
+    },
+    {
+      "term": "曹叔",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 438,
+          "text": "曹叔"
+        }
+      ]
+    },
+    {
+      "term": "电吵醒镜叔",
+      "count": 1,
+      "known_character": false,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 458,
+          "text": "我不好意思打电吵醒镜叔你"
+        }
+      ]
+    }
+  ],
+  "relationship_address_examples": [
+    {
+      "episode": "01",
+      "index": 11,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "喂强哥"
+    },
+    {
+      "episode": "01",
+      "index": 42,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "01",
+      "index": 101,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良"
+    },
+    {
+      "episode": "01",
+      "index": 103,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "一定要乖乖的跟着镜叔啊"
+    },
+    {
+      "episode": "01",
+      "index": 182,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "惨了 镜叔已经锁门了"
+    },
+    {
+      "episode": "01",
+      "index": 183,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "镜叔"
+    },
+    {
+      "episode": "01",
+      "index": 221,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良 斟杯茶给我"
+    },
+    {
+      "episode": "01",
+      "index": 224,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良"
+    },
+    {
+      "episode": "01",
+      "index": 242,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "有个叫镜叔"
+    },
+    {
+      "episode": "01",
+      "index": 255,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "是镜叔介绍我来的"
+    },
+    {
+      "episode": "01",
+      "index": 272,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "01",
+      "index": 277,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥啊"
+    },
+    {
+      "episode": "01",
+      "index": 285,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "01",
+      "index": 291,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "阿强"
+    },
+    {
+      "episode": "01",
+      "index": 323,
+      "mentions": [
+        "阿文"
+      ],
+      "text": "阿文这个人 清明节又不在香港"
+    },
+    {
+      "episode": "01",
+      "index": 331,
+      "mentions": [
+        "朱伯伯",
+        "阿芝"
+      ],
+      "text": "朱伯伯 妈 阿芝 早晨好"
+    },
+    {
+      "episode": "01",
+      "index": 338,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥啊"
+    },
+    {
+      "episode": "01",
+      "index": 353,
+      "mentions": [
+        "朱伯伯"
+      ],
+      "text": "朱伯伯"
+    },
+    {
+      "episode": "01",
+      "index": 358,
+      "mentions": [
+        "阿文",
+        "阿强"
+      ],
+      "text": "你说阿文要是像阿强这么乖该多好"
+    },
+    {
+      "episode": "01",
+      "index": 388,
+      "mentions": [
+        "阿文"
+      ],
+      "text": "阿文"
+    },
+    {
+      "episode": "01",
+      "index": 436,
+      "mentions": [
+        "朱伯伯"
+      ],
+      "text": "朱伯伯很容易误会我的"
+    },
+    {
+      "episode": "01",
+      "index": 437,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "01",
+      "index": 448,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "我先走了 强哥"
+    },
+    {
+      "episode": "01",
+      "index": 458,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "我不好意思打电吵醒镜叔你"
+    },
+    {
+      "episode": "01",
+      "index": 498,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "01",
+      "index": 504,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥 好多谢你照顾"
+    },
+    {
+      "episode": "01",
+      "index": 510,
+      "mentions": [
+        "镜叔"
+      ],
+      "text": "我现在连镜叔那里都回不去了"
+    },
+    {
+      "episode": "01",
+      "index": 591,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良 你千万不要和别人说"
+    },
+    {
+      "episode": "01",
+      "index": 646,
+      "mentions": [
+        "马如龙",
+        "老板"
+      ],
+      "text": "老板 现在来了个帅哥跟着马如龙"
+    },
+    {
+      "episode": "02",
+      "index": 35,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔"
+    },
+    {
+      "episode": "02",
+      "index": 39,
+      "mentions": [
+        "班主",
+        "火叔",
+        "阿强"
+      ],
+      "text": "阿强，这位是班主火叔"
+    },
+    {
+      "episode": "02",
+      "index": 40,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔"
+    },
+    {
+      "episode": "02",
+      "index": 43,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔啊"
+    },
+    {
+      "episode": "02",
+      "index": 65,
+      "mentions": [
+        "阿仁"
+      ],
+      "text": "我叫阿仁啊"
+    },
+    {
+      "episode": "02",
+      "index": 66,
+      "mentions": [
+        "阿仁"
+      ],
+      "text": "阿仁"
+    },
+    {
+      "episode": "02",
+      "index": 186,
+      "mentions": [
+        "良哥"
+      ],
+      "text": "良哥 打的漂亮啊"
+    },
+    {
+      "episode": "02",
+      "index": 196,
+      "mentions": [
+        "良哥"
+      ],
+      "text": "良哥"
+    },
+    {
+      "episode": "02",
+      "index": 200,
+      "mentions": [
+        "良哥"
+      ],
+      "text": "良哥 再赌一盘吧"
+    },
+    {
+      "episode": "02",
+      "index": 268,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔 你都知道的啦"
+    },
+    {
+      "episode": "02",
+      "index": 299,
+      "mentions": [
+        "夏凤"
+      ],
+      "text": "这位是夏凤小姐"
+    },
+    {
+      "episode": "02",
+      "index": 424,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良"
+    },
+    {
+      "episode": "02",
+      "index": 429,
+      "mentions": [
+        "良哥"
+      ],
+      "text": "是啊 良哥"
+    },
+    {
+      "episode": "02",
+      "index": 441,
+      "mentions": [
+        "良哥"
+      ],
+      "text": "喂新国飞 良哥是我兄弟"
+    },
+    {
+      "episode": "02",
+      "index": 451,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "喂 安平戏院 阿强啊"
+    },
+    {
+      "episode": "02",
+      "index": 452,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "阿强啊"
+    },
+    {
+      "episode": "02",
+      "index": 466,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "我是火叔啊"
+    },
+    {
+      "episode": "02",
+      "index": 495,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "喂火叔啊"
+    },
+    {
+      "episode": "02",
+      "index": 498,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔"
+    },
+    {
+      "episode": "02",
+      "index": 503,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔啊"
+    },
+    {
+      "episode": "02",
+      "index": 504,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "还是让阿强去啦"
+    },
+    {
+      "episode": "02",
+      "index": 507,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥"
+    },
+    {
+      "episode": "02",
+      "index": 569,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "等一会我亲手交给火叔"
+    },
+    {
+      "episode": "02",
+      "index": 579,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔吩咐过"
+    },
+    {
+      "episode": "02",
+      "index": 603,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "喂 火叔啊"
+    },
+    {
+      "episode": "02",
+      "index": 604,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔"
+    },
+    {
+      "episode": "02",
+      "index": 605,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔啊你这是专门来针对我是吧"
+    },
+    {
+      "episode": "02",
+      "index": 625,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "约强哥出来宵夜啊"
+    },
+    {
+      "episode": "02",
+      "index": 646,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "反正我认识阿强"
+    },
+    {
+      "episode": "02",
+      "index": 680,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "我们马上找阿强帮忙"
+    },
+    {
+      "episode": "02",
+      "index": 682,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "找阿强干嘛？"
+    },
+    {
+      "episode": "02",
+      "index": 688,
+      "mentions": [
+        "李妈"
+      ],
+      "text": "李妈"
+    },
+    {
+      "episode": "03",
+      "index": 22,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "阿强"
+    },
+    {
+      "episode": "03",
+      "index": 43,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "不如这样 阿强"
+    },
+    {
+      "episode": "03",
+      "index": 76,
+      "mentions": [
+        "阿文"
+      ],
+      "text": "叫阿文下来啊"
+    },
+    {
+      "episode": "03",
+      "index": 80,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "下午去找阿强"
+    },
+    {
+      "episode": "03",
+      "index": 88,
+      "mentions": [
+        "朱乐文"
+      ],
+      "text": "这位朱乐文先生"
+    },
+    {
+      "episode": "03",
+      "index": 110,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "阿强啊"
+    },
+    {
+      "episode": "03",
+      "index": 117,
+      "mentions": [
+        "阿文"
+      ],
+      "text": "阿文啊"
+    },
+    {
+      "episode": "03",
+      "index": 118,
+      "mentions": [
+        "吕应平"
+      ],
+      "text": "这位是吕应平先生"
+    },
+    {
+      "episode": "03",
+      "index": 267,
+      "mentions": [
+        "阿良"
+      ],
+      "text": "阿良啊"
+    },
+    {
+      "episode": "03",
+      "index": 293,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔 你别误会"
+    },
+    {
+      "episode": "03",
+      "index": 296,
+      "mentions": [
+        "火叔"
+      ],
+      "text": "火叔啊"
+    },
+    {
+      "episode": "03",
+      "index": 308,
+      "mentions": [
+        "朱敏芝"
+      ],
+      "text": "我忘了介绍 她是朱敏芝小姐"
+    },
+    {
+      "episode": "03",
+      "index": 309,
+      "mentions": [
+        "夏凤"
+      ],
+      "text": "这位是夏凤小姐"
+    },
+    {
+      "episode": "03",
+      "index": 311,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "阿强 你和他们很熟的吗"
+    },
+    {
+      "episode": "03",
+      "index": 316,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "强哥喜欢"
+    },
+    {
+      "episode": "03",
+      "index": 318,
+      "mentions": [
+        "强哥"
+      ],
+      "text": "哥哥想请你和强哥吃饭"
+    },
+    {
+      "episode": "03",
+      "index": 328,
+      "mentions": [
+        "阿强"
+      ],
+      "text": "你去不去 阿强？"
+    },
+    {
+      "episode": "03",
+      "index": 366,
+      "mentions": [
+        "阿东"
+      ],
+      "text": "他叫做阿东"
+    },
+    {
+      "episode": "03",
+      "index": 375,
+      "mentions": [
+        "阿东"
+      ],
+      "text": "阿东啊 他只是和我聊聊天而已"
+    }
+  ],
+  "fixed_translation_phrases": [
+    {
+      "phrase": "我不知道",
+      "count": 7,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 672,
+          "text": "我不知道啊"
+        },
+        {
+          "episode": "04",
+          "index": 83,
+          "text": "我不知道"
+        },
+        {
+          "episode": "04",
+          "index": 614,
+          "text": "我不知道"
+        }
+      ]
+    },
+    {
+      "phrase": "西班牙马蹄",
+      "count": 6,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 78,
+          "text": "西班牙马蹄 醒胃酸嘢"
+        },
+        {
+          "episode": "02",
+          "index": 515,
+          "text": "西班牙马蹄 来了"
+        },
+        {
+          "episode": "02",
+          "index": 517,
+          "text": "西班牙马蹄"
+        }
+      ]
+    },
+    {
+      "phrase": "阿sir",
+      "count": 6,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 101,
+          "text": "喂 阿sir"
+        },
+        {
+          "episode": "04",
+          "index": 256,
+          "text": "阿sir"
+        },
+        {
+          "episode": "04",
+          "index": 262,
+          "text": "阿sir啊"
+        }
+      ]
+    },
+    {
+      "phrase": "我先走了",
+      "count": 5,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 315,
+          "text": "朱老 我先走了"
+        },
+        {
+          "episode": "01",
+          "index": 448,
+          "text": "我先走了 强哥"
+        },
+        {
+          "episode": "02",
+          "index": 181,
+          "text": "我先走了"
+        }
+      ]
+    },
+    {
+      "phrase": "你是哪位",
+      "count": 5,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 64,
+          "text": "喂 你是哪位"
+        },
+        {
+          "episode": "03",
+          "index": 561,
+          "text": "你是哪位啊"
+        },
+        {
+          "episode": "04",
+          "index": 531,
+          "text": "你是哪位"
+        }
+      ]
+    },
+    {
+      "phrase": "有没有搞错",
+      "count": 5,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 601,
+          "text": "有没有搞错"
+        },
+        {
+          "episode": "07",
+          "index": 600,
+          "text": "有没有搞错啊"
+        },
+        {
+          "episode": "08",
+          "index": 116,
+          "text": "有没有搞错啊"
+        }
+      ]
+    },
+    {
+      "phrase": "请坐请坐",
+      "count": 5,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 92,
+          "text": "请坐 请坐"
+        },
+        {
+          "episode": "05",
+          "index": 326,
+          "text": "请坐 请坐"
+        },
+        {
+          "episode": "05",
+          "index": 441,
+          "text": "请坐 请坐"
+        }
+      ]
+    },
+    {
+      "phrase": "那怎么办",
+      "count": 5,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 321,
+          "text": "那怎么办"
+        },
+        {
+          "episode": "03",
+          "index": 451,
+          "text": "那怎么办？"
+        },
+        {
+          "episode": "06",
+          "index": 361,
+          "text": "那怎么办"
+        }
+      ]
+    },
+    {
+      "phrase": "你去哪里",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 188,
+          "text": "你去哪里啊"
+        },
+        {
+          "episode": "01",
+          "index": 506,
+          "text": "你去哪里啊"
+        },
+        {
+          "episode": "02",
+          "index": 320,
+          "text": "你去哪里"
+        }
+      ]
+    },
+    {
+      "phrase": "不如这样",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 195,
+          "text": "不如这样"
+        },
+        {
+          "episode": "03",
+          "index": 43,
+          "text": "不如这样 阿强"
+        },
+        {
+          "episode": "03",
+          "index": 322,
+          "text": "不如这样"
+        }
+      ]
+    },
+    {
+      "phrase": "对不起对不起",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 106,
+          "text": "对不起 对不起"
+        },
+        {
+          "episode": "02",
+          "index": 111,
+          "text": "对不起 对不起"
+        },
+        {
+          "episode": "02",
+          "index": 512,
+          "text": "对不起 对不起"
+        }
+      ]
+    },
+    {
+      "phrase": "不好意思",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 110,
+          "text": "不好意思 打搅了"
+        },
+        {
+          "episode": "02",
+          "index": 447,
+          "text": "不好意思 良少 帮帮手"
+        },
+        {
+          "episode": "05",
+          "index": 324,
+          "text": "来迟了 不好意思"
+        }
+      ]
+    },
+    {
+      "phrase": "关你什么事",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 390,
+          "text": "关你什么事啊"
+        },
+        {
+          "episode": "02",
+          "index": 551,
+          "text": "关你什么事"
+        },
+        {
+          "episode": "03",
+          "index": 351,
+          "text": "关你什么事啊"
+        }
+      ]
+    },
+    {
+      "phrase": "麻烦你了",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 508,
+          "text": "麻烦你了"
+        },
+        {
+          "episode": "03",
+          "index": 461,
+          "text": "好了好了 麻烦你了"
+        },
+        {
+          "episode": "06",
+          "index": 309,
+          "text": "麻烦你了"
+        }
+      ]
+    },
+    {
+      "phrase": "什么办法",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 594,
+          "text": "什么办法"
+        },
+        {
+          "episode": "05",
+          "index": 773,
+          "text": "什么办法？"
+        },
+        {
+          "episode": "05",
+          "index": 846,
+          "text": "什么办法"
+        }
+      ]
+    },
+    {
+      "phrase": "珍珠小姐",
+      "count": 4,
+      "examples": [
+        {
+          "episode": "08",
+          "index": 620,
+          "text": "珍珠小姐"
+        },
+        {
+          "episode": "08",
+          "index": 629,
+          "text": "珍珠小姐"
+        },
+        {
+          "episode": "08",
+          "index": 655,
+          "text": "珍珠小姐"
+        }
+      ]
+    },
+    {
+      "phrase": "你叫什么名字",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 237,
+          "text": "你叫什么名字"
+        },
+        {
+          "episode": "03",
+          "index": 587,
+          "text": "你叫什么名字"
+        },
+        {
+          "episode": "06",
+          "index": 193,
+          "text": "对了 你叫什么名字"
+        }
+      ]
+    },
+    {
+      "phrase": "多谢多谢",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 284,
+          "text": "多谢多谢"
+        },
+        {
+          "episode": "04",
+          "index": 255,
+          "text": "好 多谢多谢 姜糖"
+        },
+        {
+          "episode": "05",
+          "index": 689,
+          "text": "多谢 多谢"
+        }
+      ]
+    },
+    {
+      "phrase": "阿爸早晨",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 320,
+          "text": "阿爸早晨"
+        },
+        {
+          "episode": "01",
+          "index": 329,
+          "text": "阿爸早晨"
+        },
+        {
+          "episode": "03",
+          "index": 54,
+          "text": "阿爸早晨"
+        }
+      ]
+    },
+    {
+      "phrase": "好了好了",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 465,
+          "text": "好了好了"
+        },
+        {
+          "episode": "02",
+          "index": 361,
+          "text": "好了 好了"
+        },
+        {
+          "episode": "03",
+          "index": 461,
+          "text": "好了好了 麻烦你了"
+        }
+      ]
+    },
+    {
+      "phrase": "我想搞一个民间艺术欣赏会",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 242,
+          "text": "不是 我想搞一个民间艺术欣赏会啊"
+        },
+        {
+          "episode": "02",
+          "index": 303,
+          "text": "我想搞一个民间艺术欣赏会"
+        },
+        {
+          "episode": "02",
+          "index": 631,
+          "text": "我想搞一个民间艺术欣赏会"
+        }
+      ]
+    },
+    {
+      "phrase": "安平戏院",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 321,
+          "text": "安平戏院啊"
+        },
+        {
+          "episode": "02",
+          "index": 322,
+          "text": "安平戏院啊"
+        },
+        {
+          "episode": "02",
+          "index": 451,
+          "text": "喂 安平戏院 阿强啊"
+        }
+      ]
+    },
+    {
+      "phrase": "到时间了",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 372,
+          "text": "到时间了"
+        },
+        {
+          "episode": "06",
+          "index": 303,
+          "text": "到时间了"
+        },
+        {
+          "episode": "08",
+          "index": 384,
+          "text": "坏了 到时间了"
+        }
+      ]
+    },
+    {
+      "phrase": "别这么说",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 448,
+          "text": "别这么说"
+        },
+        {
+          "episode": "07",
+          "index": 559,
+          "text": "别这么说"
+        },
+        {
+          "episode": "07",
+          "index": 690,
+          "text": "别这么说"
+        }
+      ]
+    },
+    {
+      "phrase": "民间艺术",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 664,
+          "text": "民间艺术"
+        },
+        {
+          "episode": "04",
+          "index": 242,
+          "text": "民间艺术啊 食姜糖"
+        },
+        {
+          "episode": "04",
+          "index": 247,
+          "text": "民间艺术 食姜糖"
+        }
+      ]
+    },
+    {
+      "phrase": "我来介绍",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 87,
+          "text": "我来介绍"
+        },
+        {
+          "episode": "04",
+          "index": 424,
+          "text": "我来介绍"
+        },
+        {
+          "episode": "08",
+          "index": 193,
+          "text": "我来介绍"
+        }
+      ]
+    },
+    {
+      "phrase": "拜拜拜拜",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "03",
+          "index": 340,
+          "text": "拜拜 拜拜"
+        },
+        {
+          "episode": "08",
+          "index": 123,
+          "text": "拜拜 拜拜"
+        },
+        {
+          "episode": "08",
+          "index": 394,
+          "text": "拜拜拜拜"
+        }
+      ]
+    },
+    {
+      "phrase": "好吃的姜糖",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "04",
+          "index": 245,
+          "text": "好吃的姜糖"
+        },
+        {
+          "episode": "04",
+          "index": 249,
+          "text": "好吃的姜糖 多照顾"
+        },
+        {
+          "episode": "04",
+          "index": 254,
+          "text": "好吃的 姜糖"
+        }
+      ]
+    },
+    {
+      "phrase": "各位朋友",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "05",
+          "index": 533,
+          "text": "各位朋友"
+        },
+        {
+          "episode": "05",
+          "index": 539,
+          "text": "各位朋友 你们好"
+        },
+        {
+          "episode": "05",
+          "index": 541,
+          "text": "各位朋友"
+        }
+      ]
+    },
+    {
+      "phrase": "怎么是你",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "06",
+          "index": 184,
+          "text": "怎么是你啊"
+        },
+        {
+          "episode": "08",
+          "index": 446,
+          "text": "怎么是你啊 珍珠"
+        },
+        {
+          "episode": "08",
+          "index": 447,
+          "text": "怎么是你"
+        }
+      ]
+    },
+    {
+      "phrase": "你有没有搞错",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "06",
+          "index": 654,
+          "text": "你有没有搞错"
+        },
+        {
+          "episode": "06",
+          "index": 660,
+          "text": "你有没有搞错啊"
+        },
+        {
+          "episode": "08",
+          "index": 388,
+          "text": "你有没有搞错啊"
+        }
+      ]
+    },
+    {
+      "phrase": "四蹄踏雪",
+      "count": 3,
+      "examples": [
+        {
+          "episode": "06",
+          "index": 655,
+          "text": "四蹄踏雪"
+        },
+        {
+          "episode": "06",
+          "index": 707,
+          "text": "果然是3号马 四蹄踏雪"
+        },
+        {
+          "episode": "07",
+          "index": 98,
+          "text": "四蹄踏雪？爆大冷了"
+        }
+      ]
+    },
+    {
+      "phrase": "快点快点",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 4,
+          "text": "快点 快点"
+        },
+        {
+          "episode": "06",
+          "index": 246,
+          "text": "快点 快点"
+        }
+      ]
+    },
+    {
+      "phrase": "出去看看什么事",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 10,
+          "text": "你反正没事干 出去看看什么事"
+        },
+        {
+          "episode": "01",
+          "index": 12,
+          "text": "你这么有空 出去看看什么事"
+        }
+      ]
+    },
+    {
+      "phrase": "来了来了",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 20,
+          "text": "来了 来了"
+        },
+        {
+          "episode": "04",
+          "index": 51,
+          "text": "来了 来了"
+        }
+      ]
+    },
+    {
+      "phrase": "你没事吧",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 68,
+          "text": "你没事吧"
+        },
+        {
+          "episode": "07",
+          "index": 597,
+          "text": "你没事吧"
+        }
+      ]
+    },
+    {
+      "phrase": "我有事先走",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 70,
+          "text": "盯住他 我有事先走"
+        },
+        {
+          "episode": "02",
+          "index": 311,
+          "text": "我有事先走"
+        }
+      ]
+    },
+    {
+      "phrase": "先拿去用吧",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 71,
+          "text": "先拿去用吧"
+        },
+        {
+          "episode": "01",
+          "index": 522,
+          "text": "先拿去用吧"
+        }
+      ]
+    },
+    {
+      "phrase": "我自己来吧",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 75,
+          "text": "我自己来吧"
+        },
+        {
+          "episode": "06",
+          "index": 34,
+          "text": "我自己来吧"
+        }
+      ]
+    },
+    {
+      "phrase": "我怎么知道",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 87,
+          "text": "我怎么知道"
+        },
+        {
+          "episode": "04",
+          "index": 596,
+          "text": "我怎么知道"
+        }
+      ]
+    },
+    {
+      "phrase": "那怎么好意思",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 214,
+          "text": "那怎么好意思"
+        },
+        {
+          "episode": "07",
+          "index": 704,
+          "text": "那怎么好意思啊"
+        }
+      ]
+    },
+    {
+      "phrase": "我叫李华强",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 238,
+          "text": "我叫李华强"
+        },
+        {
+          "episode": "03",
+          "index": 588,
+          "text": "我叫李华强"
+        }
+      ]
+    },
+    {
+      "phrase": "不用客气了",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 334,
+          "text": "不用客气了"
+        },
+        {
+          "episode": "08",
+          "index": 213,
+          "text": "不用客气了"
+        }
+      ]
+    },
+    {
+      "phrase": "你们慢慢吃",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 354,
+          "text": "你们慢慢吃"
+        },
+        {
+          "episode": "05",
+          "index": 105,
+          "text": "你们慢慢吃"
+        }
+      ]
+    },
+    {
+      "phrase": "很快就回来",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 372,
+          "text": "很快就回来"
+        },
+        {
+          "episode": "08",
+          "index": 373,
+          "text": "很快就回来"
+        }
+      ]
+    },
+    {
+      "phrase": "那怎么行",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 513,
+          "text": "踎街？那怎么行啊"
+        },
+        {
+          "episode": "07",
+          "index": 48,
+          "text": "那怎么行"
+        }
+      ]
+    },
+    {
+      "phrase": "好棒好棒",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 542,
+          "text": "好棒 好棒"
+        },
+        {
+          "episode": "03",
+          "index": 304,
+          "text": "好棒 好棒"
+        }
+      ]
+    },
+    {
+      "phrase": "如果你没什么事",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 587,
+          "text": "如果你没什么事"
+        },
+        {
+          "episode": "08",
+          "index": 417,
+          "text": "如果你没什么事 来家里坐啊"
+        }
+      ]
+    },
+    {
+      "phrase": "多谢马生",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "01",
+          "index": 602,
+          "text": "多谢马生"
+        },
+        {
+          "episode": "01",
+          "index": 630,
+          "text": "多谢马生"
+        }
+      ]
+    },
+    {
+      "phrase": "这倒不是",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 9,
+          "text": "这倒不是"
+        },
+        {
+          "episode": "08",
+          "index": 547,
+          "text": "这倒不是"
+        }
+      ]
+    },
+    {
+      "phrase": "好吃的西班牙马蹄",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 48,
+          "text": "好吃的西班牙马蹄"
+        },
+        {
+          "episode": "02",
+          "index": 62,
+          "text": "好吃的西班牙马蹄"
+        }
+      ]
+    },
+    {
+      "phrase": "醒胃酸嘢",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 53,
+          "text": "醒胃酸嘢"
+        },
+        {
+          "episode": "02",
+          "index": 78,
+          "text": "西班牙马蹄 醒胃酸嘢"
+        }
+      ]
+    },
+    {
+      "phrase": "清胃酸嘢",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 59,
+          "text": "清胃酸嘢"
+        },
+        {
+          "episode": "02",
+          "index": 60,
+          "text": "清胃酸嘢"
+        }
+      ]
+    },
+    {
+      "phrase": "你什么人",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 91,
+          "text": "你什么人啊"
+        },
+        {
+          "episode": "02",
+          "index": 95,
+          "text": "你什么人啊？"
+        }
+      ]
+    },
+    {
+      "phrase": "你小心点",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 130,
+          "text": "你小心点啊"
+        },
+        {
+          "episode": "02",
+          "index": 135,
+          "text": "你小心点啊"
+        }
+      ]
+    },
+    {
+      "phrase": "真是不小心",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 143,
+          "text": "真是不小心"
+        },
+        {
+          "episode": "08",
+          "index": 38,
+          "text": "真是不小心"
+        }
+      ]
+    },
+    {
+      "phrase": "这么快就走",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 182,
+          "text": "走？这么快就走啊"
+        },
+        {
+          "episode": "08",
+          "index": 211,
+          "text": "这么快就走"
+        }
+      ]
+    },
+    {
+      "phrase": "就这么定了",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 263,
+          "text": "就这么定了"
+        },
+        {
+          "episode": "05",
+          "index": 268,
+          "text": "就这么定了"
+        }
+      ]
+    },
+    {
+      "phrase": "我叫朱乐文",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 277,
+          "text": "我叫朱乐文"
+        },
+        {
+          "episode": "03",
+          "index": 34,
+          "text": "我叫朱乐文啊"
+        }
+      ]
+    },
+    {
+      "phrase": "这位是夏凤小姐",
+      "count": 2,
+      "examples": [
+        {
+          "episode": "02",
+          "index": 299,
+          "text": "这位是夏凤小姐"
+        },
+        {
+          "episode": "03",
+          "index": 309,
+          "text": "这位是夏凤小姐"
+        }
+      ]
+    }
+  ],
+  "suspicious_proper_terms": [
+    {
+      "term": "朱小姐",
+      "count": 13,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 325,
+          "text": "朱小姐 我们可以去了"
+        },
+        {
+          "episode": "04",
+          "index": 426,
+          "text": "朱小姐 朱先生"
+        },
+        {
+          "episode": "06",
+          "index": 598,
+          "text": "朱小姐啊"
+        }
+      ]
+    },
+    {
+      "term": "阿爸",
+      "count": 11,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 347,
+          "text": "阿爸啊"
+        },
+        {
+          "episode": "01",
+          "index": 366,
+          "text": "阿爸 不如明天再去拜山啦"
+        },
+        {
+          "episode": "02",
+          "index": 661,
+          "text": "阿爸 阿哥有事想和你谈谈"
+        }
+      ]
+    },
+    {
+      "term": "飞哥",
+      "count": 11,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "07",
+          "index": 92,
+          "text": "飞哥 这么早去哪？"
+        },
+        {
+          "episode": "07",
+          "index": 234,
+          "text": "飞哥"
+        },
+        {
+          "episode": "07",
+          "index": 242,
+          "text": "飞哥"
+        }
+      ]
+    },
+    {
+      "term": "阿菊",
+      "count": 9,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 572,
+          "text": "哦 阿菊"
+        },
+        {
+          "episode": "02",
+          "index": 574,
+          "text": "阿菊"
+        },
+        {
+          "episode": "02",
+          "index": 589,
+          "text": "阿菊 还不走？"
+        }
+      ]
+    },
+    {
+      "term": "何小姐",
+      "count": 8,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 468,
+          "text": "何小姐啊"
+        },
+        {
+          "episode": "02",
+          "index": 481,
+          "text": "何小姐啊"
+        },
+        {
+          "episode": "03",
+          "index": 341,
+          "text": "何小姐"
+        }
+      ]
+    },
+    {
+      "term": "小姐",
+      "count": 6,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 570,
+          "text": "小姐 车预备好了"
+        },
+        {
+          "episode": "05",
+          "index": 434,
+          "text": "小姐"
+        },
+        {
+          "episode": "07",
+          "index": 413,
+          "text": "仁哥 小姐啊"
+        }
+      ]
+    },
+    {
+      "term": "大哥",
+      "count": 6,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 621,
+          "text": "大哥"
+        },
+        {
+          "episode": "03",
+          "index": 278,
+          "text": "大哥"
+        },
+        {
+          "episode": "04",
+          "index": 446,
+          "text": "大哥啊 为什么她姐姐这么凶的"
+        }
+      ]
+    },
+    {
+      "term": "导演",
+      "count": 6,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "08",
+          "index": 83,
+          "text": "导演"
+        },
+        {
+          "episode": "08",
+          "index": 88,
+          "text": "导演啊"
+        },
+        {
+          "episode": "08",
+          "index": 95,
+          "text": "导演啊"
+        }
+      ]
+    },
+    {
+      "term": "龙哥",
+      "count": 5,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 1,
+          "text": "龙哥啊"
+        },
+        {
+          "episode": "01",
+          "index": 17,
+          "text": "龙哥"
+        },
+        {
+          "episode": "01",
+          "index": 62,
+          "text": "龙哥"
+        }
+      ]
+    },
+    {
+      "term": "彪哥",
+      "count": 5,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 450,
+          "text": "彪哥"
+        },
+        {
+          "episode": "04",
+          "index": 452,
+          "text": "彪哥"
+        },
+        {
+          "episode": "04",
+          "index": 454,
+          "text": "彪哥"
+        }
+      ]
+    },
+    {
+      "term": "姐姐",
+      "count": 4,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 485,
+          "text": "姐姐 是不是不用去啦？"
+        },
+        {
+          "episode": "04",
+          "index": 430,
+          "text": "你 姐姐呢"
+        },
+        {
+          "episode": "04",
+          "index": 439,
+          "text": "姐姐"
+        }
+      ]
+    },
+    {
+      "term": "老爷",
+      "count": 4,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 651,
+          "text": "老爷啊 炖猪腰汤啊"
+        },
+        {
+          "episode": "02",
+          "index": 684,
+          "text": "老爷 大少懂事了"
+        },
+        {
+          "episode": "03",
+          "index": 74,
+          "text": "老爷 二小姐 吃早餐了"
+        }
+      ]
+    },
+    {
+      "term": "经理",
+      "count": 4,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 455,
+          "text": "我们这里请推销员经理"
+        },
+        {
+          "episode": "05",
+          "index": 612,
+          "text": "真的可以做到推销经理吗"
+        },
+        {
+          "episode": "06",
+          "index": 363,
+          "text": "经理"
+        }
+      ]
+    },
+    {
+      "term": "珍珠小姐",
+      "count": 4,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "08",
+          "index": 620,
+          "text": "珍珠小姐"
+        },
+        {
+          "episode": "08",
+          "index": 629,
+          "text": "珍珠小姐"
+        },
+        {
+          "episode": "08",
+          "index": 655,
+          "text": "珍珠小姐"
+        }
+      ]
+    },
+    {
+      "term": "阿杨",
+      "count": 4,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "08",
+          "index": 653,
+          "text": "阿杨啊"
+        },
+        {
+          "episode": "08",
+          "index": 654,
+          "text": "我不知道怎么办 阿杨"
+        },
+        {
+          "episode": "08",
+          "index": 671,
+          "text": "咦 阿杨"
+        }
+      ]
+    },
+    {
+      "term": "阿妈",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 393,
+          "text": "阿妈 我过两日再来看你"
+        },
+        {
+          "episode": "01",
+          "index": 404,
+          "text": "啊 阿妈"
+        },
+        {
+          "episode": "06",
+          "index": 475,
+          "text": "阿妈"
+        }
+      ]
+    },
+    {
+      "term": "朱先生",
+      "count": 3,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 298,
+          "text": "朱先生"
+        },
+        {
+          "episode": "03",
+          "index": 305,
+          "text": "朱先生"
+        },
+        {
+          "episode": "04",
+          "index": 426,
+          "text": "朱小姐 朱先生"
+        }
+      ]
+    },
+    {
+      "term": "安平戏院",
+      "count": 3,
+      "reason": "疑似机构、地点或行业词",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 321,
+          "text": "安平戏院啊"
+        },
+        {
+          "episode": "02",
+          "index": 322,
+          "text": "安平戏院啊"
+        },
+        {
+          "episode": "02",
+          "index": 451,
+          "text": "喂 安平戏院 阿强啊"
+        }
+      ]
+    },
+    {
+      "term": "坤叔",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 86,
+          "text": "坤叔啊"
+        },
+        {
+          "episode": "03",
+          "index": 91,
+          "text": "坤叔"
+        },
+        {
+          "episode": "03",
+          "index": 141,
+          "text": "坤叔啊"
+        }
+      ]
+    },
+    {
+      "term": "阿云",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 428,
+          "text": "哦 阿云"
+        },
+        {
+          "episode": "03",
+          "index": 442,
+          "text": "阿云 你向兰姐道歉"
+        },
+        {
+          "episode": "03",
+          "index": 455,
+          "text": "好好好 阿云"
+        }
+      ]
+    },
+    {
+      "term": "大小姐",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 394,
+          "text": "大小姐"
+        },
+        {
+          "episode": "04",
+          "index": 395,
+          "text": "大小姐"
+        },
+        {
+          "episode": "04",
+          "index": 404,
+          "text": "大小姐 二小姐都这么大人了"
+        }
+      ]
+    },
+    {
+      "term": "贺小姐",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 429,
+          "text": "对了 贺小姐"
+        },
+        {
+          "episode": "04",
+          "index": 457,
+          "text": "贺小姐 你无权这么做"
+        },
+        {
+          "episode": "04",
+          "index": 481,
+          "text": "贺小姐"
+        }
+      ]
+    },
+    {
+      "term": "你妈妈",
+      "count": 3,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 625,
+          "text": "我陪你一起回去见你妈妈"
+        },
+        {
+          "episode": "04",
+          "index": 651,
+          "text": "你老母 ……不是 你妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 47,
+          "text": "你老母 ……不是 你妈妈"
+        }
+      ]
+    },
+    {
+      "term": "见你妈妈",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 278,
+          "text": "见你妈妈 试下腊味饭吧"
+        },
+        {
+          "episode": "05",
+          "index": 20,
+          "text": "我陪你一一起回去见你妈妈"
+        }
+      ]
+    },
+    {
+      "term": "银行",
+      "count": 2,
+      "reason": "疑似机构、地点或行业词",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 373,
+          "text": "我今天正好准备去银行"
+        },
+        {
+          "episode": "03",
+          "index": 191,
+          "text": "你以为我现在去抢银行吗"
+        }
+      ]
+    },
+    {
+      "term": "马先生",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 544,
+          "text": "马先生"
+        },
+        {
+          "episode": "04",
+          "index": 458,
+          "text": "马先生 我想和你谈下这件事"
+        }
+      ]
+    },
+    {
+      "term": "这位是夏凤小姐",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 299,
+          "text": "这位是夏凤小姐"
+        },
+        {
+          "episode": "03",
+          "index": 309,
+          "text": "这位是夏凤小姐"
+        }
+      ]
+    },
+    {
+      "term": "二小姐",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "02",
+          "index": 597,
+          "text": "二小姐啊"
+        },
+        {
+          "episode": "03",
+          "index": 74,
+          "text": "老爷 二小姐 吃早餐了"
+        }
+      ]
+    },
+    {
+      "term": "东哥",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 367,
+          "text": "哦 东哥"
+        },
+        {
+          "episode": "03",
+          "index": 368,
+          "text": "东哥 喂"
+        }
+      ]
+    },
+    {
+      "term": "兰姐",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 430,
+          "text": "兰姐 一个人多少不舒服的时候"
+        },
+        {
+          "episode": "03",
+          "index": 462,
+          "text": "兰姐"
+        }
+      ]
+    },
+    {
+      "term": "阿强哥",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "03",
+          "index": 526,
+          "text": "阿强哥"
+        },
+        {
+          "episode": "07",
+          "index": 283,
+          "text": "阿强哥 正好"
+        }
+      ]
+    },
+    {
+      "term": "何老板",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 500,
+          "text": "何老板"
+        },
+        {
+          "episode": "05",
+          "index": 341,
+          "text": "何老板"
+        }
+      ]
+    },
+    {
+      "term": "别人妈妈",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "04",
+          "index": 657,
+          "text": "好少见到有人去见别人妈妈"
+        },
+        {
+          "episode": "05",
+          "index": 54,
+          "text": "好少见到有人去见别人妈妈"
+        }
+      ]
+    },
+    {
+      "term": "朱伯",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 244,
+          "text": "朱伯"
+        },
+        {
+          "episode": "05",
+          "index": 255,
+          "text": "朱伯啊"
+        }
+      ]
+    },
+    {
+      "term": "朱老板",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 301,
+          "text": "朱老板"
+        },
+        {
+          "episode": "05",
+          "index": 328,
+          "text": "让我来 朱老板"
+        }
+      ]
+    },
+    {
+      "term": "先生",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 435,
+          "text": "什么事啊 先生"
+        },
+        {
+          "episode": "05",
+          "index": 708,
+          "text": "先生 这个洗洁精……不买"
+        }
+      ]
+    },
+    {
+      "term": "推销经理",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 436,
+          "text": "请问这里是不是请推销经理"
+        },
+        {
+          "episode": "05",
+          "index": 603,
+          "text": "所以好难选谁来做推销经理"
+        }
+      ]
+    },
+    {
+      "term": "顾经理",
+      "count": 2,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 692,
+          "text": "顾经理 我想放点东西在这里"
+        },
+        {
+          "episode": "06",
+          "index": 333,
+          "text": "顾经理 你叫我啊"
+        }
+      ]
+    },
+    {
+      "term": "阿姑",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 700,
+          "text": "阿姑 阿姑"
+        },
+        {
+          "episode": "05",
+          "index": 700,
+          "text": "阿姑 阿姑"
+        }
+      ]
+    },
+    {
+      "term": "开清洁公司",
+      "count": 2,
+      "reason": "疑似机构、地点或行业词",
+      "examples": [
+        {
+          "episode": "05",
+          "index": 847,
+          "text": "开清洁公司"
+        },
+        {
+          "episode": "05",
+          "index": 848,
+          "text": "开清洁公司？"
+        }
+      ]
+    },
+    {
+      "term": "绵羊仔",
+      "count": 2,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "08",
+          "index": 312,
+          "text": "哦 绵羊仔"
+        },
+        {
+          "episode": "08",
+          "index": 313,
+          "text": "绵羊仔啊"
+        }
+      ]
+    },
+    {
+      "term": "喂强哥",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 11,
+          "text": "喂强哥"
+        }
+      ]
+    },
+    {
+      "term": "玲姐四哥",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 32,
+          "text": "玲姐四哥 登场了"
+        }
+      ]
+    },
+    {
+      "term": "成天乱讲我的老板",
+      "count": 1,
+      "reason": "疑似职务/称呼",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 41,
+          "text": "成天乱讲我的老板"
+        }
+      ]
+    },
+    {
+      "term": "水哥",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 274,
+          "text": "水哥"
+        }
+      ]
+    },
+    {
+      "term": "强仔",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 332,
+          "text": "强仔"
+        }
+      ]
+    },
+    {
+      "term": "我开的是银行",
+      "count": 1,
+      "reason": "疑似机构、地点或行业词",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 364,
+          "text": "我开的是银行啊"
+        }
+      ]
+    },
+    {
+      "term": "我不是开电影公司",
+      "count": 1,
+      "reason": "疑似机构、地点或行业词",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 365,
+          "text": "我不是开电影公司"
+        }
+      ]
+    },
+    {
+      "term": "曹叔",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 438,
+          "text": "曹叔"
+        }
+      ]
+    },
+    {
+      "term": "大爷",
+      "count": 1,
+      "reason": "疑似人物称谓或昵称，需和演员表/上下文核对",
+      "examples": [
+        {
+          "episode": "01",
+          "index": 468,
+          "text": "谁不尊称他一声徐大爷啊"
+        }
+      ]
+    }
+  ],
+  "storyline_terms": {
+    "known_character_mentions": [
+      {
+        "name": "徐绍良",
+        "count": 48,
+        "matched_forms": [
+          {
+            "form": "徐绍良",
+            "count": 48
+          }
+        ]
+      },
+      {
+        "name": "李华强",
+        "count": 11,
+        "matched_forms": [
+          {
+            "form": "李华强",
+            "count": 11
+          }
+        ]
+      },
+      {
+        "name": "莫先生",
+        "count": 8,
+        "matched_forms": [
+          {
+            "form": "莫洪",
+            "count": 8
+          }
+        ]
+      },
+      {
+        "name": "朱乐文",
+        "count": 7,
+        "matched_forms": [
+          {
+            "form": "朱乐文",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "name": "孔保罗",
+        "count": 7,
+        "matched_forms": [
+          {
+            "form": "孔保罗",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "name": "何玉湘",
+        "count": 6,
+        "matched_forms": [
+          {
+            "form": "何玉霜",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "name": "康炳仁",
+        "count": 5,
+        "matched_forms": [
+          {
+            "form": "康炳仁",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "name": "孔擎天",
+        "count": 5,
+        "matched_forms": [
+          {
+            "form": "孔老板",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "name": "老板",
+        "count": 5,
+        "matched_forms": [
+          {
+            "form": "老板",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "name": "朱敏芝",
+        "count": 4,
+        "matched_forms": [
+          {
+            "form": "朱敏芝",
+            "count": 4
+          }
+        ]
+      },
+      {
+        "name": "文杨",
+        "count": 3,
+        "matched_forms": [
+          {
+            "form": "文导演",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "name": "马如龙",
+        "count": 2,
+        "matched_forms": [
+          {
+            "form": "马如龙",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "name": "欧根",
+        "count": 2,
+        "matched_forms": [
+          {
+            "form": "欧根",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "name": "朱一轩",
+        "count": 2,
+        "matched_forms": [
+          {
+            "form": "朱一轩",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "name": "镜叔",
+        "count": 1,
+        "matched_forms": [
+          {
+            "form": "镜叔",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "name": "差人",
+        "count": 1,
+        "matched_forms": [
+          {
+            "form": "警察",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "name": "王玫",
+        "count": 1,
+        "matched_forms": [
+          {
+            "form": "王玫",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "plot_terms": [
+      {
+        "term": "孔氏电影公司",
+        "count": 3
+      },
+      {
+        "term": "金娃",
+        "count": 2
+      },
+      {
+        "term": "他到戏院",
+        "count": 1
+      },
+      {
+        "term": "他在戏院",
+        "count": 1
+      },
+      {
+        "term": "康炳仁在戏院",
+        "count": 1
+      },
+      {
+        "term": "李华强母亲在银行",
+        "count": 1
+      },
+      {
+        "term": "孔氏电影公司演员训练班",
+        "count": 1
+      },
+      {
+        "term": "经常探访训练班",
+        "count": 1
+      },
+      {
+        "term": "徐绍良瞒着公司",
+        "count": 1
+      },
+      {
+        "term": "计划开娱乐公司",
+        "count": 1
+      },
+      {
+        "term": "徐绍良在其公司",
+        "count": 1
+      },
+      {
+        "term": "并准备开地产公司",
+        "count": 1
+      },
+      {
+        "term": "邀徐绍良加入其与孔保罗的公司",
+        "count": 1
+      },
+      {
+        "term": "徐绍良又做珠宝",
+        "count": 1
+      },
+      {
+        "term": "却暗地里做外围马",
+        "count": 1
+      },
+      {
+        "term": "何玉霜介绍徐绍良去东非买珠宝",
+        "count": 1
+      },
+      {
+        "term": "徐绍良回港后发现珠宝",
+        "count": 1
+      },
+      {
+        "term": "同时外围马",
+        "count": 1
+      },
+      {
+        "term": "徐绍良被迫签下遗嘱",
+        "count": 1
+      },
+      {
+        "term": "迫使朱乐文出让银行",
+        "count": 1
+      },
+      {
+        "term": "与朱敏芝躲藏在戏院",
+        "count": 1
+      },
+      {
+        "term": "等待船期",
+        "count": 1
+      },
+      {
+        "term": "徐绍良在步出家门前往警局",
+        "count": 1
+      },
+      {
+        "term": "巴拿马",
+        "count": 1
+      },
+      {
+        "term": "东非",
+        "count": 1
+      }
+    ]
+  },
+  "style_samples": {
+    "greeting": [
+      {
+        "episode": "01",
+        "index": 11,
+        "text": "喂强哥"
+      },
+      {
+        "episode": "01",
+        "index": 128,
+        "text": "那你怎么不早点说呢"
+      },
+      {
+        "episode": "01",
+        "index": 158,
+        "text": "喂 你在这里搞什么鬼"
+      },
+      {
+        "episode": "01",
+        "index": 273,
+        "text": "早晨早晨"
+      },
+      {
+        "episode": "01",
+        "index": 288,
+        "text": "好啊 再见"
+      },
+      {
+        "episode": "01",
+        "index": 295,
+        "text": "一早就打球去啦"
+      },
+      {
+        "episode": "01",
+        "index": 317,
+        "text": "不用啦 你习惯一早理发"
+      },
+      {
+        "episode": "01",
+        "index": 318,
+        "text": "我习惯早晨去喝杯茶"
+      },
+      {
+        "episode": "01",
+        "index": 319,
+        "text": "老爷早晨"
+      },
+      {
+        "episode": "01",
+        "index": 320,
+        "text": "阿爸早晨"
+      },
+      {
+        "episode": "01",
+        "index": 322,
+        "text": "现在还这么早呢"
+      },
+      {
+        "episode": "01",
+        "index": 329,
+        "text": "阿爸早晨"
+      }
+    ],
+    "request": [
+      {
+        "episode": "01",
+        "index": 4,
+        "text": "快点 快点"
+      },
+      {
+        "episode": "01",
+        "index": 76,
+        "text": "那个老爷有没有找你麻烦"
+      },
+      {
+        "episode": "01",
+        "index": 107,
+        "text": "我还写了封信让他帮你找工作立足"
+      },
+      {
+        "episode": "01",
+        "index": 120,
+        "text": "帮我开开这道门啊"
+      },
+      {
+        "episode": "01",
+        "index": 121,
+        "text": "麻烦你啊"
+      },
+      {
+        "episode": "01",
+        "index": 201,
+        "text": "请进"
+      },
+      {
+        "episode": "01",
+        "index": 208,
+        "text": "平时帮他打杂啊 抄写了什么的"
+      },
+      {
+        "episode": "01",
+        "index": 226,
+        "text": "在我这里住 那就应该帮我做事"
+      },
+      {
+        "episode": "01",
+        "index": 275,
+        "text": "麻烦包两只糯米鸡给我"
+      },
+      {
+        "episode": "01",
+        "index": 411,
+        "text": "申请到奖学金啊"
+      },
+      {
+        "episode": "01",
+        "index": 414,
+        "text": "我不想再麻烦阿朱伯咯"
+      },
+      {
+        "episode": "01",
+        "index": 588,
+        "text": "请你出去"
+      }
+    ],
+    "refusal": [
+      {
+        "episode": "01",
+        "index": 44,
+        "text": "不用怕 旁边那条街着火而已"
+      },
+      {
+        "episode": "01",
+        "index": 168,
+        "text": "不用花本钱就能有东西卖"
+      },
+      {
+        "episode": "01",
+        "index": 228,
+        "text": "千万不要偷懒耍滑"
+      },
+      {
+        "episode": "01",
+        "index": 233,
+        "text": "用不用关灯"
+      },
+      {
+        "episode": "01",
+        "index": 234,
+        "text": "不用"
+      },
+      {
+        "episode": "01",
+        "index": 317,
+        "text": "不用啦 你习惯一早理发"
+      },
+      {
+        "episode": "01",
+        "index": 334,
+        "text": "不用客气了"
+      },
+      {
+        "episode": "01",
+        "index": 368,
+        "text": "不行 一定要今天"
+      },
+      {
+        "episode": "01",
+        "index": 380,
+        "text": "不用花钱的"
+      },
+      {
+        "episode": "01",
+        "index": 384,
+        "text": "不用吃补品"
+      },
+      {
+        "episode": "01",
+        "index": 466,
+        "text": "不用说了 不用说了 哼"
+      },
+      {
+        "episode": "01",
+        "index": 474,
+        "text": "你以后都不用再回来啦"
+      }
+    ],
+    "question": [
+      {
+        "episode": "01",
+        "index": 10,
+        "text": "你反正没事干 出去看看什么事"
+      },
+      {
+        "episode": "01",
+        "index": 12,
+        "text": "你这么有空 出去看看什么事"
+      },
+      {
+        "episode": "01",
+        "index": 13,
+        "text": "你不是也闲着吗？"
+      },
+      {
+        "episode": "01",
+        "index": 34,
+        "text": "今晚搞什么啊"
+      },
+      {
+        "episode": "01",
+        "index": 35,
+        "text": "怎么打虎打这么久"
+      },
+      {
+        "episode": "01",
+        "index": 37,
+        "text": "说什么？"
+      },
+      {
+        "episode": "01",
+        "index": 38,
+        "text": "说什么"
+      },
+      {
+        "episode": "01",
+        "index": 43,
+        "text": "真是有炸弹啊？"
+      },
+      {
+        "episode": "01",
+        "index": 48,
+        "text": "咦 怎么今晚观众这么兴奋啊"
+      },
+      {
+        "episode": "01",
+        "index": 50,
+        "text": "到底搞什么鬼"
+      },
+      {
+        "episode": "01",
+        "index": 54,
+        "text": "什么仇都报了"
+      },
+      {
+        "episode": "01",
+        "index": 63,
+        "text": "今晚不是说了不来吗"
+      }
+    ],
+    "emotion": [
+      {
+        "episode": "01",
+        "index": 156,
+        "text": "开玩笑 警察见了要抓的"
+      },
+      {
+        "episode": "01",
+        "index": 203,
+        "text": "唉 好局促的"
+      },
+      {
+        "episode": "01",
+        "index": 430,
+        "text": "你是真钟意开玩笑"
+      },
+      {
+        "episode": "01",
+        "index": 449,
+        "text": "唉 一声不吭就走了"
+      },
+      {
+        "episode": "01",
+        "index": 511,
+        "text": "唉 又一分钱都没有"
+      },
+      {
+        "episode": "01",
+        "index": 559,
+        "text": "唉别提他 他骗我来的"
+      },
+      {
+        "episode": "02",
+        "index": 33,
+        "text": "哎呀好危险"
+      },
+      {
+        "episode": "02",
+        "index": 199,
+        "text": "唉 真是不值"
+      },
+      {
+        "episode": "02",
+        "index": 222,
+        "text": "哎呀"
+      },
+      {
+        "episode": "02",
+        "index": 446,
+        "text": "哎呀"
+      },
+      {
+        "episode": "02",
+        "index": 497,
+        "text": "哎呀借钱啦"
+      },
+      {
+        "episode": "02",
+        "index": 501,
+        "text": "唉不用点啦"
+      }
+    ],
+    "period_domain": [
+      {
+        "episode": "01",
+        "index": 9,
+        "text": "是啊 这两天打麻将都是假货"
+      },
+      {
+        "episode": "01",
+        "index": 14,
+        "text": "马上就开戏了"
+      },
+      {
+        "episode": "01",
+        "index": 125,
+        "text": "我也是刚刚看完戏嘛"
+      },
+      {
+        "episode": "01",
+        "index": 132,
+        "text": "老公陪老婆看戏有什么识趣不识趣嘛"
+      },
+      {
+        "episode": "01",
+        "index": 134,
+        "text": "公报私仇 假戏真做"
+      },
+      {
+        "episode": "01",
+        "index": 156,
+        "text": "开玩笑 警察见了要抓的"
+      },
+      {
+        "episode": "01",
+        "index": 221,
+        "text": "阿良 斟杯茶给我"
+      },
+      {
+        "episode": "01",
+        "index": 250,
+        "text": "那你从小就学戏的了"
+      },
+      {
+        "episode": "01",
+        "index": 252,
+        "text": "不过我老爸以前很喜欢和戏子来往"
+      },
+      {
+        "episode": "01",
+        "index": 254,
+        "text": "你来这里是不是想入戏班？"
+      },
+      {
+        "episode": "01",
+        "index": 281,
+        "text": "下次有空我带她来 饮茶尝尝"
+      },
+      {
+        "episode": "01",
+        "index": 308,
+        "text": "还在后台做事吗"
+      }
+    ]
+  }
+}

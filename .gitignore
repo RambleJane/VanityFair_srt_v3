@@ -26,6 +26,10 @@ cache/segments/*
 !cache/segments/.gitkeep
 cache/reports/*
 !cache/reports/.gitkeep
+cache/local_diagnosis/*
+!cache/local_diagnosis/.gitkeep
+cache/reference_profile/*
+!cache/reference_profile/.gitkeep
 lab/*
 !lab/.gitkeep
 output/*

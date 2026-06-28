@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import re
 from pathlib import Path
 from typing import Any
@@ -9,6 +10,14 @@ from typing import Any
 DEFAULT_CONFIG: dict[str, Any] = {
     "project": {"run_until": "segmented"},
     "cache": {"overwrite_existing": False},
+    "reference_profile": {
+        "enabled": True,
+        "json_path": "reference/profile/reference_srt_profile.json",
+        "markdown_path": "reference/profile/reference_srt_profile.md",
+        "source_srt_dir": "reference/simplified_human",
+        "source_episodes": ["01", "02", "03", "04", "05", "06", "07", "08"],
+        "rebuild_from_srt_if_missing": False,
+    },
     "segmentation": {
         "target_min_chars": 10, "target_max_chars": 18,
         "soft_max_chars": 20, "hard_max_chars": 24,
@@ -75,6 +84,13 @@ def _scalar(value: str) -> Any:
         return None
     if (value[:1], value[-1:]) in {(('"'), ('"')), (("'"), ("'"))}:
         return value[1:-1]
+    if value.startswith("[") and value.endswith("]"):
+        try:
+            parsed = json.loads(value)
+        except json.JSONDecodeError:
+            parsed = None
+        if isinstance(parsed, list):
+            return parsed
     try:
         return float(value) if "." in value else int(value)
     except ValueError:

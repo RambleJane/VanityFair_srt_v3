@@ -47,6 +47,28 @@ python -m vf_srt --episodes 09-12 --run-until segmented
 python -m vf_srt --episodes 09,10,11 --config config.example.yaml --run-until segmented --overwrite
 ```
 
+前 8 集参考画像与本地诊断：
+
+```powershell
+# 已有 profile 时直接复用，不扫描原始 SRT
+python -m vf_srt --run-until reference-profile
+
+# 显式从本地 01–08 人工字幕重建
+python -m vf_srt --run-until reference-profile --rebuild
+
+# 先切分，再生成纯本地、只给提示且不修改 ASR 的诊断
+python -m vf_srt --episodes 09-12 --run-until local-diagnosis --overwrite
+```
+
+内置参考画像位于：
+
+- `reference/profile/reference_srt_profile.json`
+- `reference/profile/reference_srt_profile.md`
+
+它们由 01–08 人工精校 SRT、官方演员表和剧情资料离线提取，用于本地诊断的人名/称谓证据、术语与风格参考、前 8 集已确认表达习惯，以及后续 prompt 的压缩上下文来源。**不得用来补写当前集不存在的对白。**
+
+完整的 `reference/simplified_human/*.srt` 默认由 `.gitignore` 排除，避免误提交到 public 仓库。profile 本身包含少量人工字幕例句；公开仓库维护者应自行评估版权风险，但工具不会自动删除 profile。
+
 实验入口（额外尝试生成调试 XLSX）：
 
 ```powershell
@@ -61,6 +83,7 @@ python -m vf_srt.lab.segmentation_lab --episodes 09-12 --overwrite
 - `cache/segments/{episode}_segments_raw.json`
 - `cache/reports/{episode}_gap_profile.json`
 - `cache/reports/{episode}_segmentation_report.json`
+- `cache/local_diagnosis/{episode}_local_pre_review_diagnosis.json`（运行 local-diagnosis 时）
 - `lab/{episode}_cut_candidates.csv`
 - `lab/{episode}_segments_preview.csv`
 - `lab/{episode}_segmentation_debug.xlsx`（lab 模式、可选）
